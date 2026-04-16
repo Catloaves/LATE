@@ -32,6 +32,7 @@ public class Stats {
             hunger = 0;
         }
     }
+    // HP penalty if hunger hits 0. Have to be added
 
     public void eat(int amount) {
         hunger += amount;
@@ -41,15 +42,22 @@ public class Stats {
     }
 
     public int getHp() { 
-        return hp; 
+        return hp;
+    }
+    
+    public int getMaxHp() { 
+        return maxHp;
     }
 
     public int getHunger() { 
-        return hunger; 
+        return hunger;
+    }
+
+    public int getMaxHunger() { 
+        return maxHunger;
     }
     
     public boolean isDead() { 
         return hp <= 0; 
     }
 }
-
