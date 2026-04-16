@@ -9,7 +9,7 @@ public class Player {
     private String them;
     private String theirs;
 
-    
+
     public Player(String startingRoomId, String username, String they, String them, String theirs) {
         this.currentRoomId = startingRoomId;
         this.inventory = new ArrayList<>();
