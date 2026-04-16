@@ -4,11 +4,32 @@ import java.util.List;
 public class Player {
     private String currentRoomId;
     private List<Item> inventory;
+    private String username;
+    private String they;
+    private String them;
+    private String theirs;
 
-    public Player(String startingRoomId) {
+    
+    public Player(String startingRoomId, String username, String they, String them, String theirs) {
         this.currentRoomId = startingRoomId;
         this.inventory = new ArrayList<>();
+        this.username = username;
+        this.they = they;
+        this.them = them;
+        this.theirs = theirs;
     }
+
+    public String getUsername() { 
+        return username; }
+    
+    public String getThey() { 
+        return they; }
+
+    public String getThem() {
+        return them; }
+
+    public String getTheirs() {
+        return theirs; }
 
     public String getCurrentRoomId() {
         return currentRoomId;
