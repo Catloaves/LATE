@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import Items.Item;
+
 public class Player {
     private String currentRoomId;
     private List<Item> inventory;
