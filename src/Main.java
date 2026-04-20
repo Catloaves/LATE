@@ -4,5 +4,3 @@ public class Main {
         new AdventureGUI(game);
     }
 }
-
-// hello world

@@ -3,7 +3,6 @@ import java.util.List;
 
 import Items.Item;
 
-// hello
 
 public class Player {
     private String currentRoomId;
