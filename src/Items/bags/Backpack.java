@@ -5,13 +5,14 @@ public class Backpack {
     private String name;
     private String description;
 
-    public Backpack(String id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
+    private int size;
+    public String[] packItems;
+
+    public Backpack(int size) {
+        this.size = size;
     }
 
-    public String getName() {
-        return name;
+    public String getSize() {
+        return "Your backpack can hold" + size + "items.";
     }
 }

@@ -5,10 +5,11 @@ public class Key {
     private String name;
     private String description;
 
-    public Key(String id, String name, String description) {
-        this.id = id;
+    private int keyNum;
+
+    public Key(String name, int keyNum) {
         this.name = name;
-        this.description = description;
+        this.keyNum = keyNum;
     }
 
     public String getName() {
