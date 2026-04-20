@@ -11,6 +11,7 @@ public class Player {
     private String them;
     private String theirs;
     private Stats stats;
+    // test
 
 
     public Player(String startingRoomId, String username, String they, String them, String theirs) {
