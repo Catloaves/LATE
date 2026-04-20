@@ -7,7 +7,7 @@ public class Game {
     public Game() {
         RoomLoader loader = new RoomLoader();
         rooms = loader.loadRooms("rooms.json");
-        player = new Player("entrance");
+        player = new Player("home");
     }
 
     public String processCommand(String input) {
