@@ -2,5 +2,5 @@ package Currency;
 
 public class GoldCoins {
 
-    public int GCPrice;
+    //public int GCPrice;
 }

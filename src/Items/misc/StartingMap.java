@@ -5,13 +5,13 @@ public class StartingMap {
     private String name;
     private String description;
 
-    public StartingMap(String id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
+    public int mapId;
+
+    public StartingMap(int mapId) {
+        this.mapId = mapId;
     }
 
-    public String getName() {
+    public String getName() { //not typically to be used by player
         return name;
     }
 }

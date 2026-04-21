@@ -5,14 +5,17 @@ public class Scroll {
     private String name;
     private String description;
 
-    public Scroll(String id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
+    public String scrollText;
+
+    public Scroll(String scrollText) {
+        this.scrollText = scrollText;
     }
 
-    public String getName() {
+    public String getName() { //not typically to be used by player
         return name;
+    }
+    public String getText() {
+        return scrollText;
     }
 }
 
