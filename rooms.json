@@ -1,16 +1,16 @@
 {
-  "entrance": {
-    "name": "Entrance Hall",
-    "description": "You are in a grand entrance hall. A door leads north.",
-    "exits": { "north": "library" },
+  "home": {
+    "name": "Home",
+    "description": "You are in your house. Your beloved pet alligator is unconscious on the bed. The exit door is to the north.",
+    "exits": { "north": "road1" },
     "items": [
-      { "id": "key1", "name": "Key", "description": "A small rusty key." }
+      { "id": "rations1", "name": "Rations", "description": "A pack of rations. Restores 10 health." }
     ]
   },
-  "library": {
-    "name": "Library",
-    "description": "Books line the walls. It's quiet.",
-    "exits": { "south": "entrance" },
+  "road1": {
+    "name": "Main Road (1)",
+    "description": "The main road stretches far beyond your sight. The forest around you is quiet. The path leads north and a dirt path leads west.",
+    "exits": { "south": "home" },
     "items": []
   }
 }
