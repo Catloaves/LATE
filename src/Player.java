@@ -7,10 +7,14 @@ public class Player {
     private String currentRoomId;
     private List<Item> inventory;
     private String username;
+
     private String they;
     private String them;
     private String theirs;
+
     private Stats stats;
+
+    public boolean isVisible; //disabled with the invis potion - NPCs cannot see you/will not voluntarily interact with you
     // test
 
 
