@@ -17,11 +17,11 @@ public class HealingPot {
         return name;
     }
 
-    public String usePot(int hp, int maxHp) {
+    public String usePot(int hp, int maxHp) { //insta heal 30% of maximum hp
         int oldHp = hp;
         String potMessage = "";
         if (isFull){
-            hp += hp*0.3;
+            hp += maxHp*0.3;
             isFull = false;
             potMessage =  "You have regained " + (hp - oldHp)  + " hp.";
             if (hp > maxHp){
