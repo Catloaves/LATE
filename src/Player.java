@@ -14,7 +14,7 @@ public class Player {
 
     private Stats stats;
 
-    public boolean isVisible; //disabled with the invis potion - NPCs cannot see you/will not voluntarily interact with you
+    public boolean isVisible = true; //disabled with the invis potion - NPCs cannot see you/will not voluntarily interact with you
     // test
 
 
