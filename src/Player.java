@@ -15,7 +15,7 @@ public class Player {
     private Stats stats;
 
     public boolean isVisible; //disabled with the invis potion - NPCs cannot see you/will not voluntarily interact with you
-    // test
+    
 
 
     public Player(String startingRoomId, String username, String they, String them, String theirs) {
