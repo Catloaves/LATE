@@ -25,13 +25,14 @@ public class Player {
         this.they = they;
         this.them = them;
         this.theirs = theirs;
-        this.stats = new Stats(100, 20);
+        this.stats = new Stats(100, 20, 100);
     }
 
     public void displayStatus() {
         System.out.println(username + "'s Status:");
         System.out.println("HP: " + stats.getHp() + "/" + stats.getMaxHp());
         System.out.println("Hunger: " + stats.getHunger() + "/" + stats.getMaxHunger());
+        System.out.println("Strength: " + stats.getStrength());
     }
 
     public Stats getStats() { 

@@ -4,12 +4,14 @@ public class Stats {
     private int maxHp;
     private int hunger;
     private int maxHunger;
+    private double strength;
 
-    public Stats(int maxHp, int maxHunger) {
+    public Stats(int maxHp, int maxHunger, double strength) {
         this.maxHp = maxHp;
         this.hp = maxHp;
         this.maxHunger = maxHunger;
         this.hunger = maxHunger;
+        this.strength = strength;
     }
 
     public void loseHP(int amount) {
@@ -55,6 +57,14 @@ public class Stats {
 
     public int getMaxHunger() { 
         return maxHunger;
+    }
+
+    public double getStrength() {
+        return strength;
+    }
+    
+    public void setStrength(double strength) {
+        this.strength = strength;
     }
     
     public boolean isDead() { 
