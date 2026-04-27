@@ -1,13 +1,16 @@
 import java.util.Map;
 
+import Items.Item;
+
 public class CommandParser {
-    public static String parse(String input, Player player, Map<String, Room> rooms) {
-        String[] tokens = input.trim().toLowerCase().split("\\s+");
-        if (tokens.length == 0) {
+    public void parse(String input, Player player, Map<String, Room> rooms) {
+        String[] words = input.trim().toLowerCase().split("\\s+");
+        if (words.length == 0) {
             System.out.println("Please enter a command.");
             return;
+        }
 
-            String command = words[0];
+        String command = words[0];
 
         switch (command) {
             case "go":
