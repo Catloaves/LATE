@@ -32,6 +32,7 @@ public class Player {
         System.out.println(username + "'s Status:");
         System.out.println("HP: " + stats.getHp() + "/" + stats.getMaxHp());
         System.out.println("Hunger: " + stats.getHunger() + "/" + stats.getMaxHunger());
+        // We won't need to code hunger if we make food heal HP. - Leo
         System.out.println("Strength: " + stats.getStrength());
     }
 
