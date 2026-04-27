@@ -24,6 +24,11 @@ public class Game {
             System.out.print("> ");
             String input = scanner.nextLine();
             commandParser.parse(input, player, rooms);
+        }
+
+        public String processCommand(String input) {
+            return commandParser.parse(input, player, rooms);
+        }
 
         public Player getPlayer() {
             return player;
