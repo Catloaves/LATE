@@ -1,5 +1,7 @@
 import java.util.Map;
 
+import Rooms.Room;
+
 public class CommandParser {
     public static String parse(String input, Player player, Map<String, Room> rooms) {
         String[] tokens = input.trim().toLowerCase().split("\\s+");
