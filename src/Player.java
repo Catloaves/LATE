@@ -27,7 +27,7 @@ public class Player {
         this.them = them;
         this.theirs = theirs;
         this.stats = new Stats(100, 20, 100);
-        this.gold = 10;
+        this.gold = 20;
     }
 
     public void displayStatus() {
