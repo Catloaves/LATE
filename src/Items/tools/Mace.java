@@ -11,7 +11,7 @@ public class Mace {
         this.description = description;
     }
 
-    public String getName() {
+    public String getName() { //not typically to be used by player
         return name;
     }
 }

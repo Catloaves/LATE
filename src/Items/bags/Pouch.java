@@ -5,13 +5,19 @@ public class Pouch {
     private String name;
     private String description;
 
-    public Pouch(String id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-    }
+    private int GCPricePouch;
 
-    public String getName() {
+    private int size;
+    private String[] pouchItems;
+
+    public Pouch(int size, int GCPricePouch) {
+        this.size = size;
+        this.GCPricePouch = GCPricePouch;
+    }
+    public String getName() { //not typically to be used by player
         return name;
+    }
+    public String getSize() {
+        return "Your pouch can hold" + size + "items.";
     }
 }

@@ -5,14 +5,23 @@ public class QuillAndScroll {
     private String name;
     private String description;
 
-    public QuillAndScroll(String id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
+    public String scrollText;
+
+    public QuillAndScroll(String scrollText) {
+        this.scrollText = scrollText;
     }
 
-    public String getName() {
+    public String getName() { //not typically to be used by player
         return name;
+    }
+
+
+    public void write(String text){
+        scrollText += text;
+    }
+
+    public void reWrite(String text){
+        scrollText = text;
     }
 }
 

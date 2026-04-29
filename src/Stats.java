@@ -4,12 +4,14 @@ public class Stats {
     private int maxHp;
     private int hunger;
     private int maxHunger;
+    private double strength;
 
-    public Stats(int maxHp, int maxHunger) {
+    public Stats(int maxHp, int maxHunger, double strength) {
         this.maxHp = maxHp;
         this.hp = maxHp;
         this.maxHunger = maxHunger;
         this.hunger = maxHunger;
+        this.strength = strength;
     }
 
     public void loseHP(int amount) {
@@ -33,6 +35,7 @@ public class Stats {
         }
     }
     // HP penalty if hunger hits 0. Have to be added
+    // We won't need to code hunger if we make food heal HP. - Leo
 
     public void eat(int amount) {
         hunger += amount;
@@ -52,9 +55,19 @@ public class Stats {
     public int getHunger() { 
         return hunger;
     }
+    // Hunger instance
 
     public int getMaxHunger() { 
         return maxHunger;
+    }
+    // Hunger instance
+
+    public double getStrength() {
+        return strength;
+    }
+    
+    public void setStrength(double strength) {
+        this.strength = strength;
     }
     
     public boolean isDead() { 
