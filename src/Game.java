@@ -1,5 +1,8 @@
 import java.util.Map;
 
+import Rooms.Room;
+import Rooms.RoomLoader;
+
 public class Game {
     private Map<String, Room> rooms;
     private Player player;
@@ -7,7 +10,7 @@ public class Game {
     public Game() {
         RoomLoader loader = new RoomLoader();
         rooms = loader.loadRooms("rooms.json");
-        player = new Player("Home", "Alligator", "it", "its", "its");
+        player = new Player("home");
     }
 
     public String processCommand(String input) {
