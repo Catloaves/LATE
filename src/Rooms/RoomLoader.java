@@ -1,3 +1,4 @@
+package Rooms;
 import com.google.gson.*;
 
 import Items.Item;

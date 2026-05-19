@@ -1,6 +1,9 @@
 import java.util.Map;
 import java.util.Scanner;
 
+import Rooms.Room;
+import Rooms.RoomLoader;
+
 public class Game {
     private Map<String, Room> rooms;
     private Player player;

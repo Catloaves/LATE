@@ -1,4 +1,6 @@
 # Ignore bin directory
-bin/
+bin/*
+bin/*
 bin/Player.class
 .gitignore
+*.class
