@@ -1,16 +1,118 @@
 {
   "home": {
     "name": "Home",
-    "description": "You are in your house. Your beloved pet alligator is unconscious on the bed. The exit door is to the north.",
+    "description": "You are in your house. Your older brother is unconscious on the bed. The exit door is to the north.",
     "exits": { "north": "road1" },
     "items": [
-      { "id": "rations1", "name": "Rations", "description": "A pack of rations. Restores 10 health." }
+      { "id": "rations1", "name": "Rations", "description": "A pack of rations. Use this item to restore 10 health." },
+      { "id": "map", "name": "Map", "description": "A map of the surrounding area. Use this item to reveal the layout of the province." },
+      { "id": "coinPouch", "name": "Coin Pouch", "description": "A small pouch filled with coins. Use this item to gain 50 gold." }
     ]
   },
   "road1": {
     "name": "Main Road (1)",
-    "description": "The main road stretches far beyond your sight. The forest around you is quiet. The path leads north and a dirt path leads west.",
-    "exits": { "south": "home" },
+    "description": "You are at the start of the main road. The forest around you is quiet. The main road leads north.",
+    "exits": { "south": "home", "north": "road2"},
+    "items": []
+  },
+  "road2": {
+    "name": "Main Road (2)",
+    "description": "You are on the main road. The forest around you is quiet. The main road leads north and a dirt path leads west.",
+    "exits": { "south": "road1", "north": "road3", "west": "lake1" },
+    "items": []
+  },
+  "lake1": {
+    "name": "Lake (1)",
+    "description": "You are at the edge of a serene lake. The waters are calm and the surroundings are peaceful. The main road is to the east and a dirt path leads further west.",
+    "exits": { "east": "road2", "west": "lake2" },
+    "items": []
+  },
+  "lake2": {
+    "name": "Lake (2)",
+    "description": "You are at the end of the lake. The waters are calm and the surroundings are peaceful. A dirt path leads east.",
+    "exits": { "east": "lake1" },
+    "items": []
+  },
+  "road3": {
+    "name": "Main Road (3)",
+    "description": "You are on the main road. The forest around you is quiet. The main road leads north.",
+    "exits": { "south": "road2", "north": "road4"},
+    "items": []
+  },
+  "road4": {
+    "name": "Main Road (4)",
+    "description": "You are on the main road. The forest around you is quiet. The main road leads north",
+    "exits": { "south": "road3", "north": "road5"},
+    "items": []
+  },
+  "road5": {
+    "name": "Main Road (5)",
+    "description": "You are on the main road. The forest around you is quiet. The main road leads north and a dirt path leads east.",
+    "exits": { "south": "road4", "north": "road6", "east": "cave1" },
+    "items": []
+  },
+  "cave1": {
+    "name": "Cave (1)",
+    "description": "You are at the entrance of a dark cave. The main road is to the west. The cave leads further east.",
+    "exits": { "west": "road5", "east": "cave2" },
+    "items": []
+  },
+  "cave2": {
+    "name": "Cave (2)",
+    "description": "You are at the end of the cave. The air is damp and the sound of dripping water echoes around you. The cave leads west.",
+    "exits": { "west": "cave1" },
+    "items": [
+      { "id": "treasure1", "name": "Treasure Chest", "description": "A chest filled with gold and jewels. Use this item to gain 100 gold." }
+    ]
+  },
+  "road6": {
+    "name": "Main Road (6)",
+    "description": "You are on the main road. The forest around you is quiet. The main road leads north.",
+    "exits": { "south": "road5", "north": "road7" },
+    "items": []
+  },
+  "road7": {
+    "name": "Main Road (7)",
+    "description": "You are on the main road. The forest around you is quiet. The main road leads north.",
+    "exits": { "south": "road6", "north": "road8" },
+    "items": []
+  },
+  "road8": {
+    "name": "Main Road (8)",
+    "description": "You are on the main road. The forest around you is quiet. The main road leads north and a dirt path leads west.",
+    "exits": { "south": "road7", "north": "road9", "west": "clearing1" },
+    "items": []
+  },
+  "clearing1": {
+    "name": "Clearing",
+    "description": "You are in a clearing in the forest. Sunlight filters through the trees, creating a peaceful atmosphere. The main road is to the east.",
+    "exits": { "east": "road8", "west": "clearing2" },
+    "items": []
+  },
+  "clearing2": {
+    "name": "Clearing (2)",
+    "description": "You are at the end of the clearing. Sunlight filters through the trees, creating a peaceful atmosphere. A dirt path leads east.",
+    "exits": { "east": "clearing1" },
+    "items": [
+      { "id": "fireballScroll", "name": "Fireball Scroll", "description": "A magical scroll. Use this item to learn the Fireball spell." }
+    ]
+  },
+  "road9": {
+    "name": "Main Road (9)",
+    "description": "You are on the main road. The forest around you is quiet. The main road leads north.",
+    "exits": { "south": "road8", "north": "road10" },
+    "items": []
+  },
+  "road10": {
+    "name": "Main Road (10)",
+    "description": "You are at the end of the main road. The forest around you is quiet. An ornate path leads north.",
+    "exits": { "south": "road9", "north": "castle1" },
+    "items": []
+   },
+   "castle1": {
+    "name": "Castle Entrance",
+    "description": "You are at the entrance of a grand castle. The walls are tall and imposing, but a large hole in the wall leads north.",
+    "exits": { "south": "road10"},
     "items": []
   }
 }
