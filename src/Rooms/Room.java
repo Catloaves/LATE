@@ -35,6 +35,14 @@ public class Room {
         return items;
     }
 
+    public void removeItem(Item item) {
+        items.remove(item);
+    }
+
+    public void addItem(Item item) {
+        items.add(item);
+    }
+
     public String getLongDescription() {
         StringBuilder sb = new StringBuilder();
         sb.append(name).append("\n");
