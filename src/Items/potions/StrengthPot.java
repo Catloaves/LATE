@@ -18,12 +18,12 @@ public class StrengthPot {
         return name;
     }
 
-    public void usePot(boolean isVisible, int turnsTillEffectGone){
+    public boolean isPotUsed(boolean isPotUsed, int turnsTillEffectGone){
     for (int i = 0; i < turnsTillEffectGone; i++){
-        if (isVisible){
-            isVisible = false;
-        }
+    if (isPotUsed){
+        return true;
     }
-    isVisible = true;
     }
+    return isPotUsed;
+}
 }

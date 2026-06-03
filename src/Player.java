@@ -12,10 +12,7 @@ public class Player {
     private String them;
     private String theirs;
 
-    private Stats stats;
-
-    public boolean isVisible; //disabled with the invis potion - NPCs cannot see you/will not voluntarily interact with you
-    
+    private static Stats stats;
 
 
     public Player(String startingRoomId, String username, String they, String them, String theirs) {
@@ -35,7 +32,7 @@ public class Player {
         System.out.println("Strength: " + stats.getStrength());
     }
 
-    public Stats getStats() { 
+    public static Stats getStats() { 
         return stats; }
 
     public String getUsername() { 

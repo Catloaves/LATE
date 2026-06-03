@@ -1,5 +1,5 @@
 package Items.tools;
-
+import Mobs.HostileMob;
 public class Wand {
     private String id;
     private String name;

@@ -17,19 +17,19 @@ public class HealingPot {
         return name;
     }
 
-    public String usePot(int hp, int maxHp) { //insta heal 30% of maximum hp
-        int oldHp = hp;
-        String potMessage = "";
-        if (isFull){
-            hp += maxHp*0.3;
-            isFull = false;
-            potMessage =  "You have regained " + (hp - oldHp)  + " hp.";
-            if (hp > maxHp){
-                hp = maxHp;
-                isFull = true;
-                potMessage = "You are already at your max hp!";
-            }
-        }
-        return potMessage;
-    }
+    // public String usePot(int hp, int maxHp) { //insta heal 30% of maximum hp
+    //     int oldHp = hp;
+    //     String potMessage = "";
+    //     if (isFull){
+    //         hp += maxHp*0.3;
+    //         isFull = false;
+    //         potMessage =  "You have regained " + (hp - oldHp)  + " hp.";
+    //         if (hp > maxHp){
+    //             hp = maxHp;
+    //             isFull = true;
+    //             potMessage = "You are already at your max hp!";
+    //         }
+    //     }
+    //     return potMessage;
+    // }
 }

@@ -5,6 +5,8 @@ public class Stats {
     private int hunger;
     private int maxHunger;
     private double strength;
+    private boolean isVisible; //disabled with the invis potion - NPCs cannot see you/will not voluntarily interact with you
+    
 
     public Stats(int maxHp, int maxHunger, double strength) {
         this.maxHp = maxHp;
@@ -51,12 +53,20 @@ public class Stats {
         return maxHp;
     }
 
+    public void incrementHp(int hp){
+        this.hp += hp;
+    }
+
     public int getHunger() { 
         return hunger;
     }
 
     public int getMaxHunger() { 
         return maxHunger;
+    }
+
+    public void incrementHunger(int hunger){
+        this.hunger += hunger;
     }
 
     public double getStrength() {
@@ -66,8 +76,20 @@ public class Stats {
     public void setStrength(double strength) {
         this.strength = strength;
     }
-    
-    public boolean isDead() { 
-        return hp <= 0; 
+
+    public void incrementStrength(int strength){
+        this.strength += strength;
     }
+    
+    public void setVisibility(boolean isVisible){
+    this.isVisible = isVisible;
+    }
+
+    public boolean isVisible(){
+    return isVisible;
+    }
+    public boolean isAliveAndWell() { 
+        return hp > 0; 
+    }
+    
 }

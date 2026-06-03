@@ -21,7 +21,7 @@ public class Key {
     public int getKeyNum() { //cannot be used by the player
         return keyNum;
     }
-    public String useKey() { //can be used by the player
+    public static String useKey() { //can be used by the player
         if (validKey)
             return "It opens!";
         else

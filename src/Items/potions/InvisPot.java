@@ -1,29 +1,27 @@
 package Items.potions;
 
-public class InvisPot {
-    private String id;
-    private String name;
-    private String description;
+import Items.Item;
+
+import Stats;
+
+public class InvisPot extends Item {
 
     private boolean isFull = true;
     private int turnsTillEffectGone;
 
     public InvisPot(String id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
+        super(id, name, description);
     }
 
-    public String getName() { //not typically to be used by player
-        return name;
-    }
-
-    public void usePot(boolean isVisible, int turnsTillEffectGone){
-    for (int i = 0; i < turnsTillEffectGone; i++){
-        if (isVisible){
-            isVisible = false;
+    public void useInvisPot(Stats stats, int turnsTillEffectGone) {
+        Stats.setVisibility(false);
+        System.out.println("You are now invisible!");
+        for (int i = 0; i < turnsTillEffectGone; i++) {
         }
-    }
-    isVisible = true;
+        stats.setVisibility(true);
+        System.out.println("Your invisibility has expired!");
+        isFull = false;
+            }
+        {
     }
 }
