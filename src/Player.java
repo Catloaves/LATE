@@ -14,10 +14,10 @@ public class Player {
 
     private Stats stats;
 
-    public boolean isVisible; //disabled with the invis potion - NPCs cannot see you/will not voluntarily interact with you
-    
-    private int gold;
+    public boolean isVisible; // disabled with the invis potion - NPCs cannot see you/will not voluntarily
+                              // interact with you
 
+    private int gold;
 
     public Player(String startingRoomId, String username, String they, String them, String theirs) {
         this.currentRoomId = startingRoomId;
@@ -40,51 +40,66 @@ public class Player {
     }
 
     // Methods for Player information
-    public String getUsername() { 
-        return username; }
-    
-    public String getThey() { 
-        return they; }
+    public String getUsername() {
+        return username;
+    }
+
+    public String getThey() {
+        return they;
+    }
 
     public String getThem() {
-        return them; }
+        return them;
+    }
 
     public String getTheirs() {
-        return theirs; }
+        return theirs;
+    }
 
-    
     // Methods for Stats and Room Id
-    public Stats getStats() { 
-        return stats; }
+    public Stats getStats() {
+        return stats;
+    }
 
     public String getCurrentRoomId() {
-        return currentRoomId; }
+        return currentRoomId;
+    }
 
     public void setCurrentRoomId(String roomId) {
-        this.currentRoomId = roomId; }
+        this.currentRoomId = roomId;
+    }
 
-    
     // Methods for Items
     public void addItem(Item item) {
-        inventory.add(item); }
+        inventory.add(item);
+    }
 
     public boolean hasItem(String itemName) {
-        return inventory.stream().anyMatch(i -> i.getName().equalsIgnoreCase(itemName)); }
+        for (Item i : inventory) {
+            if (i.getName().equalsIgnoreCase(itemName)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public void removeItem(Item item) {
-        inventory.remove(item); }
-    
+        inventory.remove(item);
+    }
+
     public List<Item> getInventory() {
-        return inventory; }
-    
-    
+        return inventory;
+    }
+
     // Methods for Gold
     public int getGold() {
-            return gold; }
+        return gold;
+    }
 
     public void addGold(int amount) {
         this.gold += amount;
-        System.out.println("You found " + amount + " gold coins!"); }
+        System.out.println("You found " + amount + " gold coins!");
+    }
 
     public boolean spendGold(int amount) {
         if (this.gold >= amount) {
@@ -92,7 +107,7 @@ public class Player {
             return true;
         } else {
             System.out.println("You don't have enough gold!");
-            return false; 
-            }
+            return false;
         }
+    }
 }

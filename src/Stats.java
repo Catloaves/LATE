@@ -44,20 +44,24 @@ public class Stats {
         }
     }
 
-    public int getHp() { 
+    public void addStrength(double amount) {
+        this.strength += amount;
+    }
+
+    public int getHp() {
         return hp;
     }
-    
-    public int getMaxHp() { 
+
+    public int getMaxHp() {
         return maxHp;
     }
 
-    public int getHunger() { 
+    public int getHunger() {
         return hunger;
     }
     // Hunger instance
 
-    public int getMaxHunger() { 
+    public int getMaxHunger() {
         return maxHunger;
     }
     // Hunger instance
@@ -65,12 +69,12 @@ public class Stats {
     public double getStrength() {
         return strength;
     }
-    
+
     public void setStrength(double strength) {
         this.strength = strength;
     }
-    
-    public boolean isDead() { 
-        return hp <= 0; 
+
+    public boolean isDead() {
+        return hp <= 0;
     }
 }
