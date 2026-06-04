@@ -27,7 +27,7 @@ public class CommandParser {
                         Room newRoom = rooms.get(player.getCurrentRoomId());
                         resultMessage = "You move " + direction + ".\n\n" + newRoom.getLongDescription();
                     } else {
-                        resultMessage = "You can't go that way.";
+                        resultMessage = "Sorry. You can't go that way!";
                     }
                 }
                 break;
@@ -36,12 +36,12 @@ public class CommandParser {
                 Room currentRoom = rooms.get(player.getCurrentRoomId());
                 resultMessage = currentRoom.getLongDescription();
                 break;
-
+//
             case "inventory":
                 if (player.getInventory().isEmpty()) {
-                    resultMessage = "Your inventory is empty.";
+                    resultMessage = "Looks like your inventory is empty!";
                 } else {
-                    resultMessage = "You are carrying:\n";
+                    resultMessage = "You are carrying:\n\n";
                     for (Item item : player.getInventory()) {
                         resultMessage += "- " + item.getName() + "\n";
                     }
@@ -67,7 +67,7 @@ public class CommandParser {
                         player.addItem(itemToTake);
                         resultMessage = "You take the " + itemToTake.getName() + ".";
                     } else {
-                        resultMessage = "There is no " + itemName + " here.";
+                        resultMessage = "Alas.. There is no " + itemName + " here!";
                     }
                 }
                 break;
@@ -89,9 +89,9 @@ public class CommandParser {
                         player.removeItem(itemToDrop);
                         Room room = rooms.get(player.getCurrentRoomId());
                         room.addItem(itemToDrop);
-                        resultMessage = "You drop the " + itemToDrop.getName() + ".";
+                        resultMessage = "You've drop the " + itemToDrop.getName() + ".";
                     } else {
-                        resultMessage = "You don't have a " + itemName + ".";
+                        resultMessage = "Looks like you don't have a " + itemName + " to drop!";
                     }
                 }
                 break;
