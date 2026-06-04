@@ -88,7 +88,7 @@ public class CommandParser {
 
     //INVISIBILITY
     public String useInvisPot(){
-        InvisPot.useInvisPot();
+
     }
 
     //STRENGTH
@@ -99,7 +99,7 @@ public class CommandParser {
     //TOOLS
 
     public String useAxe(HostileMob target){
-        Axe.useAxe(target);
+  
     }
 
     public String useBow(HostileMob target){
@@ -111,6 +111,9 @@ public class CommandParser {
 
     public String useSword(HostileMob target){
     }
+}
+
+
 
     
 
