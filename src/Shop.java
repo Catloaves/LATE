@@ -12,7 +12,6 @@ public class Shop {
     private void buyItem(Player p, String name, int cost) {
         if (p.spendGold(cost)) {
             p.addItem(new Item(name, name, name));
-            System.out.println("Purchase successful: " + name);
             JOptionPane.showMessageDialog(null, "Purchase successful: " + name);
         }
     }
@@ -21,7 +20,7 @@ public class Shop {
         boolean isShopping = true;
 
         while (isShopping) {
-            String menu = "SHOP"
+            String menu = "SHOP\n\n"
                     + "You have " + p.getGold() + " gold\n\n"
                     + "1. Torch: " + TORCH_PRICE + " gold\n"
                     + "2. Food: " + FOOD_PRICE + " gold\n"
