@@ -11,7 +11,12 @@ public class Game {
 
     public Game() {
         RoomLoader loader = new RoomLoader();
-        rooms = loader.loadRooms("rooms.json");
+        rooms = loader.loadRooms("src/Rooms/rooms.json"); 
+        
+        if (rooms == null || rooms.isEmpty()) {
+            rooms = loader.loadRooms("Rooms/rooms.json");
+        }
+
         player = new Player("home", null, null, null, null);
         commandParser = new CommandParser();
     }
@@ -20,7 +25,9 @@ public class Game {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the Text Adventure Game!");
         Room currentRoom = rooms.get(player.getCurrentRoomId());
-        System.out.println(currentRoom.getLongDescription());
+        if (currentRoom != null) {
+            System.out.println(currentRoom.getLongDescription());
+        }
 
         while (true) {
             System.out.print("> ");

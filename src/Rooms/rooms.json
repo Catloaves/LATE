@@ -1,16 +1,94 @@
 {
   "home": {
-    "name": "Home",
-    "description": "You are in your house. Your beloved pet alligator is unconscious on the bed. The exit door is to the north.",
-    "exits": { "north": "road1" },
+    "id": "home",
+    "name": "=== CASTLE GATE ===",
+    "description": "You stand outside the towering iron gates of the dark castle. Rain pours down as you look up at the ancient stone walls. Your family back home is dying of a mysterious plague, and the only cure lies deep within the King's hidden vault. The gate is cracked open slightly.",
+    "exits": {
+      "north": "barracks"
+    },
+    "items": []
+  },
+  "barracks": {
+    "id": "barracks",
+    "name": "=== GUARD BARRACKS ===",
+    "description": "You slip inside. Rows of empty bunk beds line the walls. The castle guards must be out on patrol! On a wooden table in the center, a guard carelessly left behind a flickering torch.",
+    "exits": {
+      "south": "home",
+      "north": "courtyard"
+    },
     "items": [
-      { "id": "rations1", "name": "Rations", "description": "A pack of rations. Restores 10 health." }
+      {
+        "id": "torch",
+        "name": "torch",
+        "description": "A flickering torch that casts a warm glow."
+      }
     ]
   },
-  "road1": {
-    "name": "Main Road (1)",
-    "description": "The main road stretches far beyond your sight. The forest around you is quiet. The path leads north and a dirt path leads west.",
-    "exits": { "south": "home" },
+  "courtyard": {
+    "id": "courtyard",
+    "name": "=== GRAND COURTYARD ===",
+    "description": "A massive, open-air stone courtyard. Fountains sit frozen in the chill night air. Pathways branch out in all directions. To the west is an armory, to the east is a dark staircase leading down into the dungeons, and north leads deeper into the palace.",
+    "exits": {
+      "south": "barracks",
+      "north": "throne_room",
+      "west": "armory",
+      "east": "dungeon"
+    },
     "items": []
+  },
+  "armory": {
+    "id": "armory",
+    "name": "=== THE ARMORY ===",
+    "description": "Racks of iron shields and broken spears fill this dusty room. Hanging on the rack is a pristine, sharp steel sword. This might come in handy if you encounter any hostile guards!",
+    "exits": {
+      "east": "courtyard"
+    },
+    "items": [
+      {
+        "id": "sword",
+        "name": "sword",
+        "description": "A heavy steel sword. Perfect for safeguarding your journey."
+      }
+    ]
+  },
+  "dungeon": {
+    "id": "dungeon",
+    "name": "=== THE DUNGEON ===",
+    "description": "It is pitch black down here, but you can find your way around. Chains hang from the damp stone walls. In the furthest skeleton-filled cell, you spot a heavy golden vault key sitting on a wall hook.",
+    "exits": {
+      "west": "courtyard"
+    },
+    "items": [
+      {
+        "id": "key",
+        "name": "key",
+        "description": "An ornate vault key made of solid gold."
+      }
+    ]
+  },
+  "throne_room": {
+    "id": "throne_room",
+    "name": "=== THE THRONE ROOM ===",
+    "description": "Magnificent velvet banners hang from high stone pillars, and a massive gold throne sits at the end of the hall. A ferocious Elite Guard stands blocking the northern doorway! (Tip: Make sure you have picked up your sword before trying to pass).",
+    "exits": {
+      "south": "courtyard",
+      "north": "vault"
+    },
+    "items": []
+  },
+  "vault": {
+    "id": "vault",
+    "name": "=== THE TREASURE VAULT ===",
+    "description": "You have successfully sneaked past the guards and made it into the King's inner sanctum! Chests of gold glitter all around you. In the center of the room sits a velvet pillow holding a glowing blue elixir: 'The Cure'. Take it and save your family!",
+    "exits": {
+      "south": "throne_room"
+    },
+    "items": [
+      {
+        "id": "cure",
+        "name": "cure",
+        "description": "The magical medicine to heal your family's sickness."
+      }
+    ]
   }
 }

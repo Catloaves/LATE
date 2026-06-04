@@ -1,8 +1,6 @@
 package Rooms;
 import com.google.gson.*;
-
 import Items.Item;
-
 import java.io.FileReader;
 import java.util.*;
 
@@ -12,25 +10,39 @@ public class RoomLoader {
         try {
             Gson gson = new Gson();
             JsonObject data = gson.fromJson(new FileReader(filePath), JsonObject.class);
+            
             for (String key : data.keySet()) {
                 JsonObject obj = data.getAsJsonObject(key);
                 String name = obj.get("name").getAsString();
                 String desc = obj.get("description").getAsString();
+                
                 Map<String, String> exits = new HashMap<>();
-                JsonObject exitsJson = obj.getAsJsonObject("exits");
-                for (String dir : exitsJson.keySet()) {
-                    exits.put(dir, exitsJson.get(dir).getAsString());
+                if (obj.has("exits")) {
+                    JsonObject exitsJson = obj.getAsJsonObject("exits");
+                    for (String dir : exitsJson.keySet()) {
+                        exits.put(dir, exitsJson.get(dir).getAsString());
+                    }
                 }
+                
                 List<Item> items = new ArrayList<>();
-                JsonArray itemArray = obj.getAsJsonArray("items");
-                for (JsonElement e : itemArray) {
-                    JsonObject i = e.getAsJsonObject();
-                    items.add(new Item(i.get("id").getAsString(), i.get("name").getAsString(), i.get("description").getAsString()));
+                if (obj.has("items")) {
+                    JsonArray itemArray = obj.getAsJsonArray("items");
+                    for (JsonElement e : itemArray) {
+                        JsonObject i = e.getAsJsonObject();
+                        
+                        String itemName = i.get("name").getAsString();
+                        String itemDesc = i.get("description").getAsString();
+                        
+                        items.add(new Item(itemName, itemName, itemDesc));
+                    }
                 }
+                
                 rooms.put(key, new Room(key, name, desc, exits, items));
             }
         } catch (Exception e) {
+            System.out.println("Error reading room file path: " + filePath);
             e.printStackTrace();
+            return null;
         }
         return rooms;
     }
