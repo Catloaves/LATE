@@ -3,7 +3,7 @@ import Items.Item;
 import Rooms.Room;
 
 public class CommandParser {
-    
+
     public String parse(String input, Player player, Map<String, Room> rooms) {
         String[] words = input.trim().toLowerCase().split("\\s+");
         if (words.length == 0 || words[0].isEmpty()) {
@@ -21,7 +21,7 @@ public class CommandParser {
                     String direction = words[1];
                     Room currentRoom = rooms.get(player.getCurrentRoomId());
                     String nextRoomId = currentRoom.getExits().get(direction);
-                    
+
                     if (nextRoomId != null) {
                         player.setCurrentRoomId(nextRoomId);
                         Room newRoom = rooms.get(player.getCurrentRoomId());
@@ -36,7 +36,7 @@ public class CommandParser {
                 Room currentRoom = rooms.get(player.getCurrentRoomId());
                 resultMessage = currentRoom.getLongDescription();
                 break;
-//
+            //
             case "inventory":
                 if (player.getInventory().isEmpty()) {
                     resultMessage = "Looks like your inventory is empty!";
@@ -55,7 +55,7 @@ public class CommandParser {
                     String itemName = words[1];
                     Room room = rooms.get(player.getCurrentRoomId());
                     Item itemToTake = null;
-                    
+
                     for (Item item : room.getItems()) {
                         if (item.getName().equalsIgnoreCase(itemName)) {
                             itemToTake = item;
@@ -71,6 +71,12 @@ public class CommandParser {
                     }
                 }
                 break;
+                
+            case "use":
+                for (Item item : player.getInventory()) {
+                    resultMessage += "Inventory:\n\tWhat would you like to use?\n\t" + item.getName() + "\n\t";
+                }
+                break;
 
             case "drop":
                 if (words.length < 2) {
@@ -78,7 +84,6 @@ public class CommandParser {
                 } else {
                     String itemName = words[1];
                     Item itemToDrop = null;
-                    
                     for (Item item : player.getInventory()) {
                         if (item.getName().equalsIgnoreCase(itemName)) {
                             itemToDrop = item;
