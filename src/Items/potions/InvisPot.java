@@ -1,29 +1,21 @@
 package Items.potions;
 
-public class InvisPot {
-    private String id;
-    private String name;
-    private String description;
+import Items.Item;
 
+public class InvisPot extends Item {
     private boolean isFull = true;
-    private int turnsTillEffectGone;
 
     public InvisPot(String id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
+        super(id, name, description);
     }
 
-    public String getName() { //not typically to be used by player
-        return name;
-    }
-
-    public void usePot(boolean isVisible, int turnsTillEffectGone){
-    for (int i = 0; i < turnsTillEffectGone; i++){
-        if (isVisible){
-            isVisible = false;
+    public int usePot() { 
+        if (isFull) {
+            isFull = false;
+            System.out.println("You drink the potion and vanish from sight!");
+            return 5;
         }
-    }
-    isVisible = true;
+        System.out.println("The invisibility potion is empty.");
+        return 0;
     }
 }

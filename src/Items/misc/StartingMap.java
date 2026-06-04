@@ -1,18 +1,12 @@
 package Items.misc;
 
-public class StartingMap {
-    private String id;
-    private String name;
-    private String description;
+import Items.Item;
 
+public class StartingMap extends Item {
     public int mapId;
 
-    public StartingMap(int mapId) {
+    public StartingMap(String id, String name, String description, int mapId) {
+        super(id, name, description);
         this.mapId = mapId;
     }
-
-    public String getName() { //not typically to be used by player
-        return name;
-    }
 }
-

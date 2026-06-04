@@ -1,23 +1,24 @@
 package Items.bags;
 
-public class Pouch {
-    private String id;
-    private String name;
-    private String description;
+import Items.Item;
 
+public class Pouch extends Item {
     private int GCPricePouch;
-
     private int size;
     private String[] pouchItems;
 
-    public Pouch(int size, int GCPricePouch) {
+    public Pouch(String id, String name, String description, int size, int GCPricePouch) {
+        super(id, name, description);
         this.size = size;
         this.GCPricePouch = GCPricePouch;
+        this.pouchItems = new String[size];
     }
-    public String getName() { //not typically to be used by player
-        return name;
-    }
+
     public String getSize() {
-        return "Your pouch can hold" + size + "items.";
+        return "Your pouch can hold " + size + " items.";
+    }
+
+    public int getGCPricePouch() {
+        return GCPricePouch;
     }
 }

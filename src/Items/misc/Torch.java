@@ -1,17 +1,10 @@
 package Items.misc;
 
-public class Torch {
-    private String id;
-    private String name;
-    private String description;
+import Items.Item;
+
+public class Torch extends Item {
 
     public Torch(String id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-    }
-
-    public String getName() { //not typically to be used by player
-        return name;
+        super(id, name, description);
     }
 }

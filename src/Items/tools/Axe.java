@@ -1,17 +1,10 @@
 package Items.tools;
 
-public class Axe {
-    private String id;
-    private String name;
-    private String description;
+import Items.Item;
+
+public class Axe extends Item { 
 
     public Axe(String id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-    }
-
-    public String getName() { //not typically to be used by player
-        return name;
+        super(id, name, description);
     }
 }

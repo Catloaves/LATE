@@ -1,27 +1,20 @@
 package Items.misc;
 
-public class QuillAndScroll {
-    private String id;
-    private String name;
-    private String description;
+import Items.Item;
 
+public class QuillAndScroll extends Item {
     public String scrollText;
 
-    public QuillAndScroll(String scrollText) {
+    public QuillAndScroll(String id, String name, String description, String scrollText) {
+        super(id, name, description);
         this.scrollText = scrollText;
     }
 
-    public String getName() { //not typically to be used by player
-        return name;
-    }
-
-
-    public void write(String text){
+    public void write(String text) {
         scrollText += text;
     }
 
-    public void reWrite(String text){
+    public void reWrite(String text) {
         scrollText = text;
     }
 }
-
