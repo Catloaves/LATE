@@ -7,11 +7,11 @@ public class AdventureGUI {
     private JTextField inputField;
     private JLabel imageLabel;
     private Game game;
-    private Shop shop; // Added the shop reference safely
+    private Shop shop; 
 
     public AdventureGUI(Game game) {
         this.game = game;
-        this.shop = new Shop(); // Creates the shop object when the game starts
+        this.shop = new Shop();
         buildGUI();
     }
 
@@ -21,12 +21,12 @@ public class AdventureGUI {
         frame.setSize(800, 600);
         frame.setLayout(new BorderLayout());
 
-        // Image display
+      
         imageLabel = new JLabel();
         imageLabel.setHorizontalAlignment(JLabel.CENTER);
         frame.add(imageLabel, BorderLayout.NORTH);
 
-        // Output display
+        
         outputArea = new JTextArea();
         outputArea.setEditable(false);
         outputArea.setLineWrap(true);
