@@ -1,5 +1,4 @@
 import java.util.Map;
-import java.util.Scanner;
 
 import Rooms.Room;
 import Rooms.RoomLoader;
@@ -22,18 +21,7 @@ public class Game {
     }
 
     public void start() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to the Text Adventure Game!");
-        Room currentRoom = rooms.get(player.getCurrentRoomId());
-        if (currentRoom != null) {
-            System.out.println(currentRoom.getLongDescription());
-        }
-
-        while (true) {
-            System.out.print("> ");
-            String input = scanner.nextLine();
-            commandParser.parse(input, player, rooms);
-        }
+        System.out.println("Game engine initialized successfully.");
     }
 
     public String getCurrentRoomDescription() {
