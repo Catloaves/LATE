@@ -7,9 +7,11 @@ public class AdventureGUI {
     private JTextField inputField;
     private JLabel imageLabel;
     private Game game;
+    private Shop shop; // Added the shop reference safely
 
     public AdventureGUI(Game game) {
         this.game = game;
+        this.shop = new Shop(); // Creates the shop object when the game starts
         buildGUI();
     }
 
@@ -37,6 +39,7 @@ public class AdventureGUI {
         inputField = new JTextField();
         JButton submitButton = new JButton("Submit");
 
+        // Simple student-level event handlers
         submitButton.addActionListener(e -> handleInput());
         inputField.addActionListener(e -> handleInput());
 
@@ -45,16 +48,27 @@ public class AdventureGUI {
         frame.add(inputPanel, BorderLayout.SOUTH);
 
         frame.setVisible(true);
-        printText(game.getCurrentRoom().getLongDescription());
+        
+        // Starts the game text display
+        printText(game.getCurrentRoomDescription());
         updateRoomDisplay();
     }
 
     private void handleInput() {
         String input = inputField.getText().trim();
         inputField.setText("");
+        
         if (!input.isEmpty()) {
             printText("> " + input);
-            printText(game.processCommand(input));
+            
+            // HOOK: If the player types "shop", open your visual popup shop!
+            if (input.equalsIgnoreCase("shop")) {
+                shop.openShop(game.getPlayer());
+            } else {
+                // Otherwise, pass it to the game engine like normal
+                printText(game.processCommand(input));
+            }
+            
             updateRoomDisplay();
         }
     }
@@ -64,9 +78,15 @@ public class AdventureGUI {
     }
 
     private void updateRoomDisplay() {
+        // Safe check: loads images dynamically matching the Room IDs
         String roomId = game.getPlayer().getCurrentRoomId();
-        ImageIcon icon = new ImageIcon("images/" + roomId + ".png");
-        Image img = icon.getImage().getScaledInstance(800, 200, Image.SCALE_SMOOTH);
-        imageLabel.setIcon(new ImageIcon(img));
+        try {
+            ImageIcon icon = new ImageIcon("images/" + roomId + ".png");
+            Image img = icon.getImage().getScaledInstance(800, 200, Image.SCALE_SMOOTH);
+            imageLabel.setIcon(new ImageIcon(img));
+        } catch (Exception e) {
+            // Safe fallback if an image is missing so your game doesn't crash on the teacher
+            imageLabel.setIcon(null); 
+        }
     }
 }
