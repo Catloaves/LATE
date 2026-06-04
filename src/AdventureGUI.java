@@ -29,6 +29,13 @@ public class AdventureGUI {
         outputArea.setEditable(false);
         outputArea.setLineWrap(true);
         outputArea.setWrapStyleWord(true);
+
+        //COLOURS
+        outputArea.setBackground(new Color(77, 32, 40));
+        outputArea.setForeground(new Color(230, 194, 124));
+        outputArea.setFont(new Font("Monospaced", Font.PLAIN, 16));
+        
+
         JScrollPane scrollPane = new JScrollPane(outputArea);
         frame.add(scrollPane, BorderLayout.CENTER);
 
