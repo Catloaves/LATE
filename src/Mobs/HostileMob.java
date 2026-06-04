@@ -1,13 +1,13 @@
 package Mobs;
 public class HostileMob {
-    public String mobName;
-    public int mobHp;
+    private String mobName;
+    private int mobHp;
     public boolean isDefeated;
-    // for all mobs that can be attacked by the PLAYER use this class
-    // hostile mobs can deal damage and be dealt damage to; passive mobs do not attack nor can be attacked
-    public HostileMob(String mobName, int mobHp){
-        mobName = this.mobName;
-        mobHp = this.mobHp;
+
+    public HostileMob(String mobName, int mobHp) {
+        this.mobName = mobName;
+        this.mobHp = mobHp;
+        this.isDefeated = false;
     }
     
     public String getName(){
@@ -30,5 +30,12 @@ public class HostileMob {
                 isDefeated = true;
         }
         }
+    }
+    public void applyBleedTick(int amount) {
+        if (!isDefeated) {
+            subtractHp(amount);
+            System.out.println(mobName + " takes " + amount + " bleeding damage!");
+        }
+        
     }
     }

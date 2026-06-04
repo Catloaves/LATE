@@ -1,7 +1,7 @@
 {
   "home": {
     "id": "home",
-    "name": "=== CASTLE GATE ===",
+    "name": "ℂ𝔸𝕊𝕋𝕃𝔼 𝔾𝔸𝕋𝔼\n",
     "description": "You stand outside the towering iron gates of the dark castle. Rain pours down as you look up at the ancient stone walls. Your family back home is dying of a mysterious plague, and the only cure lies deep within the King's hidden vault. The gate is cracked open slightly.",
     "exits": {
       "north": "barracks"
@@ -10,7 +10,7 @@
   },
   "barracks": {
     "id": "barracks",
-    "name": "=== GUARD BARRACKS ===",
+    "name": "𝔾𝕌𝔸ℝ𝔻 𝔹𝔸ℝℝ𝔸ℂ𝕂𝕊\n",
     "description": "You slip inside. Rows of empty bunk beds line the walls. The castle guards must be out on patrol! On a wooden table in the center, a guard carelessly left behind a flickering torch.",
     "exits": {
       "south": "home",
@@ -26,7 +26,7 @@
   },
   "courtyard": {
     "id": "courtyard",
-    "name": "=== GRAND COURTYARD ===",
+    "name": "𝕋ℍ𝔼 ℂ𝕆𝕌ℝ𝕋𝕐𝔸ℝ𝔻\n",
     "description": "A massive, open-air stone courtyard. Fountains sit frozen in the chill night air. Pathways branch out in all directions. To the west is an armory, to the east is a dark staircase leading down into the dungeons, and north leads deeper into the palace.",
     "exits": {
       "south": "barracks",
@@ -38,7 +38,7 @@
   },
   "armory": {
     "id": "armory",
-    "name": "=== THE ARMORY ===",
+    "name": "𝕋ℍ𝔼 𝔸ℝ𝕄𝕆ℝ𝕐\n",
     "description": "Racks of iron shields and broken spears fill this dusty room. Hanging on the rack is a pristine, sharp steel sword. This might come in handy if you encounter any hostile guards!",
     "exits": {
       "east": "courtyard"
@@ -53,7 +53,7 @@
   },
   "dungeon": {
     "id": "dungeon",
-    "name": "=== THE DUNGEON ===",
+    "name": "𝕋ℍ𝔼 𝔻𝕌ℕ𝔾𝔼𝕆ℕ\n",
     "description": "It is pitch black down here, but you can find your way around. Chains hang from the damp stone walls. In the furthest skeleton-filled cell, you spot a heavy golden vault key sitting on a wall hook.",
     "exits": {
       "west": "courtyard"
@@ -68,7 +68,7 @@
   },
   "throne_room": {
     "id": "throne_room",
-    "name": "=== THE THRONE ROOM ===",
+    "name": "𝕋ℍ𝔼 𝕋ℍℝ𝕆ℕ𝔼 ℝ𝕆𝕆𝕄\n",
     "description": "Magnificent velvet banners hang from high stone pillars, and a massive gold throne sits at the end of the hall. A ferocious Elite Guard stands blocking the northern doorway! (Tip: Make sure you have picked up your sword before trying to pass).",
     "exits": {
       "south": "courtyard",
@@ -78,7 +78,7 @@
   },
   "vault": {
     "id": "vault",
-    "name": "=== THE TREASURE VAULT ===",
+    "name": "𝕋ℍ𝔼 ℝ𝕆𝕐𝔸𝕃 𝕋ℝ𝔼𝔸𝕊𝕌ℝ𝔼 𝕍𝔸𝕌𝕃𝕋\n",
     "description": "You have successfully sneaked past the guards and made it into the King's inner sanctum! Chests of gold glitter all around you. In the center of the room sits a velvet pillow holding a glowing blue elixir: 'The Cure'. Take it and save your family!",
     "exits": {
       "south": "throne_room"

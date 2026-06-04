@@ -22,4 +22,8 @@ public class Item {
     public String getDescription() {
         return description;
     }
+
+    public void useItem(){
+        return;
+    }
 }

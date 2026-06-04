@@ -3,7 +3,7 @@ import Items.Item;
 import Rooms.Room;
 
 public class CommandParser {
-    
+
     public String parse(String input, Player player, Map<String, Room> rooms) {
         String[] words = input.trim().toLowerCase().split("\\s+");
         if (words.length == 0 || words[0].isEmpty()) {
@@ -21,13 +21,13 @@ public class CommandParser {
                     String direction = words[1];
                     Room currentRoom = rooms.get(player.getCurrentRoomId());
                     String nextRoomId = currentRoom.getExits().get(direction);
-                    
+
                     if (nextRoomId != null) {
                         player.setCurrentRoomId(nextRoomId);
                         Room newRoom = rooms.get(player.getCurrentRoomId());
                         resultMessage = "You move " + direction + ".\n\n" + newRoom.getLongDescription();
                     } else {
-                        resultMessage = "You can't go that way.";
+                        resultMessage = "Sorry. You can't go that way!";
                     }
                 }
                 break;
@@ -36,12 +36,12 @@ public class CommandParser {
                 Room currentRoom = rooms.get(player.getCurrentRoomId());
                 resultMessage = currentRoom.getLongDescription();
                 break;
-
+            //
             case "inventory":
                 if (player.getInventory().isEmpty()) {
-                    resultMessage = "Your inventory is empty.";
+                    resultMessage = "Looks like your inventory is empty!";
                 } else {
-                    resultMessage = "You are carrying:\n";
+                    resultMessage = "You are carrying:\n\n";
                     for (Item item : player.getInventory()) {
                         resultMessage += "- " + item.getName() + "\n";
                     }
@@ -55,7 +55,7 @@ public class CommandParser {
                     String itemName = words[1];
                     Room room = rooms.get(player.getCurrentRoomId());
                     Item itemToTake = null;
-                    
+
                     for (Item item : room.getItems()) {
                         if (item.getName().equalsIgnoreCase(itemName)) {
                             itemToTake = item;
@@ -67,8 +67,14 @@ public class CommandParser {
                         player.addItem(itemToTake);
                         resultMessage = "You take the " + itemToTake.getName() + ".";
                     } else {
-                        resultMessage = "There is no " + itemName + " here.";
+                        resultMessage = "Alas.. There is no " + itemName + " here!";
                     }
+                }
+                break;
+                
+            case "use":
+                for (Item item : player.getInventory()) {
+                    resultMessage += "Inventory:\n\tWhat would you like to use?\n\t" + item.getName() + "\n\t";
                 }
                 break;
 
@@ -78,7 +84,6 @@ public class CommandParser {
                 } else {
                     String itemName = words[1];
                     Item itemToDrop = null;
-                    
                     for (Item item : player.getInventory()) {
                         if (item.getName().equalsIgnoreCase(itemName)) {
                             itemToDrop = item;
@@ -89,9 +94,9 @@ public class CommandParser {
                         player.removeItem(itemToDrop);
                         Room room = rooms.get(player.getCurrentRoomId());
                         room.addItem(itemToDrop);
-                        resultMessage = "You drop the " + itemToDrop.getName() + ".";
+                        resultMessage = "You've drop the " + itemToDrop.getName() + ".";
                     } else {
-                        resultMessage = "You don't have a " + itemName + ".";
+                        resultMessage = "Looks like you don't have a " + itemName + " to drop!";
                     }
                 }
                 break;
