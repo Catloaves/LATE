@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 import javax.swing.JOptionPane;
 
 import Items.Item;
@@ -33,10 +31,8 @@ public class Shop {
                     + "6. Exit\n\n"
                     + "Enter the number of your choice:";
 
-            // This single line pops up a window with an input field on the screen!
             String input = JOptionPane.showInputDialog(null, menu);
 
-            // If the user clicks "Cancel" or closes the popup window, exit cleanly
             if (input == null || input.equals("6")) {
                 isShopping = false;
             } else if (input.equals("1")) {
