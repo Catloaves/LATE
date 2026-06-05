@@ -20,7 +20,7 @@
       {
         "id": "torch",
         "name": "torch",
-        "description": "A flickering torch that casts a warm glow."
+        "description": "A warm, flickering torch... use it to light up dark rooms!"
       }
     ],
     "mob": {
@@ -52,7 +52,7 @@
       {
         "id": "sword",
         "name": "sword",
-        "description": "A heavy steel sword. Perfect for safeguarding your journey."
+        "description": "A light arming sword - can be used to deal significant and consistent damage to your foes!"
       }
     ]
   },
@@ -67,7 +67,7 @@
       {
         "id": "key",
         "name": "key",
-        "description": "An ornate vault key made of solid gold."
+        "description": "A rusted key... with remnants of oddly exorbiant jewels on it..."
       }
     ]
   },

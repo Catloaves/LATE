@@ -14,6 +14,7 @@ public class Game {
     private AdventureGUI gui;
     private boolean fightActive;
     private Fights fight;
+    private boolean isWaiting;
 
     public Game() {
         RoomLoader loader = new RoomLoader();
@@ -40,6 +41,14 @@ public class Game {
         return fight;
     }
 
+    public boolean getIsWaiting() {
+        return isWaiting;
+    }
+
+    public void setIsWaiting(boolean isWaiting) {
+        this.isWaiting = isWaiting;
+    }
+
     public void start() {
         System.out.println("Game engine initialized successfully.");
     }
@@ -53,6 +62,10 @@ public class Game {
     }
 
     public String processCommand(String input, HostileMob target) {
+        if (isWaiting) {
+            isWaiting = false;
+            return commandParser.selectItem(player, target, input);
+        }
         return commandParser.parse(gui, input, player, rooms, target, this);
     }
 

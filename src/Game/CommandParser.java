@@ -10,7 +10,8 @@ import Rooms.Room;
 
 public class CommandParser {
 
-    public String parse(AdventureGUI gui, String input, Player player, Map<String, Room> rooms, HostileMob target, Game game) {
+    public String parse(AdventureGUI gui, String input, Player player, Map<String, Room> rooms, HostileMob target,
+            Game game) {
         String[] words = input.trim().toLowerCase().split("\\s+");
         if (words.length == 0 || words[0].isEmpty()) {
             return "Please enter a command.";
@@ -91,20 +92,6 @@ public class CommandParser {
                 }
                 gui.printText(resultMessage);
                 resultMessage = "";
-                String in = gui.handleInputNoCmdParser();
-
-                try {
-                    int n = Integer.parseInt(in);
-                    if (n > player.getInventory().size())
-                        throw new Exception();
-                    Item item = player.getInventory().get(n - 1);
-                    if (item instanceof Tool) {
-                        ((Tool) item).setTarget(target); // casting to a Tool
-                    }
-                } catch (Exception e) {
-                    resultMessage = "Please select something from the inventory!";
-                }
-                break;
 
             case "drop":
                 if (words.length < 2) {
@@ -138,6 +125,22 @@ public class CommandParser {
                 break;
         }
 
+        return resultMessage;
+    }
+
+    public String selectItem(Player player, HostileMob target, String in) {
+        String resultMessage = "";
+        try {
+            int n = Integer.parseInt(in);
+            if (n > player.getInventory().size())
+                throw new Exception();
+            Item item = player.getInventory().get(n - 1);
+            if (item instanceof Tool) {
+                ((Tool) item).setTarget(target); // casting to a Tool
+            }
+        } catch (Exception e) {
+            resultMessage = "Please select something from the inventory!";
+        }
         return resultMessage;
     }
 }
