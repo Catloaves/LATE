@@ -1,8 +1,10 @@
 package Rooms;
+
 import java.util.List;
 import java.util.Map;
 
 import Items.Item;
+import Mobs.HostileMob;
 
 public class Room {
     private String id;
@@ -10,6 +12,7 @@ public class Room {
     private String description;
     private Map<String, String> exits;
     private List<Item> items;
+    private HostileMob mob;
 
     public Room(String id, String name, String description, Map<String, String> exits, List<Item> items) {
         this.id = id;
@@ -67,5 +70,13 @@ public class Room {
         }
 
         return sb.toString();
+    }
+
+    public HostileMob getMob() {
+        return mob;
+    }
+
+    public void setMob(HostileMob mob) {
+        this.mob = mob;
     }
 }

@@ -1,7 +1,9 @@
 package Game;
+
 import java.util.Map;
 
 import Items.Item;
+import Mobs.Fights;
 import Rooms.Room;
 
 public class CommandParser {
@@ -27,7 +29,12 @@ public class CommandParser {
                     if (nextRoomId != null) {
                         player.setCurrentRoomId(nextRoomId);
                         Room newRoom = rooms.get(player.getCurrentRoomId());
-                        resultMessage = "You move " + direction + ".\n\n" + newRoom.getLongDescription();
+                        resultMessage = "You move " + direction + ".\n\n";
+                        gui.printText(resultMessage);
+                        if (newRoom.getMob() != null && !newRoom.getMob().isDefeated) {
+                            new Fights(player, newRoom.getMob(), gui);
+                        }
+                        resultMessage = newRoom.getLongDescription();
                     } else {
                         resultMessage = "Sorry. You can't go that way!";
                     }
@@ -38,7 +45,7 @@ public class CommandParser {
                 Room currentRoom = rooms.get(player.getCurrentRoomId());
                 resultMessage = currentRoom.getLongDescription();
                 break;
-            
+
             case "inventory":
                 if (player.getInventory().isEmpty()) {
                     resultMessage = "Looks like your inventory is empty!";
@@ -84,14 +91,13 @@ public class CommandParser {
                 resultMessage = "";
                 String in = gui.handleInputNoCmdParser();
 
-                try{
+                try {
                     int n = Integer.parseInt(in);
                     if (n > player.getInventory().size())
                         throw new Exception();
-                    player.getInventory().get(n-1).useItem();
-                }
-                catch(Exception e) {
-                resultMessage = "Please select something from the inventory!";
+                    player.getInventory().get(n - 1).useItem();
+                } catch (Exception e) {
+                    resultMessage = "Please select something from the inventory!";
                 }
                 break;
 
