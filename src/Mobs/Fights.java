@@ -1,5 +1,6 @@
 package Mobs;
 
+import Game.Game;
 import Game.AdventureGUI;
 import Game.Player;
 import Game.Stats;
@@ -8,6 +9,7 @@ public class Fights {
     private Player player;
     private HostileMob mob;
     private AdventureGUI gui;
+    private Game game;
 
     public Fights(Player player, HostileMob mob, AdventureGUI gui) {
         gui.printText("Think fast! You see a " + mob.getName() + "... Let the fighting begin!");
@@ -30,6 +32,7 @@ public class Fights {
 
         if (player.getStats().getHp() <= 0) {
             gui.printText("Uh oh. You died... Back to the start!");
+            game.revivePlayer();
             return false;
         }
         if (mob.isDefeated && !(player.getStats().isDead())) {

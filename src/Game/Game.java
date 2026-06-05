@@ -84,4 +84,9 @@ public class Game {
     public void setGUI(AdventureGUI gui) {
         this.gui = gui;
     }
+    
+    public void revivePlayer(){
+        player.getStats().setHp(player.getStats().maxHp);
+        player.setCurrentRoomId("home");
+    }
 }

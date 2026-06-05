@@ -1,8 +1,9 @@
 package Game;
+
 public class Stats {
 
     private int hp;
-    private int maxHp;
+    public int maxHp;
     private int hunger;
     private int maxHunger;
     private double strength;
@@ -51,6 +52,10 @@ public class Stats {
 
     public int getHp() {
         return hp;
+    }
+
+    public void setHp(int hp) {
+        this.hp = hp;
     }
 
     public int getMaxHp() {
