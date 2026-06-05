@@ -1,17 +1,26 @@
 package Items.tools;
 
-public class Sword {
-    private String id;
-    private String name;
-    private String description;
+import Items.Tool;
+
+public class Sword extends Tool {
 
     public Sword(String id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
+        super(id, name, description);
     }
 
-    public String getName() { //not typically to be used by player
-        return name;
+    @Override
+    public void useItem() {
+        if (target == null) {
+            System.out.println("You need to input a target!");
+            return;
+        }
+
+        target.subtractHp(25);
+        System.out.println("You've dealt 25 damage!");
+        System.out.print(target.getName() + " is now at " + target.getHp() + "!");
+        if (target.isDefeated) {
+            System.out.println("You've defeated " + target.getName() + "!");
+        }
+        target = null;
     }
 }

@@ -1,35 +1,31 @@
 package Items.potions;
 
-public class HealingPot {
-    private String id;
-    private String name;
-    private String description;
+import Items.Item;
 
+public class HealingPot extends Item {
     private boolean isFull = true;
 
     public HealingPot(String id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
+        super(id, name, description);
     }
 
-    public String getName() { //not typically to be used by player
-        return name;
-    }
-
-    public String usePot(int hp, int maxHp) { //insta heal 30% of maximum hp
-        int oldHp = hp;
-        String potMessage = "";
-        if (isFull){
-            hp += maxHp*0.3;
-            isFull = false;
-            potMessage =  "You have regained " + (hp - oldHp)  + " hp.";
-            if (hp > maxHp){
-                hp = maxHp;
-                isFull = true;
-                potMessage = "You are already at your max hp!";
-            }
+    public String usePot(int hp, int maxHp) {
+        if (hp >= maxHp) {
+            return "You are already at your max hp!";
         }
-        return potMessage;
+        
+        if (isFull) {
+            int oldHp = hp;
+            hp += (int)(maxHp * 0.3);
+            
+            if (hp > maxHp) {
+                hp = maxHp;
+            }
+            
+            isFull = false;
+            return "You have regained " + (hp - oldHp) + " hp.";
+        }
+        
+        return "The potion bottle is empty!";
     }
 }

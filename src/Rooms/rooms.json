@@ -1,118 +1,94 @@
 {
   "home": {
-    "name": "Home",
-    "description": "You are in your house. Your older brother is unconscious on the bed. The exit door is to the north.",
-    "exits": { "north": "road1" },
+    "id": "home",
+    "name": "ℂ𝔸𝕊𝕋𝕃𝔼 𝔾𝔸𝕋𝔼\n",
+    "description": "You stand outside the towering iron gates of the dark castle. Rain pours down as you look up at the ancient stone walls. Your family back home is dying of a mysterious plague, and the only cure lies deep within the King's hidden vault. The gate is cracked open slightly.",
+    "exits": {
+      "north": "barracks"
+    },
+    "items": []
+  },
+  "barracks": {
+    "id": "barracks",
+    "name": "𝔾𝕌𝔸ℝ𝔻 𝔹𝔸ℝℝ𝔸ℂ𝕂𝕊\n",
+    "description": "You slip inside. Rows of empty bunk beds line the walls. The castle guards must be out on patrol! On a wooden table in the center, a guard carelessly left behind a flickering torch.",
+    "exits": {
+      "south": "home",
+      "north": "courtyard"
+    },
     "items": [
-      { "id": "rations1", "name": "Rations", "description": "A pack of rations. Use this item to restore 10 health." },
-      { "id": "map", "name": "Map", "description": "A map of the surrounding area. Use this item to reveal the layout of the province." },
-      { "id": "coinPouch", "name": "Coin Pouch", "description": "A small pouch filled with coins. Use this item to gain 50 gold." }
+      {
+        "id": "torch",
+        "name": "torch",
+        "description": "A flickering torch that casts a warm glow."
+      }
     ]
   },
-  "road1": {
-    "name": "Main Road (1)",
-    "description": "You are at the start of the main road. The forest around you is quiet. The main road leads north.",
-    "exits": { "south": "home", "north": "road2"},
+  "courtyard": {
+    "id": "courtyard",
+    "name": "𝕋ℍ𝔼 ℂ𝕆𝕌ℝ𝕋𝕐𝔸ℝ𝔻\n",
+    "description": "A massive, open-air stone courtyard. Fountains sit frozen in the chill night air. Pathways branch out in all directions. To the west is an armory, to the east is a dark staircase leading down into the dungeons, and north leads deeper into the palace.",
+    "exits": {
+      "south": "barracks",
+      "north": "throne_room",
+      "west": "armory",
+      "east": "dungeon"
+    },
     "items": []
   },
-  "road2": {
-    "name": "Main Road (2)",
-    "description": "You are on the main road. The forest around you is quiet. The main road leads north and a dirt path leads west.",
-    "exits": { "south": "road1", "north": "road3", "west": "lake1" },
-    "items": []
-  },
-  "lake1": {
-    "name": "Lake (1)",
-    "description": "You are at the edge of a serene lake. The waters are calm and the surroundings are peaceful. The main road is to the east and a dirt path leads further west.",
-    "exits": { "east": "road2", "west": "lake2" },
-    "items": []
-  },
-  "lake2": {
-    "name": "Lake (2)",
-    "description": "You are at the end of the lake. The waters are calm and the surroundings are peaceful. A dirt path leads east.",
-    "exits": { "east": "lake1" },
-    "items": []
-  },
-  "road3": {
-    "name": "Main Road (3)",
-    "description": "You are on the main road. The forest around you is quiet. The main road leads north.",
-    "exits": { "south": "road2", "north": "road4"},
-    "items": []
-  },
-  "road4": {
-    "name": "Main Road (4)",
-    "description": "You are on the main road. The forest around you is quiet. The main road leads north",
-    "exits": { "south": "road3", "north": "road5"},
-    "items": []
-  },
-  "road5": {
-    "name": "Main Road (5)",
-    "description": "You are on the main road. The forest around you is quiet. The main road leads north and a dirt path leads east.",
-    "exits": { "south": "road4", "north": "road6", "east": "cave1" },
-    "items": []
-  },
-  "cave1": {
-    "name": "Cave (1)",
-    "description": "You are at the entrance of a dark cave. The main road is to the west. The cave leads further east.",
-    "exits": { "west": "road5", "east": "cave2" },
-    "items": []
-  },
-  "cave2": {
-    "name": "Cave (2)",
-    "description": "You are at the end of the cave. The air is damp and the sound of dripping water echoes around you. The cave leads west.",
-    "exits": { "west": "cave1" },
+  "armory": {
+    "id": "armory",
+    "name": "𝕋ℍ𝔼 𝔸ℝ𝕄𝕆ℝ𝕐\n",
+    "description": "Racks of iron shields and broken spears fill this dusty room. Hanging on the rack is a pristine, sharp steel sword. This might come in handy if you encounter any hostile guards!",
+    "exits": {
+      "east": "courtyard"
+    },
     "items": [
-      { "id": "treasure1", "name": "Treasure Chest", "description": "A chest filled with gold and jewels. Use this item to gain 100 gold." }
+      {
+        "id": "sword",
+        "name": "sword",
+        "description": "A heavy steel sword. Perfect for safeguarding your journey."
+      }
     ]
   },
-  "road6": {
-    "name": "Main Road (6)",
-    "description": "You are on the main road. The forest around you is quiet. The main road leads north.",
-    "exits": { "south": "road5", "north": "road7" },
-    "items": []
-  },
-  "road7": {
-    "name": "Main Road (7)",
-    "description": "You are on the main road. The forest around you is quiet. The main road leads north.",
-    "exits": { "south": "road6", "north": "road8" },
-    "items": []
-  },
-  "road8": {
-    "name": "Main Road (8)",
-    "description": "You are on the main road. The forest around you is quiet. The main road leads north and a dirt path leads west.",
-    "exits": { "south": "road7", "north": "road9", "west": "clearing1" },
-    "items": []
-  },
-  "clearing1": {
-    "name": "Clearing",
-    "description": "You are in a clearing in the forest. Sunlight filters through the trees, creating a peaceful atmosphere. The main road is to the east.",
-    "exits": { "east": "road8", "west": "clearing2" },
-    "items": []
-  },
-  "clearing2": {
-    "name": "Clearing (2)",
-    "description": "You are at the end of the clearing. Sunlight filters through the trees, creating a peaceful atmosphere. A dirt path leads east.",
-    "exits": { "east": "clearing1" },
+  "dungeon": {
+    "id": "dungeon",
+    "name": "𝕋ℍ𝔼 𝔻𝕌ℕ𝔾𝔼𝕆ℕ\n",
+    "description": "It is pitch black down here, but you can find your way around. Chains hang from the damp stone walls. In the furthest skeleton-filled cell, you spot a heavy golden vault key sitting on a wall hook.",
+    "exits": {
+      "west": "courtyard"
+    },
     "items": [
-      { "id": "fireballScroll", "name": "Fireball Scroll", "description": "A magical scroll. Use this item to learn the Fireball spell." }
+      {
+        "id": "key",
+        "name": "key",
+        "description": "An ornate vault key made of solid gold."
+      }
     ]
   },
-  "road9": {
-    "name": "Main Road (9)",
-    "description": "You are on the main road. The forest around you is quiet. The main road leads north.",
-    "exits": { "south": "road8", "north": "road10" },
+  "throne_room": {
+    "id": "throne_room",
+    "name": "𝕋ℍ𝔼 𝕋ℍℝ𝕆ℕ𝔼 ℝ𝕆𝕆𝕄\n",
+    "description": "Magnificent velvet banners hang from high stone pillars, and a massive gold throne sits at the end of the hall. A ferocious Elite Guard stands blocking the northern doorway! (Tip: Make sure you have picked up your sword before trying to pass).",
+    "exits": {
+      "south": "courtyard",
+      "north": "vault"
+    },
     "items": []
   },
-  "road10": {
-    "name": "Main Road (10)",
-    "description": "You are at the end of the main road. The forest around you is quiet. An ornate path leads north.",
-    "exits": { "south": "road9", "north": "castle1" },
-    "items": []
-   },
-   "castle1": {
-    "name": "Castle Entrance",
-    "description": "You are at the entrance of a grand castle. The walls are tall and imposing, but a large hole in the wall leads north.",
-    "exits": { "south": "road10"},
-    "items": []
+  "vault": {
+    "id": "vault",
+    "name": "𝕋ℍ𝔼 ℝ𝕆𝕐𝔸𝕃 𝕋ℝ𝔼𝔸𝕊𝕌ℝ𝔼 𝕍𝔸𝕌𝕃𝕋\n",
+    "description": "You have successfully sneaked past the guards and made it into the King's inner sanctum! Chests of gold glitter all around you. In the center of the room sits a velvet pillow holding a glowing blue elixir: 'The Cure'. Take it and save your family!",
+    "exits": {
+      "south": "throne_room"
+    },
+    "items": [
+      {
+        "id": "cure",
+        "name": "cure",
+        "description": "The magical medicine to heal your family's sickness."
+      }
+    ]
   }
 }

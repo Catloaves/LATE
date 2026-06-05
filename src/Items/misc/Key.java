@@ -1,31 +1,26 @@
 package Items.misc;
 
-public class Key {
-    private String id;
-    private String name;
-    private String description;
+import Items.Item;
 
+public class Key extends Item {
     private int keyNum;
-
     private boolean validKey;
 
-    public Key(String name, int keyNum) {
-        this.name = name;
+    public Key(String id, String name, String description, int keyNum) {
+        super(id, name, description);
         this.keyNum = keyNum;
+        this.validKey = true;
     }
 
-    public String getName() { //not typically to be used by player
-        return name;
-    }
-
-    public int getKeyNum() { //cannot be used by the player
+    public int getKeyNum() { 
         return keyNum;
     }
-    public String useKey() { //can be used by the player
-        if (validKey)
-            return "It opens!";
-        else
-            return "Sorry. Wrong key!";
-    }
-    }
 
+    public String useKey() { 
+        if (validKey) {
+            return "It opens!";
+        } else {
+            return "Sorry. Wrong key!";
+        }
+    }
+}

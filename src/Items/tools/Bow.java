@@ -1,18 +1,31 @@
 package Items.tools;
 
-public class Bow {
-    private String id;
-    private String name;
-    private String description;
+import Items.Tool;
+
+public class Bow extends Tool {
 
     public Bow(String id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
+        super(id, name, description);
     }
 
-    public String getName() { //not typically to be used by player
-        return name;
+    @Override
+    public void useItem() {
+        if (target == null) {
+            System.out.println("You need to input a target!");
+            return;
+        }
+        
+        if (Math.random() > 0.475) {
+            target.subtractHp(30);
+            System.out.println("You've dealt 30 damage!");
+            System.out.print(target.getName() + " is now at " + target.getHp() + "!");
+        } else {
+            target.subtractHp(0); 
+            System.out.println("Oh no! Your shot misses. Better luck next time!");
+        }
+        if (target.isDefeated) {
+            System.out.println("You've defeated " + target.getName() + "!");
+        }
+        target = null;
     }
 }
-
