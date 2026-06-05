@@ -10,12 +10,7 @@ import Rooms.Room;
 
 public class CommandParser {
 
-    public String parse(AdventureGUI gui, String input, Player player, Map<String, Room> rooms) {
-        return this.parse(gui, input, player, rooms, null);
-
-    }
-
-    public String parse(AdventureGUI gui, String input, Player player, Map<String, Room> rooms, HostileMob target) {
+    public String parse(AdventureGUI gui, String input, Player player, Map<String, Room> rooms, HostileMob target, Game game) {
         String[] words = input.trim().toLowerCase().split("\\s+");
         if (words.length == 0 || words[0].isEmpty()) {
             return "Please enter a command.";
@@ -39,7 +34,7 @@ public class CommandParser {
                         resultMessage = "You move " + direction + ".\n\n";
                         gui.printText(resultMessage);
                         if (newRoom.getMob() != null && !newRoom.getMob().isDefeated) {
-                            new Fights(player, newRoom.getMob(), gui);
+                            game.setFight(new Fights(player, newRoom.getMob(), gui));
                         }
                         resultMessage = newRoom.getLongDescription();
                     } else {

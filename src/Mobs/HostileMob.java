@@ -9,6 +9,7 @@ public class HostileMob {
 
     public HostileMob(String mobName, int mobHp, int mobDamage) {
         stats = new Stats(mobHp, 0, mobDamage);
+        this.mobName = mobName;
     }
 
     public String getName() {

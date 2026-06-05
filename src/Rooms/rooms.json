@@ -22,7 +22,12 @@
         "name": "torch",
         "description": "A flickering torch that casts a warm glow."
       }
-    ]
+    ],
+    "mob": {
+      "name": "Leonidas Tiberius Chenhan Lepitre",
+      "hp": 2,
+      "damage": 1
+    }
   },
   "courtyard": {
     "id": "courtyard",

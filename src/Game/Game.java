@@ -5,23 +5,39 @@ import java.util.Map;
 import Mobs.HostileMob;
 import Rooms.Room;
 import Rooms.RoomLoader;
+import Mobs.Fights;
 
 public class Game {
     private Map<String, Room> rooms;
     private Player player;
     private CommandParser commandParser;
     private AdventureGUI gui;
+    private boolean fightActive;
+    private Fights fight;
 
     public Game() {
         RoomLoader loader = new RoomLoader();
-        rooms = loader.loadRooms("src/Rooms/rooms.json"); 
-        
+        rooms = loader.loadRooms("src/Rooms/rooms.json");
+
         if (rooms == null || rooms.isEmpty()) {
             rooms = loader.loadRooms("Rooms/rooms.json");
         }
 
         player = new Player("home", null, null, null, null);
         commandParser = new CommandParser();
+    }
+
+    public boolean isFightActive() {
+        return fightActive;
+    }
+
+    public void setFight(Fights fight) {
+        this.fight = fight;
+        fightActive = true;
+    }
+
+    public Fights getFights() {
+        return fight;
     }
 
     public void start() {
@@ -37,7 +53,7 @@ public class Game {
     }
 
     public String processCommand(String input, HostileMob target) {
-        return commandParser.parse(gui, input, player, rooms, target);
+        return commandParser.parse(gui, input, player, rooms, target, this);
     }
 
     public Player getPlayer() {
@@ -48,7 +64,7 @@ public class Game {
         return rooms.get(player.getCurrentRoomId());
     }
 
-    public void setGUI(AdventureGUI gui){
+    public void setGUI(AdventureGUI gui) {
         this.gui = gui;
     }
 }

@@ -12,30 +12,28 @@ public class Fights {
         this.player = player;
         this.mob = mob;
         this.gui = gui;
-        start();
     }
 
-    public void start() {
-        gui.printText("Monster Attack!");
+    public void runTurn() {
+        gui.printText("A " + mob.getName() + " has appeared!");
 
-        while (player.getStats().getHp() > 0 && mob.getHp() > 0) {
-        gui.handleInput(mob);
-
-            if (mob.getHp() <= 0) {
-                break;
-            }
-
-            int mobAttackDmg = (int) mob.getStats().getStrength();
-
-            player.getStats().loseHP(mobAttackDmg);
-            gui.printText("The monster attacks! You've lost " + mobAttackDmg + " damage!");
-
+        if (mob.getHp() <= 0) {
+            return;
         }
+
+        int mobAttackDmg = (int) mob.getStats().getStrength();
+
+        player.getStats().loseHP(mobAttackDmg);
+        gui.printText("The " + mob.getName() + " attacks! You've lost " + mobAttackDmg + " damage!");
 
         if (player.getStats().getHp() <= 0) {
             gui.printText("You died. GAME OVER.");
         } else {
             gui.printText("You defeated your enemy!");
         }
+    }
+
+    public HostileMob getMob() {
+        return mob;
     }
 }
