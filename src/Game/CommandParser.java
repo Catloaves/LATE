@@ -3,12 +3,19 @@ package Game;
 import java.util.Map;
 
 import Items.Item;
+import Items.Tool;
 import Mobs.Fights;
+import Mobs.HostileMob;
 import Rooms.Room;
 
 public class CommandParser {
 
     public String parse(AdventureGUI gui, String input, Player player, Map<String, Room> rooms) {
+        return this.parse(gui, input, player, rooms, null);
+
+    }
+
+    public String parse(AdventureGUI gui, String input, Player player, Map<String, Room> rooms, HostileMob target) {
         String[] words = input.trim().toLowerCase().split("\\s+");
         if (words.length == 0 || words[0].isEmpty()) {
             return "Please enter a command.";
@@ -95,7 +102,10 @@ public class CommandParser {
                     int n = Integer.parseInt(in);
                     if (n > player.getInventory().size())
                         throw new Exception();
-                    player.getInventory().get(n - 1).useItem();
+                    Item item = player.getInventory().get(n - 1);
+                    if (item instanceof Tool) {
+                        ((Tool) item).setTarget(target); // casting to a Tool
+                    }
                 } catch (Exception e) {
                     resultMessage = "Please select something from the inventory!";
                 }

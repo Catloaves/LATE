@@ -1,6 +1,8 @@
 package Game;
 import javax.swing.*;
 
+import Mobs.HostileMob;
+
 import java.awt.*;
 
 public class AdventureGUI {
@@ -58,7 +60,11 @@ public class AdventureGUI {
         updateRoomDisplay();
     }
 
-    private void handleInput() {
+    public void handleInput() {
+        this.handleInput(null);
+    }
+
+    public void handleInput(HostileMob target) {
         String input = inputField.getText().trim();
         inputField.setText("");
 
@@ -68,7 +74,7 @@ public class AdventureGUI {
             if (input.equalsIgnoreCase("shop")) {
                 shop.openShop(game.getPlayer());
             } else {
-                printText(game.processCommand(input));
+                printText(game.processCommand(input, target));
             }
 
             updateRoomDisplay();

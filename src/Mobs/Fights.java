@@ -16,32 +16,26 @@ public class Fights {
     }
 
     public void start() {
-        System.out.println("Monster Attack!");
+        gui.printText("Monster Attack!");
 
         while (player.getStats().getHp() > 0 && mob.getHp() > 0) {
-
-            int heroPunch = (int) player.getStats().getStrength();
-
-            mob.subtractHp(heroPunch);
-            System.out.println("You've dealt " + heroPunch + " damage!");
+        gui.handleInput(mob);
 
             if (mob.getHp() <= 0) {
                 break;
             }
 
-            int monsterBite = (int) mob.getStats().getStrength();
+            int mobAttackDmg = (int) mob.getStats().getStrength();
 
-            int currentHp = player.getStats().getHp();
-            player.getStats().loseHP(currentHp);
-            System.out.println("The monster attacks! You've lost " + monsterBite + " damage!");
+            player.getStats().loseHP(mobAttackDmg);
+            gui.printText("The monster attacks! You've lost " + mobAttackDmg + " damage!");
 
-            
         }
 
         if (player.getStats().getHp() <= 0) {
-            System.out.println("You died. GAME OVER.");
+            gui.printText("You died. GAME OVER.");
         } else {
-            System.out.println("You defeated your enemy!");
+            gui.printText("You defeated your enemy!");
         }
     }
 }

@@ -2,6 +2,7 @@ package Game;
 
 import java.util.Map;
 
+import Mobs.HostileMob;
 import Rooms.Room;
 import Rooms.RoomLoader;
 
@@ -35,8 +36,8 @@ public class Game {
         return "You are in an unknown empty space.";
     }
 
-    public String processCommand(String input) {
-        return commandParser.parse(gui, input, player, rooms);
+    public String processCommand(String input, HostileMob target) {
+        return commandParser.parse(gui, input, player, rooms, target);
     }
 
     public Player getPlayer() {
