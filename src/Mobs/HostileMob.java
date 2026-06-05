@@ -9,6 +9,7 @@ public class HostileMob {
     private Stats stats;
 
     public HostileMob(String mobName, int mobHp, int mobDamage) {
+        mobHp = stats.getHp();
         stats = new Stats(mobHp, 0, mobDamage);
     }
 
@@ -17,7 +18,7 @@ public class HostileMob {
     }
 
     public int getHp() {
-        return mobHp;
+        return stats.getHp();
     }
 
     public void subtractHp(int amount) {

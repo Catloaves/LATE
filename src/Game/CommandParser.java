@@ -90,7 +90,7 @@ public class CommandParser {
 
             case "use":
                 resultMessage += "Inventory:\nWhat would you like to use?\n\t";
-                for (int i = 0; i <= player.getInventory().size(); i++) {
+                for (int i = 0; i < player.getInventory().size(); i++) {
                     Item item = player.getInventory().get(i);
                     resultMessage += "\t" + (i + 1) + ") " + item.getName() + "\n";
                 }
