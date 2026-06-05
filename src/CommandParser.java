@@ -1,10 +1,11 @@
 import java.util.Map;
+
 import Items.Item;
 import Rooms.Room;
 
 public class CommandParser {
 
-    public String parse(String input, Player player, Map<String, Room> rooms) {
+    public String parse(AdventureGUI gui, String input, Player player, Map<String, Room> rooms) {
         String[] words = input.trim().toLowerCase().split("\\s+");
         if (words.length == 0 || words[0].isEmpty()) {
             return "Please enter a command.";
@@ -71,10 +72,25 @@ public class CommandParser {
                     }
                 }
                 break;
-                
+
             case "use":
-                for (Item item : player.getInventory()) {
-                    resultMessage += "Inventory:\n\tWhat would you like to use?\n\t" + item.getName() + "\n\t";
+                resultMessage += "Inventory:\nWhat would you like to use?\n\t";
+                for (int i = 0; i <= player.getInventory().size(); i++) {
+                    Item item = player.getInventory().get(i);
+                    resultMessage += "\t" + (i + 1) + ") " + item.getName() + "\n";
+                }
+                gui.printText(resultMessage);
+                resultMessage = "";
+                String in = gui.handleInputNoCmdParser();
+
+                try{
+                    int n = Integer.parseInt(in);
+                    if (n > player.getInventory().size())
+                        throw new Exception();
+                    player.getInventory().get(n-1).useItem();
+                }
+                catch(Exception e) {
+                resultMessage = "Please select something from the inventory!";
                 }
                 break;
 

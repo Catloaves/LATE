@@ -7,6 +7,7 @@ public class Game {
     private Map<String, Room> rooms;
     private Player player;
     private CommandParser commandParser;
+    private AdventureGUI gui;
 
     public Game() {
         RoomLoader loader = new RoomLoader();
@@ -33,7 +34,7 @@ public class Game {
     }
 
     public String processCommand(String input) {
-        return commandParser.parse(input, player, rooms);
+        return commandParser.parse(gui, input, player, rooms);
     }
 
     public Player getPlayer() {
@@ -42,5 +43,9 @@ public class Game {
 
     public Room getCurrentRoom() {
         return rooms.get(player.getCurrentRoomId());
+    }
+
+    public void setGUI(AdventureGUI gui){
+        this.gui = gui;
     }
 }
