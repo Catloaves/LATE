@@ -4,12 +4,10 @@ import Game.Stats;
 
 public class HostileMob {
     private String mobName;
-    private int mobHp;
     public boolean isDefeated;
     private Stats stats;
 
     public HostileMob(String mobName, int mobHp, int mobDamage) {
-        mobHp = stats.getHp();
         stats = new Stats(mobHp, 0, mobDamage);
     }
 
@@ -22,18 +20,14 @@ public class HostileMob {
     }
 
     public void subtractHp(int amount) {
-        mobHp -= amount;
-        if (mobHp <= 0) {
-            isDefeated = true;
-        }
+        stats.loseHP(amount);
+        isDefeated = stats.isDead();
     }
 
     public void HpBleedDmg(int turns, int amount) {
         for (int i = 0; i <= turns; i++) {
-            mobHp -= amount;
-            if (mobHp <= 0) {
-                isDefeated = true;
-            }
+            stats.loseHP(amount);
+            isDefeated = stats.isDead();
         }
     }
 
