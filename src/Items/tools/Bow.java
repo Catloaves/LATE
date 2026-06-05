@@ -14,13 +14,13 @@ public class Bow extends Tool {
             System.out.println("You need to input a target!");
             return;
         }
-        // method
+        
         if (Math.random() > 0.475) {
-            target.subtractHp(30); // attack sucessful
+            target.subtractHp(30);
             System.out.println("You've dealt 30 damage!");
             System.out.print(target.getName() + " is now at " + target.getHp() + "!");
         } else {
-            target.subtractHp(0); // attack misses
+            target.subtractHp(0); 
             System.out.println("Oh no! Your shot misses. Better luck next time!");
         }
         if (target.isDefeated) {

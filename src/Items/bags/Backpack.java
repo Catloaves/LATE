@@ -2,7 +2,7 @@ package Items.bags;
 
 import Items.Item;
 
-public class Backpack extends Item { // Inherits from Item
+public class Backpack extends Item {
     private int GCPriceBackpack;
     private int size;
     public String[] packItems;

@@ -14,7 +14,7 @@ public class Sword extends Tool {
             System.out.println("You need to input a target!");
             return;
         }
-        // method
+
         target.subtractHp(25);
         System.out.println("You've dealt 25 damage!");
         System.out.print(target.getName() + " is now at " + target.getHp() + "!");

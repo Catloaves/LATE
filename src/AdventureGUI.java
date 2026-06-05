@@ -30,7 +30,6 @@ public class AdventureGUI {
         outputArea.setLineWrap(true);
         outputArea.setWrapStyleWord(true);
 
-        //COLOURS
         outputArea.setBackground(new Color(77, 32, 40));
         outputArea.setForeground(new Color(230, 194, 124));
         outputArea.setFont(new Font("Monospaced", Font.PLAIN, 16));
@@ -66,7 +65,6 @@ public class AdventureGUI {
             if (input.equalsIgnoreCase("shop")) {
                 shop.openShop(game.getPlayer());
             } else {
-                // Otherwise, pass it to the game engine like normal
                 printText(game.processCommand(input));
             }
 
