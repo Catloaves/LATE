@@ -2,6 +2,7 @@ package Mobs;
 
 import Game.AdventureGUI;
 import Game.Player;
+import Game.Stats;
 
 public class Fights {
     private Player player;
@@ -15,23 +16,27 @@ public class Fights {
         this.gui = gui;
     }
 
-    public void runTurn() {
+    public boolean runTurn() { //returns true or false depending on whether or not the fight is still active
         // gui.printText("A " + mob.getName() + " has appeared!");
 
         if (mob.getHp() <= 0) {
-            return;
+            return false;
         }
 
         int mobAttackDmg = (int) mob.getStats().getStrength();
 
         player.getStats().loseHP(mobAttackDmg);
-        gui.printText("The " + mob.getName() + " attacks! You've lost " + mobAttackDmg + " damage!");
+        gui.printText("The " + mob.getName() + " attacks! You've taken " + mobAttackDmg + " damage!");
 
         if (player.getStats().getHp() <= 0) {
             gui.printText("Uh oh. You died... Back to the start!");
-        } else {
-            gui.printText("Congrats! You've defeated the " + mob.getName() + "!");
+            return false;
         }
+        if (mob.isDefeated && !(player.getStats().isDead())) {
+            gui.printText("Congrats! You've defeated the " + mob.getName() + "!");
+            return false;
+        }
+        return true;
     }
 
     public HostileMob getMob() {

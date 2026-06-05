@@ -39,7 +39,6 @@ public class RoomLoader {
                         items.add(new Item(itemName, itemName, itemDesc));
                     }
                 }
-                rooms.put(key, new Room(key, name, desc, exits, items));
                 Room room = (new Room(key, name, desc, exits, items));
                 if (obj.has("mob")) {
                     JsonObject mobJson = obj.getAsJsonObject("mob");

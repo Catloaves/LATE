@@ -37,6 +37,10 @@ public class Game {
         fightActive = true;
     }
 
+    public void endFight() {
+        fightActive = false;
+    }
+
     public Fights getFights() {
         return fight;
     }
