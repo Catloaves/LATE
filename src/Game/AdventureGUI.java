@@ -1,4 +1,5 @@
 package Game;
+
 import javax.swing.*;
 
 import Mobs.HostileMob;
@@ -22,15 +23,22 @@ public class AdventureGUI {
 
     private void buildGUI() {
         frame = new JFrame("Text Adventure Game");
+        frame.getContentPane().setBackground(new Color(77, 32, 40));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 600);
         frame.setLayout(new BorderLayout());
 
         imageLabel = new JLabel();
         imageLabel.setHorizontalAlignment(JLabel.CENTER);
+        imageLabel.setOpaque(true);
+        imageLabel.setBackground(new Color(77, 32, 40));
+
         frame.add(imageLabel, BorderLayout.NORTH);
 
         outputArea = new JTextArea();
+        outputArea.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(new Color(203, 141, 22), 5),
+                BorderFactory.createEmptyBorder(12, 15, 12, 15)));
         outputArea.setEditable(false);
         outputArea.setLineWrap(true);
         outputArea.setWrapStyleWord(true);
@@ -38,14 +46,27 @@ public class AdventureGUI {
         // COLOURS
         outputArea.setBackground(new Color(77, 32, 40));
         outputArea.setForeground(new Color(230, 194, 124));
-        outputArea.setFont(new Font("Monospaced", Font.PLAIN, 16));
+        outputArea.setFont(new Font("Monospaced", Font.PLAIN, 21));
 
         JScrollPane scrollPane = new JScrollPane(outputArea);
         frame.add(scrollPane, BorderLayout.CENTER);
+        scrollPane.getViewport().setBackground(new Color(77, 32, 40));
+        scrollPane.setBackground(new Color(77, 32, 40));
 
         JPanel inputPanel = new JPanel(new BorderLayout());
+        inputPanel.setBackground(new Color(77, 32, 40));
         inputField = new JTextField();
+        inputField.setFont(new Font("Monospaced", Font.BOLD, 21));
+        inputField.setBackground(new Color(230, 194, 124));
+        inputField.setForeground(new Color(77, 32, 40));
+        inputField.setCaretColor(new Color(77, 32, 40));
+        inputField.setBorder(BorderFactory.createLineBorder(new Color(230, 194, 124)));
         JButton submitButton = new JButton("Submit");
+        submitButton.setFont(new Font("Monospaced", Font.BOLD, 25));
+        submitButton.setBackground(new Color(203, 141, 22));
+        submitButton.setForeground(new Color(230, 194, 124));
+        submitButton.setFocusPainted(false);
+        submitButton.setBorder(BorderFactory.createLineBorder(new Color(230, 194, 124)));
 
         submitButton.addActionListener(e -> handleInput());
         inputField.addActionListener(e -> handleInput());
