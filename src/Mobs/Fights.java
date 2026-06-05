@@ -16,7 +16,7 @@ public class Fights {
     }
 
     public void runTurn() {
-        gui.printText("A " + mob.getName() + " has appeared!");
+        // gui.printText("A " + mob.getName() + " has appeared!");
 
         if (mob.getHp() <= 0) {
             return;

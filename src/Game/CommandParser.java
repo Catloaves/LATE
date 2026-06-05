@@ -34,10 +34,12 @@ public class CommandParser {
                         Room newRoom = rooms.get(player.getCurrentRoomId());
                         resultMessage = "You move " + direction + ".\n\n";
                         gui.printText(resultMessage);
+                        resultMessage = newRoom.getLongDescription();
+                        gui.printText(resultMessage);
+                        resultMessage = "";
                         if (newRoom.getMob() != null && !newRoom.getMob().isDefeated) {
                             game.setFight(new Fights(player, newRoom.getMob(), gui));
                         }
-                        resultMessage = newRoom.getLongDescription();
                     } else {
                         resultMessage = "Sorry. You can't go that way!";
                     }
@@ -86,6 +88,7 @@ public class CommandParser {
 
             case "use":
                 resultMessage += "Inventory:\nWhat would you like to use?\n\t";
+                game.setIsWaiting(true);
                 for (int i = 0; i < player.getInventory().size(); i++) {
                     Item item = player.getInventory().get(i);
                     resultMessage += "\t" + (i + 1) + ") " + item.getName() + "\n";
