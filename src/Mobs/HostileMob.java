@@ -1,41 +1,51 @@
 package Mobs;
+
+import Game.Stats;
+
 public class HostileMob {
     private String mobName;
     private int mobHp;
     public boolean isDefeated;
+    private Stats stats;
 
-    public HostileMob(String mobName, int mobHp) {
-        this.mobName = mobName;
-        this.mobHp = mobHp;
-        this.isDefeated = false;
+    public HostileMob(String mobName, int mobHp, int mobDamage) {
+        stats = new Stats(mobHp, 0, mobDamage);
     }
-    
-    public String getName(){
+
+    public String getName() {
         return mobName;
     }
-    public int getHp(){ 
+
+    public int getHp() {
         return mobHp;
     }
-    public void subtractHp(int amount){
+
+    public void subtractHp(int amount) {
         mobHp -= amount;
-        if (mobHp <= 0){
+        if (mobHp <= 0) {
             isDefeated = true;
         }
     }
-    public void HpBleedDmg(int turns, int amount){
-        // subtracts a certain amount of Hp each turn until it expires or until mob is defeated
-        for (int i = 0; i <= turns; i++){
+
+    public void HpBleedDmg(int turns, int amount) {
+        for (int i = 0; i <= turns; i++) {
             mobHp -= amount;
-            if (mobHp <= 0){
+            if (mobHp <= 0) {
                 isDefeated = true;
-        }
+            }
         }
     }
+
     public void applyBleedTick(int amount) {
         if (!isDefeated) {
             subtractHp(amount);
             System.out.println(mobName + " takes " + amount + " bleeding damage!");
         }
-        
+
     }
+
+    public Stats getStats() {
+        return stats;
     }
+
+}

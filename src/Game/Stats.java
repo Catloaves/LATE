@@ -1,3 +1,4 @@
+package Game;
 public class Stats {
 
     private int hp;
