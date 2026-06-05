@@ -14,7 +14,7 @@ public class Game {
     private AdventureGUI gui;
     private boolean fightActive;
     private Fights fight;
-    private boolean isWaiting;
+    private boolean isWaiting = false;
 
     public Game() {
         RoomLoader loader = new RoomLoader();

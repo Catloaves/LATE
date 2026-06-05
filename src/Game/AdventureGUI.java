@@ -83,9 +83,12 @@ public class AdventureGUI {
 
     public void handleInput() {
         if (game.isFightActive()) {
+            game.setIsWaiting(true);
             game.getFights();
             this.handleInput(game.getFights().getMob());
-            game.getFights().runTurn();
+            if (!(game.getIsWaiting())) {
+                game.getFights().runTurn();
+            }
             return;
         }
         this.handleInput(null);

@@ -92,6 +92,7 @@ public class CommandParser {
                 }
                 gui.printText(resultMessage);
                 resultMessage = "";
+                break;
 
             case "drop":
                 if (words.length < 2) {

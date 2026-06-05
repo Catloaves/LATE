@@ -9,6 +9,7 @@ public class Fights {
     private AdventureGUI gui;
 
     public Fights(Player player, HostileMob mob, AdventureGUI gui) {
+        gui.printText("Think fast! You see a " + mob.getName() + "... Let the fighting begin!");
         this.player = player;
         this.mob = mob;
         this.gui = gui;
@@ -27,9 +28,9 @@ public class Fights {
         gui.printText("The " + mob.getName() + " attacks! You've lost " + mobAttackDmg + " damage!");
 
         if (player.getStats().getHp() <= 0) {
-            gui.printText("You died. GAME OVER.");
+            gui.printText("Uh oh. You died... Back to the start!");
         } else {
-            gui.printText("You defeated your enemy!");
+            gui.printText("Congrats! You've defeated the " + mob.getName() + "!");
         }
     }
 
