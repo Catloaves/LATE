@@ -1,21 +1,19 @@
 import java.util.ArrayList;
 import java.util.List;
-
 import Items.Item;
 
 public class Player {
     private String currentRoomId;
-    public static List<Item> inventory;
+    private List<Item> inventory;
     private String username;
 
     private String they;
     private String them;
     private String theirs;
 
-    private Stats stats;
+    private Stats stats; 
 
-    public boolean isVisible; // disabled with the invis potion - NPCs cannot see you/will not voluntarily
-                              // interact with you
+    public boolean isVisible;
 
     private int gold;
 
@@ -34,7 +32,6 @@ public class Player {
         System.out.println(username + "'s Status:");
         System.out.println("HP: " + stats.getHp() + "/" + stats.getMaxHp());
         System.out.println("Hunger: " + stats.getHunger() + "/" + stats.getMaxHunger());
-        // We won't need to code hunger if we make food heal HP. - Leo
         System.out.println("Strength: " + stats.getStrength());
         System.out.println("Gold: " + gold);
     }

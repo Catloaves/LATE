@@ -21,4 +21,8 @@ public class Pouch extends Item {
     public int getGCPricePouch() {
         return GCPricePouch;
     }
+
+    public String[] getPouchItems() {
+        return pouchItems;
+    }
 }

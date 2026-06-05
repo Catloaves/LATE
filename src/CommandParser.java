@@ -37,7 +37,7 @@ public class CommandParser {
                 Room currentRoom = rooms.get(player.getCurrentRoomId());
                 resultMessage = currentRoom.getLongDescription();
                 break;
-            //
+            
             case "inventory":
                 if (player.getInventory().isEmpty()) {
                     resultMessage = "Looks like your inventory is empty!";

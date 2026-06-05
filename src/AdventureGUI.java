@@ -66,7 +66,6 @@ public class AdventureGUI {
             if (input.equalsIgnoreCase("shop")) {
                 shop.openShop(game.getPlayer());
             } else {
-                // Otherwise, pass it to the game engine like normal
                 printText(game.processCommand(input));
             }
 

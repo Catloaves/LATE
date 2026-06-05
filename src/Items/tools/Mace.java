@@ -14,9 +14,8 @@ public class Mace extends Tool {
             System.out.println("You need to input a target!");
             return;
         }
-        // method
         if ((Math.random()) < 0.3) {
-            target.subtractHp(24); // crit hit, double the dmg
+            target.subtractHp(24);
             System.out.println("Critical hit! You've dealt 24 damage!");
             System.out.print(target.getName() + " is now at " + target.getHp() + "!");
         } else {

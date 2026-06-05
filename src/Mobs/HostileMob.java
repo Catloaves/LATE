@@ -1,5 +1,4 @@
 package Mobs;
-
 public class HostileMob {
     private String mobName;
     private int mobHp;
@@ -11,22 +10,15 @@ public class HostileMob {
         this.isDefeated = false;
     }
     
-    public String getName() {
+    public String getName(){
         return mobName;
     }
-
-    public int getHp() { 
+    public int getHp(){ 
         return mobHp;
     }
-
-    public boolean isDefeated() {
-        return isDefeated;
-    }
-
-    public void subtractHp(int amount) {
+    public void subtractHp(int amount){
         mobHp -= amount;
-        if (mobHp <= 0) {
-            mobHp = 0;
+        if (mobHp <= 0){
             isDefeated = true;
         }
     }
@@ -46,4 +38,4 @@ public class HostileMob {
         }
         
     }
-}
+    }

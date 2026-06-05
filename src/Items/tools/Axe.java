@@ -14,7 +14,6 @@ public class Axe extends Tool {
             System.out.println("You need to input a target!");
             return;
         }
-        //method
         target.subtractHp(10);
         target.HpBleedDmg(5, 5);
         System.out.println("You've dealt 10 damage with 5 bleed damage!");

@@ -1,7 +1,7 @@
 package Items;
 
 import Mobs.HostileMob;
-//overall tool class
+
 public class Tool extends Item{
 
     public Tool(String id, String name, String description) {
