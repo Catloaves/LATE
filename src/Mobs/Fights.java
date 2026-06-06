@@ -3,7 +3,6 @@ package Mobs;
 import Game.Game;
 import Game.AdventureGUI;
 import Game.Player;
-import Game.Stats;
 
 public class Fights {
     private Player player;
@@ -11,11 +10,12 @@ public class Fights {
     private AdventureGUI gui;
     private Game game;
 
-    public Fights(Player player, HostileMob mob, AdventureGUI gui) {
+    public Fights(Player player, HostileMob mob, AdventureGUI gui, Game game) {
         gui.printText("Think fast! You see a " + mob.getName() + "... Let the fighting begin!");
         this.player = player;
         this.mob = mob;
         this.gui = gui;
+        this.game = game;
     }
 
     public boolean runTurn() { //returns true or false depending on whether or not the fight is still active

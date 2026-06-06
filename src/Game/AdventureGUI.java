@@ -6,6 +6,8 @@ import Mobs.HostileMob;
 
 import java.awt.*;
 
+import javax.swing.plaf.basic.BasicScrollBarUI;
+
 public class AdventureGUI {
     private JFrame frame;
     private JTextArea outputArea;
@@ -49,7 +51,35 @@ public class AdventureGUI {
         outputArea.setFont(new Font("Monospaced", Font.PLAIN, 21));
 
         JScrollPane scrollPane = new JScrollPane(outputArea);
+
+        JScrollBar verticalBar = scrollPane.getVerticalScrollBar();
+
+        verticalBar.setUI(new BasicScrollBarUI() {
+            @Override
+            protected void configureScrollBarColors() {
+                this.thumbColor = new Color(203, 141, 22);
+                this.trackColor = new Color(77, 32, 40);
+            }
+
+            @Override
+            protected JButton createDecreaseButton(int orientation) {
+                return createZeroButton();
+            }
+
+            @Override
+            protected JButton createIncreaseButton(int orientation) {
+                return createZeroButton();
+            }
+
+            private JButton createZeroButton() {
+                JButton button = new JButton();
+                button.setPreferredSize(new Dimension(0, 0));
+                return button;
+            }
+        });
+
         frame.add(scrollPane, BorderLayout.CENTER);
+
         scrollPane.getViewport().setBackground(new Color(77, 32, 40));
         scrollPane.setBackground(new Color(77, 32, 40));
 

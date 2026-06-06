@@ -4,6 +4,22 @@
     "name": "ℂ𝔸𝕊𝕋𝕃𝔼 𝔾𝔸𝕋𝔼\n",
     "description": "You stand outside the towering iron gates of the dark castle. Rain pours down as you look up at the ancient stone walls. Your family back home is dying of a mysterious plague, and the only cure lies deep within the King's hidden vault. The gate is cracked open slightly.",
     "exits": {
+      "north": "wooded path"
+    },
+    "items": [
+      {
+        "id": "knife",
+        "name": "knife",
+        "description": "A moderately sharp utility knife. Multipurpose! That includes dealing a decent bit of damage..."
+      }
+    ]
+  },
+    "wooded path": {
+    "id": "wooded_path",
+    "name": "𝕎𝕆𝕆𝔻𝔼𝔻 ℙ𝔸𝕋ℍ\n",
+    "description": "You slip inside. Rows of empty bunk beds line the walls. The castle guards must be out on patrol! On a wooden table in the center, a guard carelessly left behind a flickering torch.",
+    "exits": {
+      "south": "home",
       "north": "barracks"
     },
     "items": []
@@ -13,7 +29,7 @@
     "name": "𝔾𝕌𝔸ℝ𝔻 𝔹𝔸ℝℝ𝔸ℂ𝕂𝕊\n",
     "description": "You slip inside. Rows of empty bunk beds line the walls. The castle guards must be out on patrol! On a wooden table in the center, a guard carelessly left behind a flickering torch.",
     "exits": {
-      "south": "home",
+      "south": "wooded path",
       "north": "courtyard"
     },
     "items": [
@@ -90,9 +106,9 @@
     },
     "items": [
       {
-        "id": "cure",
-        "name": "cure",
-        "description": "The magical medicine to heal your family's sickness."
+        "id": "cure_recipe",
+        "name": "mysterious scroll",
+        "description": "A small, weathered scroll containing mysterious, ink-corroded letters on it... it seems to be written in a quick and keen script and contains lines of seemingly illegible text."
       }
     ]
   }

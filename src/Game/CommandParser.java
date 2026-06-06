@@ -38,7 +38,7 @@ public class CommandParser {
                         gui.printText(resultMessage);
                         resultMessage = "";
                         if (newRoom.getMob() != null && !newRoom.getMob().isDefeated) {
-                            game.setFight(new Fights(player, newRoom.getMob(), gui));
+                            game.setFight(new Fights(player, newRoom.getMob(), gui, game));
                         }
                     } else {
                         resultMessage = "Sorry. You can't go that way!";
