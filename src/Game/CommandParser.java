@@ -69,17 +69,23 @@ public class CommandParser {
                     String itemName = words[1];
                     Room room = rooms.get(player.getCurrentRoomId());
                     Item itemToTake = null;
-
+                    
                     for (Item item : room.getItems()) {
                         if (item.getName().equalsIgnoreCase(itemName)) {
                             itemToTake = item;
                             break;
                         }
                     }
+
                     if (itemToTake != null) {
                         room.removeItem(itemToTake);
                         player.addItem(itemToTake);
                         resultMessage = "You take the " + itemToTake.getName() + ".";
+
+                        if (itemToTake.getName().equalsIgnoreCase("cure")) {
+                            HostileMob guardian = new HostileMob("Guardian", 40, 10);
+                            game.setFight(new Fights(player, guardian, gui, game));
+                        }
                     } else {
                         resultMessage = "Alas.. There is no " + itemName + " here!";
                     }

@@ -55,6 +55,10 @@ public class Game {
 
     public void start() {
         System.out.println("Game engine initialized successfully.");
+        gui.printText("Your family has fallen gravely ill with a mysterious sickness. " +
+                "Your only hope is to reach the King's Castle and find the legendary cure " +
+                "capable of healing any disease in the world.\n\n" +
+                "After a long journey, you arrive at your destination...\n");
     }
 
     public String getCurrentRoomDescription() {
@@ -84,8 +88,8 @@ public class Game {
     public void setGUI(AdventureGUI gui) {
         this.gui = gui;
     }
-    
-    public void revivePlayer(){
+
+    public void revivePlayer() {
         player.getStats().setHp(player.getStats().maxHp);
         player.setCurrentRoomId("home");
     }

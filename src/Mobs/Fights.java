@@ -18,15 +18,19 @@ public class Fights {
         this.game = game;
     }
 
-    public boolean runTurn() { //returns true or false depending on whether or not the fight is still active
-        // gui.printText("A " + mob.getName() + " has appeared!");
-
-        if (mob.getHp() <= 0) {
+    public boolean runTurn() {
+        if (mob.getHp() <= 0 && !(player.getStats().isDead())) {
+            gui.printText("Congrats! You've defeated the " + mob.getName() + "!");
+            
+            if (mob.getName().equalsIgnoreCase("Guardian")) {
+                gui.printText("\nYou found the cure! With the medicine safely secured in your hands, " +
+                             "you can finally return home to save your family.");
+                game.endFight();
+            }
             return false;
         }
 
         int mobAttackDmg = (int) mob.getStats().getStrength();
-
         player.getStats().loseHP(mobAttackDmg);
         gui.printText("The " + mob.getName() + " attacks! You've taken " + mobAttackDmg + " damage!");
 
@@ -35,10 +39,7 @@ public class Fights {
             game.revivePlayer();
             return false;
         }
-        if (mob.isDefeated && !(player.getStats().isDead())) {
-            gui.printText("Congrats! You've defeated the " + mob.getName() + "!");
-            return false;
-        }
+
         return true;
     }
 
