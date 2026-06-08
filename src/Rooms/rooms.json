@@ -1,9 +1,10 @@
 {
   "home": {
     "id": "home",
-    "name": "ℂ𝔸𝕊𝕋𝕃𝔼 𝔾𝔸𝕋𝔼\n",
-    "description": "You stand outside the towering iron gates of the dark castle. Rain pours down as you look up at the ancient stone walls. Your family back home is dying of a mysterious plague, and the only cure lies deep within the King's hidden vault. The gate is cracked open slightly.",
+    "name": "ℍ𝕆𝕄𝔼 𝕊𝕎𝔼𝔼𝕋 ℍ𝕆𝕄𝔼\n",
+    "description": "You stand in a warm sunny patch facing the front of your kitchen. You're certainly not wealthy for a peasant, but you're relatively well off. There is one thing nagging at you though - you remember the declining health of your alligator since he was brought home a day ago.",
     "exits": {
+      "south": "alligator room",
       "north": "wooded path"
     },
     "items": [
@@ -14,12 +15,37 @@
       }
     ]
   },
-    "wooded path": {
+  "alligator room": {
+    "id": "alligator_room",
+    "name": "𝕋ℍ𝔼 𝔸𝕃𝕃𝕀𝔾𝔸𝕋𝕆ℝ'𝕊 ℝ𝕆𝕆𝕄\n",
+    "description": "There you see lies your poor friend the alligator. Clobbered down and looking half the size he used to be, he does not seem to be doing well.",
+    "exits": {
+      "north": "home"
+    },
+    "items": [
+      {
+        "id": "letter",
+        "name": "letter",
+        "description": "\t𝕽𝖎𝖌𝖍𝖙 𝖉𝖊𝖆𝖗 𝖋𝖗𝖎𝖊𝖓𝖉,\n\t𝖎𝖋 𝖞𝖔𝖚 𝖜𝖎𝖘𝖍 𝖙𝖔 𝖗𝖊𝖛𝖎𝖛𝖊 𝖞𝖔𝖚𝖗 𝖆𝖑𝖑𝖎𝖌𝖆𝖙𝖔𝖗 𝖞𝖔𝖚 𝖒𝖚𝖘𝖙 𝖆𝖈𝖙 𝖜𝖎𝖙𝖍 𝖍𝖆𝖘𝖙𝖊! 𝕿𝖍𝖊 𝖐𝖎𝖓𝖌 𝖍𝖎𝖒𝖘𝖊𝖑𝖋 𝖎𝖘 𝖆 𝖉𝖆𝖘𝖙𝖆𝖗𝖉𝖑𝖞 𝖘𝖎𝖗𝖊 (𝖋𝖊𝖆𝖗 𝖓𝖔𝖙; 𝖓𝖔𝖓𝖊 𝖘𝖍𝖆𝖑𝖑 𝖘𝖊𝖊 𝖙𝖍𝖎𝖘 𝖑𝖊𝖙𝖙𝖊𝖗 𝖇𝖚𝖙 𝖙𝖍𝖔𝖚) 𝖆𝖓𝖉, 𝖑𝖎𝖐𝖊 𝖆 𝖈𝖚𝖓𝖓𝖎𝖓𝖌 𝖘𝖓𝖆𝖐𝖊, 𝖉𝖔𝖊𝖘 𝖍𝖎𝖉𝖊 𝖙𝖍𝖊 𝖒𝖊𝖉𝖎𝖈𝖆𝖑 𝖎𝖓𝖌𝖗𝖊𝖉𝖎𝖊𝖓𝖙𝖘 𝖙𝖔 𝖞𝖔𝖚𝖗 𝖉𝖊𝖘𝖎𝖗𝖊𝖉 𝖈𝖚𝖗𝖊. 𝕺, 𝖙𝖔 𝖇𝖊 𝖆 𝖑𝖔𝖜𝖑𝖞 𝖕𝖊𝖆𝖘𝖆𝖓𝖙 𝖎𝖓 𝖔𝖚𝖗 𝖙𝖎𝖒𝖊... 𝖙𝖗𝖊𝖆𝖙𝖊𝖉 𝖑𝖎𝖐𝖊 𝖓𝖔𝖙𝖍𝖎𝖓𝖌 𝖇𝖚𝖙 - 𝖇𝖚𝖙 𝖈𝖗𝖔𝖈𝖔𝖉𝖎𝖑𝖊𝖘 𝖎𝖓 𝖍𝖎𝖘 𝖋𝖎𝖑𝖙𝖍𝖞 𝖒𝖔𝖆𝖙! 𝕾𝖔 𝕴 𝖕𝖑𝖊𝖆𝖉 𝖞𝖔𝖚 𝖌𝖔𝖔𝖉 𝖋𝖊𝖑𝖑𝖔𝖜; 𝖞𝖔𝖚𝖗 𝖆𝖑𝖑𝖎𝖌𝖆𝖙𝖔𝖗 𝖍𝖆𝖘 𝖗𝖊𝖜𝖆𝖗𝖉𝖊𝖉 𝖚𝖘 𝖌𝖗𝖊𝖆𝖙𝖑𝖞 𝖎𝖓 𝖇𝖆𝖙𝖙𝖑𝖊.. 𝖑𝖊𝖙 𝖓𝖔𝖙 𝖍𝖎𝖒 𝖋𝖆𝖑𝖑 𝖙𝖔 𝖙𝖍𝖊 𝖈𝖔𝖗𝖗𝖚𝖕𝖙𝖎𝖔𝖓 𝖔𝖋 𝖔𝖚𝖗 𝖘𝖙𝖆𝖙𝖊. 𝕲𝖊𝖙 𝖞𝖔𝖚𝖗𝖘𝖊𝖑𝖋 𝖌𝖔𝖎𝖓𝖌, 𝖆𝖓𝖉 𝖌𝖔𝖔𝖉 𝖑𝖚𝖈𝖐 𝖚𝖓𝖙𝖔 𝖞𝖔𝖚!\n\t𝖄𝖔𝖚𝖗 𝖌𝖔𝖔𝖉 𝖋𝖗𝖎𝖊𝖓𝖉."
+      }
+    ]
+  },
+  "wooded path": {
     "id": "wooded_path",
     "name": "𝕎𝕆𝕆𝔻𝔼𝔻 ℙ𝔸𝕋ℍ\n",
     "description": "You slip inside. Rows of empty bunk beds line the walls. The castle guards must be out on patrol! On a wooden table in the center, a guard carelessly left behind a flickering torch.",
     "exits": {
       "south": "home",
+      "north": "barracks"
+    },
+    "items": []
+  },
+  "main road": {
+    "id": "main_path_1",
+    "name": "𝕎𝕆𝕆𝔻𝔼𝔻 ℙ𝔸𝕋ℍ\n",
+    "description": "You slip inside. Rows of empty bunk beds line the walls. The castle guards must be out on patrol! On a wooden table in the center, a guard carelessly left behind a flickering torch.",
+    "exits": {
+      "south": "wooded path",
       "north": "barracks"
     },
     "items": []

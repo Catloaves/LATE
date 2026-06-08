@@ -48,7 +48,7 @@ public class AdventureGUI {
         // COLOURS
         outputArea.setBackground(new Color(77, 32, 40));
         outputArea.setForeground(new Color(230, 194, 124));
-        outputArea.setFont(new Font("Monospaced", Font.PLAIN, 21));
+        outputArea.setFont(new Font("Cambria", Font.PLAIN, 21));
 
         JScrollPane scrollPane = new JScrollPane(outputArea);
 
@@ -86,13 +86,14 @@ public class AdventureGUI {
         JPanel inputPanel = new JPanel(new BorderLayout());
         inputPanel.setBackground(new Color(77, 32, 40));
         inputField = new JTextField();
-        inputField.setFont(new Font("Monospaced", Font.BOLD, 21));
+        inputField.setFont(new Font("Cambria", Font.BOLD, 21));
         inputField.setBackground(new Color(230, 194, 124));
         inputField.setForeground(new Color(77, 32, 40));
         inputField.setCaretColor(new Color(77, 32, 40));
         inputField.setBorder(BorderFactory.createLineBorder(new Color(230, 194, 124)));
         JButton submitButton = new JButton("Submit");
-        submitButton.setFont(new Font("Monospaced", Font.BOLD, 25));
+        submitButton.setPreferredSize(new Dimension(110, 35));
+        submitButton.setFont(new Font("Cambria", Font.BOLD, 25));
         submitButton.setBackground(new Color(203, 141, 22));
         submitButton.setForeground(new Color(230, 194, 124));
         submitButton.setFocusPainted(false);
