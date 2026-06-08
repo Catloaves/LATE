@@ -9,7 +9,8 @@ import Rooms.Room;
 
 public class CommandParser {
 
-    public String parse(AdventureGUI gui, String input, Player player, Map<String, Room> rooms, HostileMob target, Game game) {
+    public String parse(AdventureGUI gui, String input, Player player, Map<String, Room> rooms, HostileMob target,
+            Game game) {
         String[] words = input.trim().toLowerCase().split("\\s+");
         if (words.length == 0 || words[0].isEmpty()) {
             return "Please enter a command.";
@@ -40,15 +41,22 @@ public class CommandParser {
                     String direction = words[1];
                     Room currentRoom = rooms.get(player.getCurrentRoomId());
                     String nextRoomId = currentRoom.getExits().get(direction);
+
                     if (nextRoomId != null) {
-                        player.setCurrentRoomId(nextRoomId);
-                        Room newRoom = rooms.get(player.getCurrentRoomId());
-                        gui.printText("You move " + direction + ".");
-                        resultMessage = newRoom.getLongDescription();
-                        if (newRoom.getMob() != null && !newRoom.getMob().isDefeated) {
-                            Fights fight = new Fights(player, newRoom.getMob(), gui, game);
-                            game.setFight(fight);
-                            fight.startCombatMessage();
+                        Room nextRoom = rooms.get(nextRoomId);
+                        if (nextRoom.isLocked() && !player.hasItem("key")) {
+                            resultMessage = "The door is locked. You need a key.";
+                        } else if (nextRoom.isDark() && !player.hasItem("torch")) {
+                            resultMessage = "It's too dark to enter! You need a light source.";
+                        } else {
+                            player.setCurrentRoomId(nextRoomId);
+                            gui.printText("You move " + direction + ".");
+                            resultMessage = nextRoom.getLongDescription();
+                            if (nextRoom.getMob() != null && !nextRoom.getMob().isDefeated) {
+                                Fights fight = new Fights(player, nextRoom.getMob(), gui, game);
+                                game.setFight(fight);
+                                fight.startCombatMessage();
+                            }
                         }
                     } else {
                         resultMessage = "Sorry. You can't go that way!";

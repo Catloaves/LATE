@@ -23,6 +23,11 @@ public class Game {
             rooms = loader.loadRooms("Rooms/rooms.json");
         }
 
+        if (rooms != null) {
+            if (rooms.containsKey("dungeon")) rooms.get("dungeon").setDark(true);
+            if (rooms.containsKey("vault")) rooms.get("vault").setLocked(true);
+        }
+
         player = new Player(); 
         commandParser = new CommandParser();
     }
@@ -38,6 +43,11 @@ public class Game {
 
     public void endFight() {
         fightActive = false;
+    }
+
+    public void endGame() {
+        gui.printText("\n--- THANK YOU FOR PLAYING! ---");
+        System.exit(0);
     }
 
     public Fights getFights() {
@@ -102,8 +112,4 @@ public class Game {
         }
         player.setCurrentRoomId("home");
     }
-
-    // public String saveGame(){
-
-    // }
 }

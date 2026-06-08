@@ -26,7 +26,7 @@ public class Fights {
     }
 
     public boolean runTurn() {
-        int playerDamage = (int) player.getStats().getStrength();
+        int playerDamage = (int) (Math.random() * 5) + 5;
 
         if (player.hasItem("sword")) {
             playerDamage += 15;
@@ -38,14 +38,19 @@ public class Fights {
             gui.printText("You punch the " + mob.getName() + " with your bare fists!");
         }
 
+        if (Math.random() < 0.2) {
+            playerDamage *= 2;
+            gui.printText("CRITICAL HIT!");
+        }
+
         mob.subtractHp(playerDamage); 
         gui.printText("You dealt " + playerDamage + " damage! (" + mob.getName() + " HP: " + Math.max(0, mob.getHp()) + ")");
 
         if (mob.getHp() <= 0) {
             gui.printText("Congrats! You've defeated the " + mob.getName() + "!");
             if (mob.getName().equalsIgnoreCase("Guardian")) {
-                gui.printText("\nYou found the cure! With the medicine safely secured in your hands, " +
-                              "you can finally return home to save your family.");
+                gui.printText("\nYou found the cure! You return home and save your family. YOU WIN!");
+                game.endGame(); 
             }
             game.endFight();
             return false;
