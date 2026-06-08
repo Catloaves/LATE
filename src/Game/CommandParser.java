@@ -47,14 +47,18 @@ public class CommandParser {
                         } else {
                             player.setCurrentRoomId(nextRoomId);
                             gui.printText("You move " + direction + ".");
-                            resultMessage = nextRoom.getLongDescription() + "\nExits: " + nextRoom.getExitsString()
+
+                            String roomInfo = nextRoom.getLongDescription() + "\nExits: " + nextRoom.getExitsString()
                                     + ".";
 
                             if (nextRoom.getMob() != null && !nextRoom.getMob().isDefeated) {
                                 Fights fight = new Fights(player, nextRoom.getMob(), gui, game);
                                 game.setFight(fight);
+                                gui.printText(roomInfo);
                                 fight.startCombatMessage();
+                                return "";
                             }
+                            resultMessage = roomInfo;
                         }
                     } else {
                         resultMessage = "Sorry. You can't go that way!";
