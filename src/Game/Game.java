@@ -13,7 +13,6 @@ public class Game {
     private AdventureGUI gui;
     private boolean fightActive;
     private Fights fight;
-    private boolean isWaiting = false;
 
     public Game() {
         RoomLoader loader = new RoomLoader();
@@ -24,11 +23,13 @@ public class Game {
         }
 
         if (rooms != null) {
-            if (rooms.containsKey("dungeon")) rooms.get("dungeon").setDark(true);
-            if (rooms.containsKey("vault")) rooms.get("vault").setLocked(true);
+            if (rooms.containsKey("dungeon"))
+                rooms.get("dungeon").setDark(true);
+            if (rooms.containsKey("vault"))
+                rooms.get("vault").setLocked(true);
         }
 
-        player = new Player(); 
+        player = new Player();
         commandParser = new CommandParser();
     }
 
@@ -54,14 +55,6 @@ public class Game {
         return fight;
     }
 
-    public boolean getIsWaiting() {
-        return isWaiting;
-    }
-
-    public void setIsWaiting(boolean isWaiting) {
-        this.isWaiting = isWaiting;
-    }
-
     public void start() {
         System.out.println("Game engine initialized successfully.");
         if (gui != null) {
@@ -69,7 +62,9 @@ public class Game {
                     "Your only hope is to reach the King's Castle and find the legendary cure " +
                     "capable of healing any disease in the world.\n\n" +
                     "After a long journey, you arrive at your destination...\n");
-            gui.printText(getCurrentRoomDescription());
+
+            Room currentRoom = rooms.get(player.getCurrentRoomId());
+            gui.printText(currentRoom.getLongDescription() + "\nExits: " + currentRoom.getExitsString() + ".");
         }
     }
 
@@ -84,10 +79,6 @@ public class Game {
     }
 
     public String processCommand(String input, HostileMob target) {
-        if (isWaiting) {
-            isWaiting = false;
-            return commandParser.selectItem(player, target, input);
-        }
         return commandParser.parse(gui, input, player, rooms, target, this);
     }
 

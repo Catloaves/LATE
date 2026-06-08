@@ -21,6 +21,13 @@ public class Room {
         this.isDark = false;
     }
 
+    public String getExitsString() {
+        if (exits == null || exits.isEmpty()) {
+            return "none";
+        }
+        return String.join(", ", exits.keySet());
+    }
+
     public boolean isLocked() {
         return isLocked;
     }
