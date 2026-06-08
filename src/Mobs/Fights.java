@@ -1,7 +1,7 @@
 package Mobs;
 
-import Game.Game;
 import Game.AdventureGUI;
+import Game.Game;
 import Game.Player;
 
 public class Fights {
@@ -11,11 +11,18 @@ public class Fights {
     private Game game;
 
     public Fights(Player player, HostileMob mob, AdventureGUI gui, Game game) {
-        gui.printText("Think fast! You see a " + mob.getName() + "... Let the fighting begin!");
         this.player = player;
         this.mob = mob;
         this.gui = gui;
         this.game = game;
+    }
+
+    public HostileMob getMob() {
+        return this.mob;
+    }
+
+    public void startCombatMessage() {
+        gui.printText("Think fast! You see a " + mob.getName() + "... Let the fighting begin!");
     }
 
     public boolean runTurn() {
@@ -31,21 +38,20 @@ public class Fights {
             gui.printText("You punch the " + mob.getName() + " with your bare fists!");
         }
 
-        mob.subtractHp(playerDamage);
-        gui.printText(
-                "You dealt " + playerDamage + " damage! (" + mob.getName() + " HP: " + Math.max(0, mob.getHp()) + ")");
+        mob.subtractHp(playerDamage); 
+        gui.printText("You dealt " + playerDamage + " damage! (" + mob.getName() + " HP: " + Math.max(0, mob.getHp()) + ")");
 
         if (mob.getHp() <= 0) {
             gui.printText("Congrats! You've defeated the " + mob.getName() + "!");
             if (mob.getName().equalsIgnoreCase("Guardian")) {
                 gui.printText("\nYou found the cure! With the medicine safely secured in your hands, " +
-                        "you can finally return home to save your family.");
+                              "you can finally return home to save your family.");
             }
             game.endFight();
             return false;
         }
 
-        int mobAttackDmg = mob.getDamage();
+        int mobAttackDmg = mob.getDamage(); 
         player.getStats().loseHP(mobAttackDmg);
         gui.printText("The " + mob.getName() + " attacks back! You've taken " + mobAttackDmg + " damage!");
 
@@ -56,9 +62,5 @@ public class Fights {
         }
 
         return true;
-    }
-
-    public HostileMob getMob() {
-        return mob;
     }
 }

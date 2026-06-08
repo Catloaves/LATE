@@ -108,10 +108,7 @@ public class AdventureGUI {
         if (game.isFightActive() && game.getFights() != null) {
             target = game.getFights().getMob();
         }
-        this.handleInput(target);
-    }
-
-    public void handleInput(HostileMob target) {
+        
         String input = inputField.getText().trim();
         inputField.setText("");
 

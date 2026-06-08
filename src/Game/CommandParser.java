@@ -46,7 +46,9 @@ public class CommandParser {
                         gui.printText("You move " + direction + ".");
                         resultMessage = newRoom.getLongDescription();
                         if (newRoom.getMob() != null && !newRoom.getMob().isDefeated) {
-                            game.setFight(new Fights(player, newRoom.getMob(), gui, game));
+                            Fights fight = new Fights(player, newRoom.getMob(), gui, game);
+                            game.setFight(fight);
+                            fight.startCombatMessage();
                         }
                     } else {
                         resultMessage = "Sorry. You can't go that way!";
@@ -95,7 +97,9 @@ public class CommandParser {
                         player.addItem(itemToTake);
                         resultMessage = "You take the " + itemToTake.getName() + ".";
                         if (itemToTake.getName().equalsIgnoreCase("cure")) {
-                            game.setFight(new Fights(player, new HostileMob("Guardian", 40, 10), gui, game));
+                            Fights fight = new Fights(player, new HostileMob("Guardian", 40, 10), gui, game);
+                            game.setFight(fight);
+                            fight.startCombatMessage();
                         }
                     } else {
                         resultMessage = "Alas.. There is no " + itemName + " here!";
