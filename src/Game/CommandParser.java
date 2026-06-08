@@ -69,7 +69,7 @@ public class CommandParser {
                     String itemName = words[1];
                     Room room = rooms.get(player.getCurrentRoomId());
                     Item itemToTake = null;
-                    
+
                     for (Item item : room.getItems()) {
                         if (item.getName().equalsIgnoreCase(itemName)) {
                             itemToTake = item;
@@ -127,7 +127,17 @@ public class CommandParser {
                 break;
 
             case "help":
-                resultMessage = "Available commands:\ngo [direction], look, take [item], drop [item], inventory, help";
+                resultMessage = "Available commands:\ngo [direction], look, take [item], drop [item], inventory, shop, help";
+                break;
+
+            case "shop":
+                if (player.getCurrentRoomId().equalsIgnoreCase("courtyard")) {
+                    Shop gameShop = new Shop();
+                    gameShop.openShop(player);
+                    resultMessage = "You finished browsing the shop.";
+                } else {
+                    resultMessage = "There is no shop here! Try looking around the Castle Courtyard.";
+                }
                 break;
 
             default:
