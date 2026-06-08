@@ -1,7 +1,6 @@
 package Game;
 
 import java.util.Map;
-
 import Mobs.HostileMob;
 import Rooms.Room;
 import Rooms.RoomLoader;
@@ -24,7 +23,7 @@ public class Game {
             rooms = loader.loadRooms("Rooms/rooms.json");
         }
 
-        player = new Player("home", null, null, null, null);
+        player = new Player(); 
         commandParser = new CommandParser();
     }
 
@@ -55,12 +54,21 @@ public class Game {
 
     public void start() {
         System.out.println("Game engine initialized successfully.");
+        if (gui != null) {
+            gui.printText("Your family has fallen gravely ill with a mysterious sickness. " +
+                    "Your only hope is to reach the King's Castle and find the legendary cure " +
+                    "capable of healing any disease in the world.\n\n" +
+                    "After a long journey, you arrive at your destination...\n");
+            gui.printText(getCurrentRoomDescription());
+        }
     }
 
     public String getCurrentRoomDescription() {
-        Room currentRoom = rooms.get(player.getCurrentRoomId());
-        if (currentRoom != null) {
-            return currentRoom.getLongDescription();
+        if (player != null && rooms != null) {
+            Room currentRoom = rooms.get(player.getCurrentRoomId());
+            if (currentRoom != null) {
+                return currentRoom.getLongDescription();
+            }
         }
         return "You are in an unknown empty space.";
     }
@@ -84,9 +92,14 @@ public class Game {
     public void setGUI(AdventureGUI gui) {
         this.gui = gui;
     }
-    
-    public void revivePlayer(){
-        player.getStats().setHp(player.getStats().maxHp);
+
+    public void revivePlayer() {
+        fightActive = false;
+        fight = null;
+
+        if (player != null && player.getStats() != null) {
+            player.getStats().setHp(player.getStats().getMaxHp());
+        }
         player.setCurrentRoomId("home");
     }
 

@@ -33,7 +33,7 @@
   "wooded path": {
     "id": "wooded_path",
     "name": "𝕎𝕆𝕆𝔻𝔼𝔻 ℙ𝔸𝕋ℍ\n",
-    "description": "You slip inside. Rows of empty bunk beds line the walls. The castle guards must be out on patrol! On a wooden table in the center, a guard carelessly left behind a flickering torch.",
+    "description": "You follow a muddy trail through the thick trees surrounding the stone walls, slipping quietly past the outer perimeter.",
     "exits": {
       "south": "home",
       "north": "barracks"
@@ -132,9 +132,9 @@
     },
     "items": [
       {
-        "id": "cure_recipe",
-        "name": "mysterious scroll",
-        "description": "A small, weathered scroll containing mysterious, ink-corroded letters on it... it seems to be written in a quick and keen script and contains lines of seemingly illegible text."
+        "id": "cure",
+        "name": "cure",
+        "description": "A glowing blue elixir contained in a crystal vial. It can cure any sickness in the world."
       }
     ]
   }

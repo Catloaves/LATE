@@ -19,11 +19,11 @@ public class Item {
         return name;
     }
 
-    public String getDescription() {
-        return description;
+    public void useItem() {
+        return;
     }
 
-    public void useItem(){
-        return;
+    public String getDescription() {
+        return this.description;
     }
 }

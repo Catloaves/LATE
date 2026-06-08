@@ -18,27 +18,43 @@ public class Fights {
         this.game = game;
     }
 
-    public boolean runTurn() { //returns true or false depending on whether or not the fight is still active
-        // gui.printText("A " + mob.getName() + " has appeared!");
+    public boolean runTurn() {
+        int playerDamage = (int) player.getStats().getStrength();
+
+        if (player.hasItem("sword")) {
+            playerDamage += 15;
+            gui.printText("You slash the " + mob.getName() + " with your steel sword!");
+        } else if (player.hasItem("knife")) {
+            playerDamage += 5;
+            gui.printText("You stab the " + mob.getName() + " with your utility knife!");
+        } else {
+            gui.printText("You punch the " + mob.getName() + " with your bare fists!");
+        }
+
+        mob.subtractHp(playerDamage);
+        gui.printText(
+                "You dealt " + playerDamage + " damage! (" + mob.getName() + " HP: " + Math.max(0, mob.getHp()) + ")");
 
         if (mob.getHp() <= 0) {
+            gui.printText("Congrats! You've defeated the " + mob.getName() + "!");
+            if (mob.getName().equalsIgnoreCase("Guardian")) {
+                gui.printText("\nYou found the cure! With the medicine safely secured in your hands, " +
+                        "you can finally return home to save your family.");
+            }
+            game.endFight();
             return false;
         }
 
-        int mobAttackDmg = (int) mob.getStats().getStrength();
-
+        int mobAttackDmg = mob.getDamage();
         player.getStats().loseHP(mobAttackDmg);
-        gui.printText("The " + mob.getName() + " attacks! You've taken " + mobAttackDmg + " damage!");
+        gui.printText("The " + mob.getName() + " attacks back! You've taken " + mobAttackDmg + " damage!");
 
         if (player.getStats().getHp() <= 0) {
             gui.printText("Uh oh. You died... Back to the start!");
             game.revivePlayer();
             return false;
         }
-        if (mob.isDefeated && !(player.getStats().isDead())) {
-            gui.printText("Congrats! You've defeated the " + mob.getName() + "!");
-            return false;
-        }
+
         return true;
     }
 

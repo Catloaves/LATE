@@ -1,11 +1,8 @@
 package Game;
 
 import javax.swing.*;
-
 import Mobs.HostileMob;
-
 import java.awt.*;
-
 import javax.swing.plaf.basic.BasicScrollBarUI;
 
 public class AdventureGUI {
@@ -14,13 +11,12 @@ public class AdventureGUI {
     private JTextField inputField;
     private JLabel imageLabel;
     private Game game;
-    private Shop shop;
 
     public AdventureGUI(Game game) {
         this.game = game;
         this.game.setGUI(this);
-        this.shop = new Shop();
         buildGUI();
+        this.game.start(); 
     }
 
     private void buildGUI() {
@@ -45,13 +41,11 @@ public class AdventureGUI {
         outputArea.setLineWrap(true);
         outputArea.setWrapStyleWord(true);
 
-        // COLOURS
         outputArea.setBackground(new Color(77, 32, 40));
         outputArea.setForeground(new Color(230, 194, 124));
         outputArea.setFont(new Font("Cambria", Font.PLAIN, 21));
 
         JScrollPane scrollPane = new JScrollPane(outputArea);
-
         JScrollBar verticalBar = scrollPane.getVerticalScrollBar();
 
         verticalBar.setUI(new BasicScrollBarUI() {
@@ -63,15 +57,13 @@ public class AdventureGUI {
 
             @Override
             protected JButton createDecreaseButton(int orientation) {
-                return createZeroButton();
+                JButton button = new JButton();
+                button.setPreferredSize(new Dimension(0, 0));
+                return button;
             }
 
             @Override
             protected JButton createIncreaseButton(int orientation) {
-                return createZeroButton();
-            }
-
-            private JButton createZeroButton() {
                 JButton button = new JButton();
                 button.setPreferredSize(new Dimension(0, 0));
                 return button;
@@ -91,6 +83,7 @@ public class AdventureGUI {
         inputField.setForeground(new Color(77, 32, 40));
         inputField.setCaretColor(new Color(77, 32, 40));
         inputField.setBorder(BorderFactory.createLineBorder(new Color(230, 194, 124)));
+        
         JButton submitButton = new JButton("Submit");
         submitButton.setPreferredSize(new Dimension(110, 35));
         submitButton.setFont(new Font("Cambria", Font.BOLD, 25));
@@ -107,23 +100,15 @@ public class AdventureGUI {
         frame.add(inputPanel, BorderLayout.SOUTH);
 
         frame.setVisible(true);
-
-        printText(game.getCurrentRoomDescription());
         updateRoomDisplay();
     }
 
     public void handleInput() {
-        if (game.isFightActive()) {
-            game.getFights();
-            this.handleInput(game.getFights().getMob());
-            if (!(game.getIsWaiting())) {
-                if (!(game.getFights().runTurn())) {
-                    game.endFight();
-                }
-                return;
-            }
+        HostileMob target = null;
+        if (game.isFightActive() && game.getFights() != null) {
+            target = game.getFights().getMob();
         }
-        this.handleInput(null);
+        this.handleInput(target);
     }
 
     public void handleInput(HostileMob target) {
@@ -133,10 +118,9 @@ public class AdventureGUI {
         if (!input.isEmpty()) {
             printText("> " + input);
 
-            if (input.equalsIgnoreCase("shop")) {
-                shop.openShop(game.getPlayer());
-            } else {
-                printText(game.processCommand(input, target));
+            String response = game.processCommand(input, target);
+            if (response != null && !response.isEmpty()) {
+                printText(response);
             }
 
             updateRoomDisplay();
@@ -155,10 +139,10 @@ public class AdventureGUI {
 
     public void printText(String text) {
         outputArea.append(text + "\n");
+        outputArea.setCaretPosition(outputArea.getDocument().getLength());
     }
 
     private void updateRoomDisplay() {
-
         String roomId = game.getPlayer().getCurrentRoomId();
         try {
             ImageIcon icon = new ImageIcon("images/" + roomId + ".png");

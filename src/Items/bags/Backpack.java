@@ -13,9 +13,9 @@ public class Backpack extends Item {
         this.GCPriceBackpack = GCPriceBackpack;
         this.packItems = new String[size]; 
     }
-
-    public String getSize() {
-        return "Your backpack can hold " + size + " items.";
+    
+    public int getSize() {
+        return size;
     }
     
     public int getGCPriceBackpack() {

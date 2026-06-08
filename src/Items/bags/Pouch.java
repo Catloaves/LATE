@@ -14,8 +14,8 @@ public class Pouch extends Item {
         this.pouchItems = new String[size];
     }
 
-    public String getSize() {
-        return "Your pouch can hold " + size + " items.";
+    public int getSize() {
+        return size;
     }
 
     public int getGCPricePouch() {

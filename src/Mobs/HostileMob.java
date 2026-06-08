@@ -16,6 +16,10 @@ public class HostileMob {
         return mobName;
     }
 
+    public int getDamage() {
+        return (int) stats.getStrength();
+    }
+
     public int getHp() {
         return stats.getHp();
     }
@@ -26,7 +30,7 @@ public class HostileMob {
     }
 
     public void HpBleedDmg(int turns, int amount) {
-        for (int i = 0; i <= turns; i++) {
+        for (int i = 0; i < turns; i++) {
             stats.loseHP(amount);
             isDefeated = stats.isDead();
         }
@@ -37,11 +41,9 @@ public class HostileMob {
             subtractHp(amount);
             System.out.println(mobName + " takes " + amount + " bleeding damage!");
         }
-
     }
 
     public Stats getStats() {
         return stats;
     }
-
 }
