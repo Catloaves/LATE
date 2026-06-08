@@ -3,7 +3,7 @@ package Game;
 public class Stats {
 
     private int hp;
-    public int maxHp;
+    private int maxHp;
     private int hunger;
     private int maxHunger;
     private double strength;
@@ -36,8 +36,6 @@ public class Stats {
             hunger = 0;
         }
     }
-    // HP penalty if hunger hits 0. Have to be added
-    // We won't need to code hunger if we make food heal HP. - Leo
 
     public void eat(int amount) {
         hunger += amount;
@@ -65,12 +63,10 @@ public class Stats {
     public int getHunger() {
         return hunger;
     }
-    // Hunger instance
 
     public int getMaxHunger() {
         return maxHunger;
     }
-    // Hunger instance
 
     public double getStrength() {
         return strength;

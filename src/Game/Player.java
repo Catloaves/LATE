@@ -1,4 +1,5 @@
 package Game;
+
 import java.util.ArrayList;
 import java.util.List;
 import Items.Item;
@@ -12,16 +13,20 @@ public class Player {
     private String them;
     private String theirs;
 
-    private Stats stats; 
+    private Stats stats;
 
     public boolean isVisible;
 
     private int gold;
+    
+    public Player() {
+        this("home", "Hero", "they", "them", "theirs");
+    }
 
     public Player(String startingRoomId, String username, String they, String them, String theirs) {
         this.currentRoomId = startingRoomId;
         this.inventory = new ArrayList<>();
-        this.username = username;
+        this.username = (username == null || username.isEmpty()) ? "Hero" : username;
         this.they = they;
         this.them = them;
         this.theirs = theirs;
@@ -37,7 +42,7 @@ public class Player {
         System.out.println("Gold: " + gold);
     }
 
-    // Methods for Player information
+    // Methods for Player info
     public String getUsername() {
         return username;
     }
@@ -54,7 +59,7 @@ public class Player {
         return theirs;
     }
 
-    // Methods for Stats and Room Id
+    // Methods for Stats and Rooms
     public Stats getStats() {
         return stats;
     }
@@ -72,9 +77,10 @@ public class Player {
         inventory.add(item);
     }
 
-    public boolean hasItem(String itemName) {
+    public boolean hasItem(String itemIdentifier) {
         for (Item i : inventory) {
-            if (i.getName().equalsIgnoreCase(itemName)) {
+            if (i.getName().equalsIgnoreCase(itemIdentifier) ||
+                    (i.getId() != null && i.getId().equalsIgnoreCase(itemIdentifier))) {
                 return true;
             }
         }
@@ -89,7 +95,7 @@ public class Player {
         return inventory;
     }
 
-    // Methods for Gold
+    // Methods for Currency
     public int getGold() {
         return gold;
     }

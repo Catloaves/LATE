@@ -2,6 +2,13 @@ package Rooms;
 
 import com.google.gson.*;
 import Items.Item;
+import Items.tools.Sword;
+import Items.misc.Torch;
+import Items.misc.Key;
+import Items.misc.PuzzleScroll;
+import Items.food.Rations;
+import Items.bags.Backpack;
+import Items.bags.Pouch;
 import Mobs.HostileMob;
 
 import java.io.FileReader;
@@ -33,13 +40,40 @@ public class RoomLoader {
                     for (JsonElement e : itemArray) {
                         JsonObject i = e.getAsJsonObject();
 
+                        String itemId = i.get("id").getAsString();
                         String itemName = i.get("name").getAsString();
                         String itemDesc = i.get("description").getAsString();
 
-                        items.add(new Item(itemName, itemName, itemDesc));
+                        switch (itemId.toLowerCase()) {
+                            case "sword":
+                                items.add(new Sword(itemId, itemName, itemDesc));
+                                break;
+                            case "torch":
+                                items.add(new Torch(itemId, itemName, itemDesc));
+                                break;
+                            case "key":
+                                items.add(new Key(itemId, itemName, itemDesc, 1));
+                                break;
+                            case "rations":
+                                items.add(new Rations(itemId, itemName, itemDesc));
+                                break;
+                            case "backpack":
+                                items.add(new Backpack(itemId, itemName, itemDesc, 10, 0));
+                                break;
+                            case "pouch":
+                                items.add(new Pouch(itemId, itemName, itemDesc, 5, 0));
+                                break;
+                            case "puzzlescroll":
+                                items.add(new PuzzleScroll(itemId, itemName, itemDesc, "Deciphered text",
+                                        "Encrypted riddle"));
+                                break;
+                            default:
+                                items.add(new Item(itemId, itemName, itemDesc));
+                                break;
+                        }
                     }
                 }
-                Room room = (new Room(key, name, desc, exits, items));
+                Room room = new Room(key, name, desc, exits, items);
                 if (obj.has("mob")) {
                     JsonObject mobJson = obj.getAsJsonObject("mob");
 

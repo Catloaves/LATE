@@ -5,7 +5,7 @@ import Items.Item;
 public class PuzzleScroll extends Item {
     public String decipheredScroll;
     public String puzzleScroll;
-    public String scrollQuestion;
+    public String scrollQuestion = "";
     
     public int qNum1;
     public int qNum2;

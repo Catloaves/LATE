@@ -10,17 +10,18 @@ public class Sword extends Tool {
 
     @Override
     public void useItem() {
-        if (target == null) {
+        if (this.target == null) {
             System.out.println("You need to input a target!");
             return;
         }
 
-        target.subtractHp(25);
+        this.target.subtractHp(25);
         System.out.println("You've dealt 25 damage!");
-        System.out.print(target.getName() + " is now at " + target.getHp() + "!");
-        if (target.isDefeated) {
-            System.out.println("You've defeated " + target.getName() + "!");
+        System.out.print(this.target.getName() + " is now at " + this.target.getHp() + "!");
+        
+        if (this.target.getHp() <= 0) {
+            System.out.println("You've defeated " + this.target.getName() + "!");
         }
-        target = null;
+        this.target = null;
     }
 }

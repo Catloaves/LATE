@@ -5,6 +5,7 @@ import java.util.Map;
 
 import Items.Item;
 import Mobs.HostileMob;
+import Mobs.PassiveMob;
 
 public class Room {
     private String id;
@@ -13,6 +14,7 @@ public class Room {
     private Map<String, String> exits;
     private List<Item> items;
     private HostileMob mob;
+    private PassiveMob passiveMob;
 
     public Room(String id, String name, String description, Map<String, String> exits, List<Item> items) {
         this.id = id;
@@ -51,6 +53,10 @@ public class Room {
         sb.append(name).append("\n");
         sb.append(description).append("\n");
 
+        if (passiveMob != null) {
+            sb.append("You see a friendly face here: ").append(passiveMob.getName()).append(".\n");
+        }
+
         if (!items.isEmpty()) {
             sb.append("You see: ");
             for (Item item : items) {
@@ -78,5 +84,13 @@ public class Room {
 
     public void setMob(HostileMob mob) {
         this.mob = mob;
+    }
+
+    public PassiveMob getPassiveMob() {
+        return passiveMob;
+    }
+
+    public void setPassiveMob(PassiveMob passiveMob) {
+        this.passiveMob = passiveMob;
     }
 }
