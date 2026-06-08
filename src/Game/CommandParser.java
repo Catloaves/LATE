@@ -138,7 +138,7 @@ public class CommandParser {
                 break;
 
             case "help":
-                resultMessage = "Available commands:\ngo [direction], look, take/get [item], drop [item], use, inventory, attack, shop, help";
+                resultMessage = "Available commands:\ngo [direction], look, take/get [item], drop [item], use, inventory, attack, shop, help, examine [item]";
                 break;
 
             case "shop":
@@ -148,6 +148,34 @@ public class CommandParser {
                     resultMessage = "You finished browsing the shop.";
                 } else {
                     resultMessage = "There is no shop here!";
+                }
+                break;
+
+            case "examine":
+                if (words.length < 2) {
+                    resultMessage = "Examine what?";
+                } else {
+                    String examName = words[1];
+                    Item itemToExamine = null;
+                    for (Item item : player.getInventory()) {
+                        if (item.getName().equalsIgnoreCase(examName)) {
+                            itemToExamine = item;
+                            break;
+                        }
+                    }
+                    if (itemToExamine == null) {
+                        for (Item item : rooms.get(player.getCurrentRoomId()).getItems()) {
+                            if (item.getName().equalsIgnoreCase(examName)) {
+                                itemToExamine = item;
+                                break;
+                            }
+                        }
+                    }
+                    if (itemToExamine != null) {
+                        resultMessage = itemToExamine.getDescription();
+                    } else {
+                        resultMessage = "You don't see a " + examName + " here.";
+                    }
                 }
                 break;
 
