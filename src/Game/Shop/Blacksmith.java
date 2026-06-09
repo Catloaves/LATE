@@ -36,10 +36,10 @@ public class Blacksmith extends Shop {
                 isShopping = false;
             } else if (input.equals("1")) {
                 buyItem(p,
-                        new Sword("sword", "Sword", "Increases your inventory space by 5 (exclusive) slots!"),
+                        new Sword("sword", "Sword", "A light arming sword - can be used to deal significant and consistent damage to your foes!"),
                         SWORD_PRICE);
             } else if (input.equals("2")) {
-                buyItem(p, new Axe("axe", "Axe", "Increases your inventory space by 2 (exclusive) slots!"),
+                buyItem(p, new Axe("axe", "Axe", "A sharp, keen axe - also does bleed damage!"),
                         AXE_PRICE);
                 JOptionPane.showMessageDialog(null, "Uh oh. Invalid selection - please try again or exit the shop.");
             }

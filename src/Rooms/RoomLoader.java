@@ -2,6 +2,10 @@ package Rooms;
 
 import com.google.gson.*;
 import Items.Item;
+import Items.tools.Axe;
+import Items.tools.Bow;
+import Items.tools.Knife;
+import Items.tools.Mace;
 import Items.tools.Sword;
 import Items.misc.Torch;
 import Items.misc.Key;
@@ -45,8 +49,20 @@ public class RoomLoader {
                         String itemDesc = i.get("description").getAsString();
 
                         switch (itemId.toLowerCase()) {
+                            case "knife":
+                                items.add(new Knife(itemId, itemName, itemDesc));
+                                break;
                             case "sword":
                                 items.add(new Sword(itemId, itemName, itemDesc));
+                                break;
+                            case "axe":
+                                items.add(new Axe(itemId, itemName, itemDesc));
+                                break;
+                            case "Mace":
+                                items.add(new Mace(itemId, itemName, itemDesc));
+                                break;
+                            case "Bow":
+                                items.add(new Bow(itemId, itemName, itemDesc));
                                 break;
                             case "torch":
                                 items.add(new Torch(itemId, itemName, itemDesc));
@@ -57,11 +73,11 @@ public class RoomLoader {
                             case "rations":
                                 items.add(new Rations(itemId, itemName, itemDesc));
                                 break;
-                            case "backpack":
-                                items.add(new Knapsack(itemId, itemName, itemDesc, 10, 0));
+                            case "knapsack":
+                                items.add(new Knapsack(itemId, itemName, itemDesc));
                                 break;
                             case "pouch":
-                                items.add(new Pouch(itemId, itemName, itemDesc, 5, 0));
+                                items.add(new Pouch(itemId, itemName, itemDesc));
                                 break;
                             case "puzzlescroll":
                                 items.add(new PuzzleScroll(itemId, itemName, itemDesc, "Deciphered text",

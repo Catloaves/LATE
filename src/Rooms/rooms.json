@@ -100,7 +100,7 @@
     "name": "𝕄𝔸𝕀ℕ ℝ𝕆𝔸𝔻\n",
     "description": "You slip inside. Rows of empty bunk beds line the walls. The castle guards must be out on patrol! On a wooden table in the center, a guard carelessly left behind a flickering torch.",
     "exits": {
-      "south": "wooded path",
+      "south": "wooded_path",
       "north": "barracks"
     },
     "items": []
@@ -110,7 +110,7 @@
     "name": "𝔽𝕆ℝ𝔼𝕊𝕋𝔼𝔻 ℝ𝕆𝔸𝔻\n",
     "description": "You slip inside. Rows of empty bunk beds line the walls. The castle guards must be out on patrol! On a wooden table in the center, a guard carelessly left behind a flickering torch.",
     "exits": {
-      "south": "wooded path",
+      "south": "wooded_path",
       "north": "barracks"
     },
     "items": []
@@ -118,7 +118,7 @@
   "barracks": {
     "id": "barracks",
     "name": "𝔾𝕌𝔸ℝ𝔻 𝔹𝔸ℝℝ𝔸ℂ𝕂𝕊\n",
-    "description": "You slip inside. Rows of empty bunk beds line the walls. The castle guards must be out on patrol! On a wooden table in the center, a guard carelessly left behind a flickering torch.",
+    "description": "This is where the guards sleep and rest. You notice that it is completely empty.. the guards are likely out on patrol. Neat way to sneak in! Near the entrance dangles a torch.",
     "exits": {
       "south": "wooded path",
       "north": "courtyard"
@@ -131,9 +131,9 @@
       }
     ],
     "mob": {
-      "name": "Leonidas Tiberius Chenhan Lepitre",
-      "hp": 2,
-      "damage": 67
+      "name": "Castle Guard",
+      "hp": 28,
+      "damage": 10
     }
   },
   "courtyard": {
@@ -151,15 +151,15 @@
   "armory": {
     "id": "armory",
     "name": "𝕋ℍ𝔼 𝔸ℝ𝕄𝕆ℝ𝕐\n",
-    "description": "Racks of iron shields and broken spears fill this dusty room. Hanging on the rack is a pristine, sharp steel sword. This might come in handy if you encounter any hostile guards!",
+    "description": "Racks of various weapons, not exactly well organized line the room. Some are rusted, but you do discover a few good ones. Wow, this place really isn't well kempt!",
     "exits": {
       "east": "courtyard"
     },
     "items": [
       {
-        "id": "sword",
-        "name": "sword",
-        "description": "A light arming sword - can be used to deal significant and consistent damage to your foes!"
+        "id": "mace",
+        "name": "mace",
+        "description": "A sturdy mace that has the chance to deal a critical hit!"
       }
     ]
   },
@@ -176,7 +176,12 @@
         "name": "key",
         "description": "A rusted key... with remnants of oddly exorbiant jewels on it..."
       }
-    ]
+    ],
+    "mob": {
+      "name": "Dungeon Warden",
+      "hp": 42,
+      "damage": 21
+    }
   },
   "throne_room": {
     "id": "throne_room",
@@ -186,14 +191,20 @@
       "south": "courtyard",
       "north": "vault"
     },
-    "items": []
+    "items": [],
+    "mob": {
+      "name": "King's Personal Guard",
+      "hp": 48,
+      "damage": 32
+    }
   },
   "vault": {
     "id": "vault",
     "name": "𝕋ℍ𝔼 ℝ𝕆𝕐𝔸𝕃 𝕋ℝ𝔼𝔸𝕊𝕌ℝ𝔼 𝕍𝔸𝕌𝕃𝕋\n",
     "description": "You have successfully sneaked past the guards and made it into the King's inner sanctum! Chests of gold glitter all around you. In the center of the room sits a velvet pillow holding a glowing blue elixir: 'The Cure'. Take it and save your family!",
     "exits": {
-      "south": "throne_room"
+      "south": "throne_room",
+      "north" : "deep_vault"
     },
     "items": [
       {
@@ -206,9 +217,9 @@
   "deep vault": {
     "id": "deep_vault",
     "name": "𝕋ℍ𝔼 𝔻𝔼𝔼ℙ 𝕍𝔸𝕌𝕃𝕋\n",
-    "description": "Wasn't that it? Why did you go deeper? Haven't you found... the cure? \n\n \tIn the middle of the room you see a strange object. It looks almost like the shape of a human heart. But something is off. You shouldn't be able to see it. No light enters the room after the heaviness of the vault door anchors shut behind you. Your torch has gone out. \n\n\t The heart is glowing. But not from the inside. You can tell that although it seems like the - the object - is illuminating the room it does not seem to radiate. The surface of it is shiny - perhaps made of gold. But as you peer into the nooks and crannies of the arteries and vessels you can tell that they are dark.\n\n\tIt's moving. The thing now looks inflated - bulging and disfigured. Really, it wasn't a large object. Then, you notice that it has started spewing liquid out of its channels. The same, murky and nearly iridescent liquid inside the vial you just found. It sputters with the consistency of spoiled milk. Red clots dance in the fluid, clouded over by the liquid itself the same way cataracts obscure the vision - though the yellow and turquoise dots are no longer present. \n\n\tIn proud, large letters above the monstrosity you see, etched:\n\n\t\t𝕿𝖍𝖊 𝕲𝖔𝖑𝖉𝖊𝖓 𝕳𝖊𝖆𝖗𝖙 𝖔𝖋 𝖙𝖍𝖊 𝕶𝖎𝖓𝖌\n\n\nYou have the king's blood. The king's blood is the cure. He must be magical, and good, and he must save you, your alligator, and..\nWhere is the cure? Why has it gone rotten? Why have you gone so far - what do you want? Are you not satisfied? Are you rotten too, like the.. King?\n\tSo why is his heart here?\n\tDoes he have no heart?\n\tOr did he trade his heart in just to feel saved - good? Did he mix his blood in with the real cure to save himself? Or did he want to taint the cure... BE the cure? Is there an antidote to his blood? What could combat the blood of corruption, but the blood of sincerity?\n\n\t\t...Too far gone?\n\n\t\tAre you?/n/n/nTake the knife. Let yourself bleed, because he will not bleed for you. Drop it into the vial.",
+    "description": "Wasn't that it? Why did you go deeper? Haven't you found... the cure? \n\n \tIn the middle of the room you see a strange object. It looks almost like the shape of a human heart. But something is off. You shouldn't be able to see it. No light enters the room after the heaviness of the vault door anchors shut behind you. Your torch has gone out. \n\n\t The heart is glowing. But not from the inside. You can tell that although it seems like the - the object - is illuminating the room it does not seem to radiate. The surface of it is shiny - perhaps made of gold. But as you peer into the nooks and crannies of the arteries and vessels you can tell that they are dark.\n\n\tIt's moving. The thing now looks inflated - bulging and disfigured. Really, it wasn't a large object. Then, you notice that it has started spewing liquid out of its channels. The same, murky and nearly iridescent liquid inside the vial you just found. It sputters with the consistency of spoiled milk. Red clots dance in the fluid, clouded over by the liquid itself the same way cataracts obscure the vision - though the yellow and turquoise dots are no longer present. \n\n\tIn proud, large letters above the monstrosity you see, etched:\n\n\t\t𝕿𝖍𝖊 𝕲𝖔𝖑𝖉𝖊𝖓 𝕳𝖊𝖆𝖗𝖙 𝖔𝖋 𝖙𝖍𝖊 𝕶𝖎𝖓𝖌\n\n\nYou have the king's blood. The king's blood is the cure. He must be magical, and good, and he must save you, your alligator, and..\nWhere is the cure? Why has it gone rotten? Why have you gone so far - what do you want? Are you not satisfied? Are you rotten too, like the.. King?\n\tSo why is his heart here?\n\tDoes he have no heart?\n\tOr did he trade his heart in just to feel saved - good? Did he mix his blood in with the real cure to save himself? Or did he want to taint the cure... BE the cure? Is there an antidote to his blood? What could combat the blood of corruption, but the blood of sincerity?\n\n\t\t...Too far gone?\n\n\t\tAre you?/n/n/nTake the knife. Let yourself bleed, because he will not bleed for you. Drop it into the vial. \n\n Then, you must return to your alligator. Prove that you are more worthy than the king!",
     "exits": {
-      "south": "throne_room"
+      "south": "vault"
     },
     "items": [
       {
