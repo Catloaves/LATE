@@ -46,7 +46,8 @@
     "name": "𝕋ℍ𝔼 𝕋𝕆𝕎ℕ𝔼 𝕊ℍ𝕆ℙℙ𝔼𝕊\n",
     "description": "You have now entered the marketplace area of the town. What would you like to purchase? Some shops that may be of interest to you:\n\n\t𝕸𝖆𝖗𝖛𝖊𝖑𝖔𝖚𝖘 𝕸𝖎𝖘𝖙𝖊𝖗 𝕸𝖔𝖌𝖌𝖘𝖔𝖓'𝖘 𝕸𝖊𝖗𝖈𝖊𝖗𝖞\n\t𝕭𝖔𝖌𝖌𝖑𝖊𝖜𝖎𝖌𝖌𝖑𝖊𝖘 𝖙𝖍𝖊 𝕭𝖑𝖆𝖈𝖐𝖘𝖒𝖎𝖙𝖍\n\t𝕿𝖍𝖊 𝕬𝖕𝖕𝖆𝖑𝖑𝖎𝖓𝖌𝖑𝖞 𝕬𝖜𝖊𝖘𝖔𝖒𝖊 𝕬𝖕𝖔𝖙𝖍𝖊𝖈𝖆𝖗𝖞 𝖔𝖋 𝖙𝖍𝖊 𝕮𝖆𝖗𝖊𝖞𝖘\n\nWalk further along to access them. Remember that you need gold coins to purchase!",
     "exits": {
-      "west": "wooded_path"
+      "west": "wooded_path",
+      "east": "mercery"
     }
   },
   "mercery": {
@@ -55,6 +56,36 @@
     "description": "You have now entered the marketplace area of the town. What would you like to purchase? Some shops that may be of interest to you:\n\t𝕸𝖆𝖗𝖛𝖊𝖑𝖔𝖚𝖘 𝕸𝖎𝖘𝖙𝖊𝖗 𝕸𝖔𝖌𝖌𝖘𝖔𝖓'𝖘 𝕸𝖊𝖗𝖈𝖊𝖗𝖞\n\t𝕭𝖔𝖌𝖌𝖑𝖊𝖜𝖎𝖌𝖌𝖑𝖊𝖘 𝖙𝖍𝖊 𝕭𝖑𝖆𝖈𝖐𝖘𝖒𝖎𝖙𝖍\n\t𝕿𝖍𝖊 𝕬𝖕𝖕𝖆𝖑𝖑𝖎𝖓𝖌𝖑𝖞 𝕬𝖜𝖊𝖘𝖔𝖒𝖊 𝕬𝖕𝖔𝖙𝖍𝖊𝖈𝖆𝖗𝖞 𝖔𝖋 𝖙𝖍𝖊 𝕮𝖆𝖗𝖊𝖞𝖘\n Walk further along to access them. Remember that you need gold coins to purchase!",
     "exits": {
       "west": "entrance_shops"
+    },
+    "items": [
+      {
+        "id": "letter",
+        "name": "letter",
+        "description": "\t𝕽𝖎𝖌𝖍𝖙 𝖉𝖊𝖆𝖗 𝖋𝖗𝖎𝖊𝖓𝖉,\n\t𝖎𝖋 𝖞𝖔𝖚 𝖜𝖎𝖘𝖍 𝖙𝖔 𝖗𝖊𝖛𝖎𝖛𝖊 𝖞𝖔𝖚𝖗 𝖆𝖑𝖑𝖎𝖌𝖆𝖙𝖔𝖗 𝖞𝖔𝖚 𝖒𝖚𝖘𝖙 𝖆𝖈𝖙 𝖜𝖎𝖙𝖍 𝖍𝖆𝖘𝖙𝖊! 𝕿𝖍𝖊 𝖐𝖎𝖓𝖌 𝖍𝖎𝖒𝖘𝖊𝖑𝖋 𝖎𝖘 𝖆 𝖉𝖆𝖘𝖙𝖆𝖗𝖉𝖑𝖞 𝖘𝖎𝖗𝖊 (𝖋𝖊𝖆𝖗 𝖓𝖔𝖙; 𝖓𝖔𝖓𝖊 𝖘𝖍𝖆𝖑𝖑 𝖘𝖊𝖊 𝖙𝖍𝖎𝖘 𝖑𝖊𝖙𝖙𝖊𝖗 𝖇𝖚𝖙 𝖙𝖍𝖔𝖚) 𝖆𝖓𝖉, 𝖑𝖎𝖐𝖊 𝖆 𝖈𝖚𝖓𝖓𝖎𝖓𝖌 𝖘𝖓𝖆𝖐𝖊, 𝖉𝖔𝖊𝖘 𝖍𝖎𝖉𝖊 𝖙𝖍𝖊 𝖒𝖊𝖉𝖎𝖈𝖆𝖑 𝖎𝖓𝖌𝖗𝖊𝖉𝖎𝖊𝖓𝖙𝖘 𝖙𝖔 𝖞𝖔𝖚𝖗 𝖉𝖊𝖘𝖎𝖗𝖊𝖉 𝖈𝖚𝖗𝖊. 𝕺, 𝖙𝖔 𝖇𝖊 𝖆 𝖑𝖔𝖜𝖑𝖞 𝖕𝖊𝖆𝖘𝖆𝖓𝖙 𝖎𝖓 𝖔𝖚𝖗 𝖙𝖎𝖒𝖊... 𝖙𝖗𝖊𝖆𝖙𝖊𝖉 𝖑𝖎𝖐𝖊 𝖓𝖔𝖙𝖍𝖎𝖓𝖌 𝖇𝖚𝖙 - 𝖇𝖚𝖙 𝖈𝖗𝖔𝖈𝖔𝖉𝖎𝖑𝖊𝖘 𝖎𝖓 𝖍𝖎𝖘 𝖋𝖎𝖑𝖙𝖍𝖞 𝖒𝖔𝖆𝖙! 𝕾𝖔 𝕴 𝖕𝖑𝖊𝖆𝖉 𝖞𝖔𝖚 𝖌𝖔𝖔𝖉 𝖋𝖊𝖑𝖑𝖔𝖜; 𝖞𝖔𝖚𝖗 𝖆𝖑𝖑𝖎𝖌𝖆𝖙𝖔𝖗 𝖍𝖆𝖘 𝖗𝖊𝖜𝖆𝖗𝖉𝖊𝖉 𝖚𝖘 𝖌𝖗𝖊𝖆𝖙𝖑𝖞 𝖎𝖓 𝖇𝖆𝖙𝖙𝖑𝖊.. 𝖑𝖊𝖙 𝖓𝖔𝖙 𝖍𝖎𝖒 𝖋𝖆𝖑𝖑 𝖙𝖔 𝖙𝖍𝖊 𝖈𝖔𝖗𝖗𝖚𝖕𝖙𝖎𝖔𝖓 𝖔𝖋 𝖔𝖚𝖗 𝖘𝖙𝖆𝖙𝖊. 𝕲𝖊𝖙 𝖞𝖔𝖚𝖗𝖘𝖊𝖑𝖋 𝖌𝖔𝖎𝖓𝖌, 𝖆𝖓𝖉 𝖌𝖔𝖔𝖉 𝖑𝖚𝖈𝖐 𝖚𝖓𝖙𝖔 𝖞𝖔𝖚!\n\t𝖄𝖔𝖚𝖗 𝖌𝖔𝖔𝖉 𝖋𝖗𝖎𝖊𝖓𝖉."
+      }
+    ]
+  },
+  "blacksmith": {
+    "id": "blacksmith",
+    "name": "𝔹𝕆𝔾𝔾𝕃𝔼𝕊𝕎𝕀𝔾𝔾𝕃𝔼𝕊 𝕋ℍ𝔼 𝔹𝕃𝔸ℂ𝕂𝕊𝕄𝕀𝕋ℍ\n",
+    "description": "You have now entered the marketplace area of the town. What would you like to purchase? Some shops that may be of interest to you:\n\t𝕸𝖆𝖗𝖛𝖊𝖑𝖔𝖚𝖘 𝕸𝖎𝖘𝖙𝖊𝖗 𝕸𝖔𝖌𝖌𝖘𝖔𝖓'𝖘 𝕸𝖊𝖗𝖈𝖊𝖗𝖞\n\t𝕭𝖔𝖌𝖌𝖑𝖊𝖜𝖎𝖌𝖌𝖑𝖊𝖘 𝖙𝖍𝖊 𝕭𝖑𝖆𝖈𝖐𝖘𝖒𝖎𝖙𝖍\n\t𝕿𝖍𝖊 𝕬𝖕𝖕𝖆𝖑𝖑𝖎𝖓𝖌𝖑𝖞 𝕬𝖜𝖊𝖘𝖔𝖒𝖊 𝕬𝖕𝖔𝖙𝖍𝖊𝖈𝖆𝖗𝖞 𝖔𝖋 𝖙𝖍𝖊 𝕮𝖆𝖗𝖊𝖞𝖘\n Walk further along to access them. Remember that you need gold coins to purchase!",
+    "exits": {
+      "west": "mercery"
+    },
+    "items": [
+      {
+        "id": "letter",
+        "name": "letter",
+        "description": "\t𝕽𝖎𝖌𝖍𝖙 𝖉𝖊𝖆𝖗 𝖋𝖗𝖎𝖊𝖓𝖉,\n\t𝖎𝖋 𝖞𝖔𝖚 𝖜𝖎𝖘𝖍 𝖙𝖔 𝖗𝖊𝖛𝖎𝖛𝖊 𝖞𝖔𝖚𝖗 𝖆𝖑𝖑𝖎𝖌𝖆𝖙𝖔𝖗 𝖞𝖔𝖚 𝖒𝖚𝖘𝖙 𝖆𝖈𝖙 𝖜𝖎𝖙𝖍 𝖍𝖆𝖘𝖙𝖊! 𝕿𝖍𝖊 𝖐𝖎𝖓𝖌 𝖍𝖎𝖒𝖘𝖊𝖑𝖋 𝖎𝖘 𝖆 𝖉𝖆𝖘𝖙𝖆𝖗𝖉𝖑𝖞 𝖘𝖎𝖗𝖊 (𝖋𝖊𝖆𝖗 𝖓𝖔𝖙; 𝖓𝖔𝖓𝖊 𝖘𝖍𝖆𝖑𝖑 𝖘𝖊𝖊 𝖙𝖍𝖎𝖘 𝖑𝖊𝖙𝖙𝖊𝖗 𝖇𝖚𝖙 𝖙𝖍𝖔𝖚) 𝖆𝖓𝖉, 𝖑𝖎𝖐𝖊 𝖆 𝖈𝖚𝖓𝖓𝖎𝖓𝖌 𝖘𝖓𝖆𝖐𝖊, 𝖉𝖔𝖊𝖘 𝖍𝖎𝖉𝖊 𝖙𝖍𝖊 𝖒𝖊𝖉𝖎𝖈𝖆𝖑 𝖎𝖓𝖌𝖗𝖊𝖉𝖎𝖊𝖓𝖙𝖘 𝖙𝖔 𝖞𝖔𝖚𝖗 𝖉𝖊𝖘𝖎𝖗𝖊𝖉 𝖈𝖚𝖗𝖊. 𝕺, 𝖙𝖔 𝖇𝖊 𝖆 𝖑𝖔𝖜𝖑𝖞 𝖕𝖊𝖆𝖘𝖆𝖓𝖙 𝖎𝖓 𝖔𝖚𝖗 𝖙𝖎𝖒𝖊... 𝖙𝖗𝖊𝖆𝖙𝖊𝖉 𝖑𝖎𝖐𝖊 𝖓𝖔𝖙𝖍𝖎𝖓𝖌 𝖇𝖚𝖙 - 𝖇𝖚𝖙 𝖈𝖗𝖔𝖈𝖔𝖉𝖎𝖑𝖊𝖘 𝖎𝖓 𝖍𝖎𝖘 𝖋𝖎𝖑𝖙𝖍𝖞 𝖒𝖔𝖆𝖙! 𝕾𝖔 𝕴 𝖕𝖑𝖊𝖆𝖉 𝖞𝖔𝖚 𝖌𝖔𝖔𝖉 𝖋𝖊𝖑𝖑𝖔𝖜; 𝖞𝖔𝖚𝖗 𝖆𝖑𝖑𝖎𝖌𝖆𝖙𝖔𝖗 𝖍𝖆𝖘 𝖗𝖊𝖜𝖆𝖗𝖉𝖊𝖉 𝖚𝖘 𝖌𝖗𝖊𝖆𝖙𝖑𝖞 𝖎𝖓 𝖇𝖆𝖙𝖙𝖑𝖊.. 𝖑𝖊𝖙 𝖓𝖔𝖙 𝖍𝖎𝖒 𝖋𝖆𝖑𝖑 𝖙𝖔 𝖙𝖍𝖊 𝖈𝖔𝖗𝖗𝖚𝖕𝖙𝖎𝖔𝖓 𝖔𝖋 𝖔𝖚𝖗 𝖘𝖙𝖆𝖙𝖊. 𝕲𝖊𝖙 𝖞𝖔𝖚𝖗𝖘𝖊𝖑𝖋 𝖌𝖔𝖎𝖓𝖌, 𝖆𝖓𝖉 𝖌𝖔𝖔𝖉 𝖑𝖚𝖈𝖐 𝖚𝖓𝖙𝖔 𝖞𝖔𝖚!\n\t𝖄𝖔𝖚𝖗 𝖌𝖔𝖔𝖉 𝖋𝖗𝖎𝖊𝖓𝖉."
+      }
+    ]
+  },
+  "apothecary": {
+    "id": "apothecary",
+    "name": "𝕋ℍ𝔼 𝔸ℙℙ𝔸𝕃𝕃𝕀ℕ𝔾𝕃𝕐 𝔸𝕎𝔼𝕊𝕆𝕄𝔼 𝔸ℙ𝕆𝕋ℍ𝔼ℂ𝔸ℝ𝕐 𝕆𝔽 𝕋ℍ𝔼 ℂ𝔸ℝ𝔼𝕐𝕊\n",
+    "description": "You have now entered the marketplace area of the town. What would you like to purchase? Some shops that may be of interest to you:\n\t𝕸𝖆𝖗𝖛𝖊𝖑𝖔𝖚𝖘 𝕸𝖎𝖘𝖙𝖊𝖗 𝕸𝖔𝖌𝖌𝖘𝖔𝖓'𝖘 𝕸𝖊𝖗𝖈𝖊𝖗𝖞\n\t𝕭𝖔𝖌𝖌𝖑𝖊𝖜𝖎𝖌𝖌𝖑𝖊𝖘 𝖙𝖍𝖊 𝕭𝖑𝖆𝖈𝖐𝖘𝖒𝖎𝖙𝖍\n\t𝕿𝖍𝖊 𝕬𝖕𝖕𝖆𝖑𝖑𝖎𝖓𝖌𝖑𝖞 𝕬𝖜𝖊𝖘𝖔𝖒𝖊 𝕬𝖕𝖔𝖙𝖍𝖊𝖈𝖆𝖗𝖞 𝖔𝖋 𝖙𝖍𝖊 𝕮𝖆𝖗𝖊𝖞𝖘\n Walk further along to access them. Remember that you need gold coins to purchase!",
+    "exits": {
+      "west": "blacksmith"
     },
     "items": [
       {
@@ -167,8 +198,21 @@
     "items": [
       {
         "id": "cure",
-        "name": "cure",
-        "description": "A glowing blue elixir contained in a crystal vial. It can cure any sickness in the world."
+        "name": "a cure?",
+        "description": "A scathed but once previously polished vial of a very low viscosity, iridescent liquid. At first it doesn't appear to look like much - more like muddy groundwater than a potion. The cork at the top seems not to be stained the way you would expect it to be, but rather looks as if it were freshly coated with a dull sheen like a seal after a horrid oil spill. But when you hold it up to the faint glow of the vault and some of its fluorescent jewels, you can see that inside the fluid there are tiny sparks that dance as you swish the supposed elixir around. Sometimes you see faint yellow and turquoise flakes, but the mixture itself seems rather... angry. There are clusters of light that seem to reflect the colour of fresh blood in the sun, vibrating as if they wanted to be released that instant. For something that is magical, it looks almost dead - almost.. vegetative. What an odd.. thing... what an odd.. cure!"
+      }
+    ]
+  },
+  "deep vault": {
+    "id": "deep_vault",
+    "name": "𝕋ℍ𝔼 𝔻𝔼𝔼ℙ 𝕍𝔸𝕌𝕃𝕋\n",
+    "description": "Wasn't that it? Why did you go deeper? Haven't you found... the cure? \n\n \tIn the middle of the room you see a strange object. It looks almost like the shape of a human heart. But something is off. You shouldn't be able to see it. No light enters the room after the heaviness of the vault door anchors shut behind you. Your torch has gone out. \n\n\t The heart is glowing. But not from the inside. You can tell that although it seems like the - the object - is illuminating the room it does not seem to radiate. The surface of it is shiny - perhaps made of gold. But as you peer into the nooks and crannies of the arteries and vessels you can tell that they are dark.\n\n\tIt's moving. The thing now looks inflated - bulging and disfigured. Really, it wasn't a large object. Then, you notice that it has started spewing liquid out of its channels. The same, murky and nearly iridescent liquid inside the vial you just found. It sputters with the consistency of spoiled milk. Red clots dance in the fluid, clouded over by the liquid itself the same way cataracts obscure the vision - though the yellow and turquoise dots are no longer present. \n\n\tIn proud, large letters above the monstrosity you see, etched:\n\n\t\t𝕿𝖍𝖊 𝕲𝖔𝖑𝖉𝖊𝖓 𝕳𝖊𝖆𝖗𝖙 𝖔𝖋 𝖙𝖍𝖊 𝕶𝖎𝖓𝖌\n\n\nYou have the king's blood. The king's blood is the cure. He must be magical, and good, and he must save you, your alligator, and..\nWhere is the cure? Why has it gone rotten? Why have you gone so far - what do you want? Are you not satisfied? Are you rotten too, like the.. King?\n\tSo why is his heart here?\n\tDoes he have no heart?\n\tOr did he trade his heart in just to feel saved - good? Did he mix his blood in with the real cure to save himself? Or did he want to taint the cure... BE the cure? Is there an antidote to his blood? What could combat the blood of corruption, but the blood of sincerity?\n\n\t\t...Too far gone?\n\n\t\tAre you?/n/n/nTake the knife. Let yourself bleed, because he will not bleed for you. Drop it into the vial.",
+    "exits": {
+      "south": "throne_room"
+    },
+    "items": [
+      {
+
       }
     ]
   }
