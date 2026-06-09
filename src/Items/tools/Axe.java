@@ -2,15 +2,16 @@ package Items.tools;
 
 import Items.Tool;
 
-public class Axe extends Tool { 
+public class Axe extends Tool {
+    final public static int GCPriceAxe = 13;
 
     public Axe(String id, String name, String description) {
         super(id, name, description);
     }
 
     @Override
-    public void useItem(){
-        if (target == null){
+    public void useItem() {
+        if (target == null) {
             System.out.println("You need to input a target!");
             return;
         }
@@ -18,7 +19,7 @@ public class Axe extends Tool {
         target.HpBleedDmg(5, 5);
         System.out.println("You've dealt 10 damage with 5 bleed damage!");
         System.out.print(target.getName() + " is now at " + target.getHp() + "!");
-        if (target.isDefeated){
+        if (target.isDefeated) {
             System.out.println("You've defeated " + target.getName() + "!");
         }
         target = null;

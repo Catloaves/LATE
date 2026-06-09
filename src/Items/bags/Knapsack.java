@@ -2,12 +2,12 @@ package Items.bags;
 
 import Items.Item;
 
-public class Pouch extends Item {
-    final public static int GCPricePouch = 4;
-    final public static int size = 2;
+public class Knapsack extends Item {
+    final public static int GCPriceKnapsack = 10;
+    final public static int size = 5;
     public String[] packItems;
 
-    public Pouch(String id, String name, String description) {
+    public Knapsack(String id, String name, String description) {
         super(id, name, description);
     }
     
@@ -16,6 +16,6 @@ public class Pouch extends Item {
     // }
     
     // public int getGCPriceKnapsack() {
-    //     return GCPricePouch;
+    //     return GCPriceKnapsack;
     // }
 }
