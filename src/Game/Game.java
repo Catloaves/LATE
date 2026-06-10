@@ -16,13 +16,14 @@ public class Game {
     private boolean fightActive;
     private Fights fight;
     private PetAlligator gator;
+    private Object currentRoomId;
 
     public Game() {
         RoomLoader loader = new RoomLoader();
         rooms = loader.loadRooms("src/Rooms/rooms.json");
 
         if (rooms == null || rooms.isEmpty()) {
-            rooms = loader.loadRooms("Rooms/rooms.json");
+            rooms = loader.loadRooms("src/Rooms/rooms.json");
         }
 
         if (rooms != null) {
@@ -62,13 +63,13 @@ public class Game {
     public void start() {
         System.out.println("Game engine initialized successfully.");
         if (gui != null) {
-            gui.printText("Your family has fallen gravely ill with a mysterious sickness. " +
-                    "Your only hope is to reach the King's Castle and find the legendary cure " +
-                    "capable of healing any disease in the world.\n\n" +
-                    "After a long journey, you arrive at your destination...\n");
+            gui.printText(
+                    "Welcome!\n\n In this town, there is one special member. Not a human, but an alligator. And a very special alligator indeed - for he is kind and clear-minded; sapient-like and worthy. Unlike - cough cough - a certain king... \n\n Nobely, the alligator has partaken in numerous battles and done great deeds for the town. You are his caretaker, for you were the one who rescued him when he was little. Despite all that, the king does not care for him. I mean, does the king care about anyone, really...? But you do. And your alligator does!\n\n");
 
-            Room currentRoom = rooms.get(player.getCurrentRoomId());
-            gui.printText(currentRoom.getLongDescription() + "\nExits: " + currentRoom.getExitsString() + ".");
+            // player.setCurrentRoomId("home");
+            Room currentRoom = rooms.get("home");
+            player.setCurrentRoomId("home");
+            gui.printText(currentRoom.getLongDescription() + "\n\nExits: " + currentRoom.getExitsString() + ".");
         }
     }
 
@@ -117,37 +118,39 @@ public class Game {
         player.setCurrentRoomId("home");
     }
 
-    public void saveGame() {
-        try {
-            SaveCurrGame data = new SaveCurrGame();
-            data.roomId = player.getCurrentRoomId();
-            data.hp = player.getStats().getHp();
-            data.items = player.getInventory().stream().map(i -> i.getName()).toList();
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("elixir_of_the_alligator_save.dat"));
-            out.writeObject(data);
-            out.close();
-            // gui.printText("Your current game data has been saved!");
-        } catch (Exception e) {
-            gui.printText("Uh oh! Saving failed - you might want to try again.");
-        }
-    }
+    // public void saveGame() {
+    // try {
+    // SaveCurrGame data = new SaveCurrGame();
+    // data.roomId = player.getCurrentRoomId();
+    // data.hp = player.getStats().getHp();
+    // data.items = player.getInventory().stream().map(i -> i.getName()).toList();
+    // ObjectOutputStream out = new ObjectOutputStream(new
+    // FileOutputStream("elixir_of_the_alligator_save.dat"));
+    // out.writeObject(data);
+    // out.close();
+    // // gui.printText("Your current game data has been saved!");
+    // } catch (Exception e) {
+    // gui.printText("Uh oh! Saving failed - you might want to try again.");
+    // }
+    // }
 
-    public void loadGame() {
-        try {
-            ObjectInputStream in = new ObjectInputStream(new FileInputStream("elixir_of_the_alligator_save.dat"));
-            SaveCurrGame saveData = (SaveCurrGame) in.readObject();
-            in.close();
+    // public void loadGame() {
+    // try {
+    // ObjectInputStream in = new ObjectInputStream(new
+    // FileInputStream("elixir_of_the_alligator_save.dat"));
+    // SaveCurrGame saveData = (SaveCurrGame) in.readObject();
+    // in.close();
 
-            player.setCurrentRoomId(saveData.roomId);
-            player.getStats().setHp(saveData.hp);
-            player.getInventory().clear();
-            for (String itemName : saveData.items) {
-            }
-            // gui.printText("You have successfully loaded your game!");
-            gui.updateRoomDisplay();
+    // player.setCurrentRoomId(saveData.roomId);
+    // player.getStats().setHp(saveData.hp);
+    // player.getInventory().clear();
+    // // for (String itemName : saveData.items) {
+    // // }
+    // // gui.printText("You have successfully loaded your game!");
+    // gui.updateRoomDisplay();
 
-        } catch (Exception e) {
-            gui.printText("Uh oh! Your game has failed to load - you might want to try again.");
-        }
-    }
+    // } catch (Exception e) {
+    // gui.printText("Uh oh! Your game has failed to load - you might want to try
+    // again.");
+    // }
 }

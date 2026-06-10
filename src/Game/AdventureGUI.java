@@ -22,7 +22,7 @@ public class AdventureGUI {
     }
 
     private void buildGUI() {
-        // Start screen
+
         startScreen = new JPanel();
         startScreen.setLayout(new BorderLayout());
         startScreen.setPreferredSize(new Dimension(800, 600));
@@ -34,14 +34,19 @@ public class AdventureGUI {
 
         JLabel bgLabel = new JLabel(scaledImage);
         bgLabel.setHorizontalAlignment(JLabel.CENTER);
-        startScreen.add(bgLabel, BorderLayout.CENTER);
+
+        JPanel overlay = new JPanel(new BorderLayout());
+        overlay.setOpaque(false);
 
         JLabel title = new JLabel("Elixir of the Alligator", JLabel.CENTER);
         title.setFont(new Font("Cambria", Font.BOLD, 72));
         title.setForeground(new Color(203, 141, 22));
-        title.setHorizontalAlignment(JLabel.CENTER);
 
-        startScreen.add(title, BorderLayout.NORTH);
+        JLabel spacer = new JLabel();
+        spacer.setPreferredSize(new Dimension(0, 120));
+
+        overlay.add(title, BorderLayout.NORTH);
+        overlay.add(spacer, BorderLayout.CENTER);
 
         JButton startButton = new JButton("Start");
         startButton.setFont(new Font("Cambria", Font.BOLD, 56));
@@ -53,7 +58,10 @@ public class AdventureGUI {
                 BorderFactory.createEmptyBorder(10, 25, 10, 25)));
 
         startButton.addActionListener(e -> startGame());
-        startScreen.add(startButton, BorderLayout.SOUTH);
+        overlay.add(startButton, BorderLayout.SOUTH);
+
+        startScreen.add(bgLabel, BorderLayout.CENTER);
+        startScreen.add(overlay, BorderLayout.CENTER);
 
         frame = new JFrame("Elixir of the Alligator");
         ImageIcon icon = new ImageIcon("images/EA_icon.png");
@@ -63,7 +71,6 @@ public class AdventureGUI {
         frame.setSize(800, 600);
         frame.setLayout(new BorderLayout());
 
-        // In-game gui
         imageLabel = new JLabel();
         imageLabel.setHorizontalAlignment(JLabel.CENTER);
         imageLabel.setOpaque(true);
@@ -136,20 +143,6 @@ public class AdventureGUI {
 
         frame.add(startScreen, BorderLayout.CENTER);
         frame.add(inputPanel, BorderLayout.SOUTH);
-
-        // End screen
-        endScreen = new JPanel();
-        endScreen.setBackground(new Color(77, 32, 40));
-        endScreen.setLayout(new BorderLayout());
-
-        JLabel endText = new JLabel("The end... until next time! Thank you for playing!", JLabel.CENTER);
-        endText.setFont(new Font("Cambria", Font.BOLD, 56));
-        endText.setForeground(new Color(203, 141, 22));
-
-        endScreen.add(endText, BorderLayout.CENTER);
-
-        frame.add(endScreen, BorderLayout.CENTER);
-        endScreen.setVisible(false);
 
         frame.setVisible(true);
         updateRoomDisplay();

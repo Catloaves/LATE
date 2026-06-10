@@ -142,15 +142,15 @@ public class CommandParser {
                 game.healAlligator();
                 resultMessage = "";
                 break;
-            case "save":
-                game.saveGame();
-                resultMessage = "Your current game data has been saved!";
-                break;
+            // case "save":
+            //     game.saveGame();
+            //     resultMessage = "Your current game data has been saved!";
+            //     break;
 
-            case "load":
-                game.loadGame();
-                resultMessage = "You have successfully loaded your game!";
-                break;
+            // case "load":
+            //     game.loadGame();
+            //     resultMessage = "You have successfully loaded your game!";
+            //     break;
             default:
                 resultMessage = "Sorry - I don't understand that command. Come again?";
                 break;

@@ -1,7 +1,6 @@
 package Mobs;
 
 import Game.AdventureGUI;
-import Game.Game;
 import Game.Player;
 
 public class PetAlligator {
