@@ -4,6 +4,7 @@ import java.util.Map;
 import Mobs.Fights;
 import Mobs.HostileMob;
 import Rooms.Room;
+import Items.Item;
 
 public class CommandParser {
 
@@ -69,6 +70,77 @@ public class CommandParser {
             case "look":
                 Room currentRoom = rooms.get(player.getCurrentRoomId());
                 resultMessage = currentRoom.getLongDescription() + "\nExits: " + currentRoom.getExitsString() + ".";
+                break;
+
+            case "inventory":
+                resultMessage = "Your inventory: " + player.getInventoryString();
+                break;
+
+            case "take":
+                if (words.length < 2) {
+                    resultMessage = "Take what?";
+                } else {
+                    String itemName = words[1];
+                    Room room = rooms.get(player.getCurrentRoomId());
+                    Item item = player.findItemInList(room.getItems(), itemName);
+                    if (item != null) {
+                        player.addItem(item);
+                        room.removeItem(item);
+                        resultMessage = "You picked up the " + itemName + ".";
+                    } else {
+                        resultMessage = "There is no " + itemName + " here.";
+                    }
+                }
+                break;
+
+            case "drop":
+                if (words.length < 2) {
+                    resultMessage = "Drop what?";
+                } else {
+                    Item item = player.getItem(words[1]);
+                    if (item != null) {
+                        player.removeItem(item);
+                        rooms.get(player.getCurrentRoomId()).addItem(item);
+                        resultMessage = "You dropped the " + words[1] + ".";
+                    } else {
+                        resultMessage = "You don't have that.";
+                    }
+                }
+                break;
+
+            case "use":
+                if (words.length < 2) {
+                    resultMessage = "Use what?";
+                } else {
+                    String itemName = words[1];
+                    if (player.hasItem(itemName)) {
+                        resultMessage = "You used the " + itemName + ".";
+                    } else {
+                        resultMessage = "You don't have a " + itemName + ".";
+                    }
+                }
+                break;
+
+            case "examine":
+                if (words.length < 2) {
+                    resultMessage = "Examine what?";
+                } else {
+                    String itemName = words[1];
+                    Item item = player.findItemInList(player.getInventory(), itemName);
+                    if (item != null) {
+                        resultMessage = item.getDescription();
+                    } else {
+                        resultMessage = "You don't have that.";
+                    }
+                }
+                break;
+
+            case "help":
+                resultMessage = "Commands: go, look, take, drop, use, inventory, examine, attack, help.";
+                break;
+
+            default:
+                resultMessage = "I don't understand that command.";
                 break;
         }
         return resultMessage;
