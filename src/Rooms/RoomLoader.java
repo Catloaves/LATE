@@ -7,7 +7,7 @@ import Items.misc.Torch;
 import Items.misc.Key;
 import Items.misc.PuzzleScroll;
 import Items.food.Rations;
-import Items.bags.Backpack;
+import Items.bags.Knapsack;
 import Items.bags.Pouch;
 import Mobs.HostileMob;
 
@@ -58,7 +58,7 @@ public class RoomLoader {
                                 items.add(new Rations(itemId, itemName, itemDesc));
                                 break;
                             case "backpack":
-                                items.add(new Backpack(itemId, itemName, itemDesc, 10, 0));
+                                items.add(new Knapsack(itemId, itemName, itemDesc, 10, 0));
                                 break;
                             case "pouch":
                                 items.add(new Pouch(itemId, itemName, itemDesc, 5, 0));

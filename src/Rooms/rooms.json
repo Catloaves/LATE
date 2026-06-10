@@ -33,16 +33,50 @@
   "wooded path": {
     "id": "wooded_path",
     "name": "𝕎𝕆𝕆𝔻𝔼𝔻 ℙ𝔸𝕋ℍ\n",
-    "description": "You follow a muddy trail through the thick trees surrounding the stone walls, slipping quietly past the outer perimeter.",
+    "description": "A slightly weathered path stretches before you - you can tell that you are not on the main road, yet this is a familiar path - dare I say a neat little shortcut that avoids the village centre. Great for travellers interested in - ooh... Benevolently.. plundering the king!",
     "exits": {
       "south": "home",
+      "north": "barracks",
+      "east": "entrance_shops"
+    },
+    "items": []
+  },
+  "entrance_shops": {
+    "id": "entrance_shops",
+    "name": "𝕋ℍ𝔼 𝕋𝕆𝕎ℕ𝔼 𝕊ℍ𝕆ℙℙ𝔼𝕊\n",
+    "description": "You have now entered the marketplace area of the town. What would you like to purchase? Some shops that may be of interest to you:\n\n\t𝕸𝖆𝖗𝖛𝖊𝖑𝖔𝖚𝖘 𝕸𝖎𝖘𝖙𝖊𝖗 𝕸𝖔𝖌𝖌𝖘𝖔𝖓'𝖘 𝕸𝖊𝖗𝖈𝖊𝖗𝖞\n\t𝕭𝖔𝖌𝖌𝖑𝖊𝖜𝖎𝖌𝖌𝖑𝖊𝖘 𝖙𝖍𝖊 𝕭𝖑𝖆𝖈𝖐𝖘𝖒𝖎𝖙𝖍\n\t𝕿𝖍𝖊 𝕬𝖕𝖕𝖆𝖑𝖑𝖎𝖓𝖌𝖑𝖞 𝕬𝖜𝖊𝖘𝖔𝖒𝖊 𝕬𝖕𝖔𝖙𝖍𝖊𝖈𝖆𝖗𝖞 𝖔𝖋 𝖙𝖍𝖊 𝕮𝖆𝖗𝖊𝖞𝖘\n\nWalk further along to access them. Remember that you need gold coins to purchase!",
+    "exits": {
+      "west": "wooded_path"
+    }
+  },
+  "mercery": {
+    "id": "mercery",
+    "name": "𝕄𝔸ℝ𝕍𝔼𝕃𝕆𝕌𝕊 𝕄𝕀𝕊𝕋𝔼ℝ 𝕄𝕆𝔾𝔾𝕊𝕆ℕ'𝕊 𝕄𝔼ℝℂ𝔼ℝ𝕐\n",
+    "description": "You have now entered the marketplace area of the town. What would you like to purchase? Some shops that may be of interest to you:\n\t𝕸𝖆𝖗𝖛𝖊𝖑𝖔𝖚𝖘 𝕸𝖎𝖘𝖙𝖊𝖗 𝕸𝖔𝖌𝖌𝖘𝖔𝖓'𝖘 𝕸𝖊𝖗𝖈𝖊𝖗𝖞\n\t𝕭𝖔𝖌𝖌𝖑𝖊𝖜𝖎𝖌𝖌𝖑𝖊𝖘 𝖙𝖍𝖊 𝕭𝖑𝖆𝖈𝖐𝖘𝖒𝖎𝖙𝖍\n\t𝕿𝖍𝖊 𝕬𝖕𝖕𝖆𝖑𝖑𝖎𝖓𝖌𝖑𝖞 𝕬𝖜𝖊𝖘𝖔𝖒𝖊 𝕬𝖕𝖔𝖙𝖍𝖊𝖈𝖆𝖗𝖞 𝖔𝖋 𝖙𝖍𝖊 𝕮𝖆𝖗𝖊𝖞𝖘\n Walk further along to access them. Remember that you need gold coins to purchase!",
+    "exits": {
+      "west": "entrance_shops"
+    },
+    "items": [
+      {
+        "id": "letter",
+        "name": "letter",
+        "description": "\t𝕽𝖎𝖌𝖍𝖙 𝖉𝖊𝖆𝖗 𝖋𝖗𝖎𝖊𝖓𝖉,\n\t𝖎𝖋 𝖞𝖔𝖚 𝖜𝖎𝖘𝖍 𝖙𝖔 𝖗𝖊𝖛𝖎𝖛𝖊 𝖞𝖔𝖚𝖗 𝖆𝖑𝖑𝖎𝖌𝖆𝖙𝖔𝖗 𝖞𝖔𝖚 𝖒𝖚𝖘𝖙 𝖆𝖈𝖙 𝖜𝖎𝖙𝖍 𝖍𝖆𝖘𝖙𝖊! 𝕿𝖍𝖊 𝖐𝖎𝖓𝖌 𝖍𝖎𝖒𝖘𝖊𝖑𝖋 𝖎𝖘 𝖆 𝖉𝖆𝖘𝖙𝖆𝖗𝖉𝖑𝖞 𝖘𝖎𝖗𝖊 (𝖋𝖊𝖆𝖗 𝖓𝖔𝖙; 𝖓𝖔𝖓𝖊 𝖘𝖍𝖆𝖑𝖑 𝖘𝖊𝖊 𝖙𝖍𝖎𝖘 𝖑𝖊𝖙𝖙𝖊𝖗 𝖇𝖚𝖙 𝖙𝖍𝖔𝖚) 𝖆𝖓𝖉, 𝖑𝖎𝖐𝖊 𝖆 𝖈𝖚𝖓𝖓𝖎𝖓𝖌 𝖘𝖓𝖆𝖐𝖊, 𝖉𝖔𝖊𝖘 𝖍𝖎𝖉𝖊 𝖙𝖍𝖊 𝖒𝖊𝖉𝖎𝖈𝖆𝖑 𝖎𝖓𝖌𝖗𝖊𝖉𝖎𝖊𝖓𝖙𝖘 𝖙𝖔 𝖞𝖔𝖚𝖗 𝖉𝖊𝖘𝖎𝖗𝖊𝖉 𝖈𝖚𝖗𝖊. 𝕺, 𝖙𝖔 𝖇𝖊 𝖆 𝖑𝖔𝖜𝖑𝖞 𝖕𝖊𝖆𝖘𝖆𝖓𝖙 𝖎𝖓 𝖔𝖚𝖗 𝖙𝖎𝖒𝖊... 𝖙𝖗𝖊𝖆𝖙𝖊𝖉 𝖑𝖎𝖐𝖊 𝖓𝖔𝖙𝖍𝖎𝖓𝖌 𝖇𝖚𝖙 - 𝖇𝖚𝖙 𝖈𝖗𝖔𝖈𝖔𝖉𝖎𝖑𝖊𝖘 𝖎𝖓 𝖍𝖎𝖘 𝖋𝖎𝖑𝖙𝖍𝖞 𝖒𝖔𝖆𝖙! 𝕾𝖔 𝕴 𝖕𝖑𝖊𝖆𝖉 𝖞𝖔𝖚 𝖌𝖔𝖔𝖉 𝖋𝖊𝖑𝖑𝖔𝖜; 𝖞𝖔𝖚𝖗 𝖆𝖑𝖑𝖎𝖌𝖆𝖙𝖔𝖗 𝖍𝖆𝖘 𝖗𝖊𝖜𝖆𝖗𝖉𝖊𝖉 𝖚𝖘 𝖌𝖗𝖊𝖆𝖙𝖑𝖞 𝖎𝖓 𝖇𝖆𝖙𝖙𝖑𝖊.. 𝖑𝖊𝖙 𝖓𝖔𝖙 𝖍𝖎𝖒 𝖋𝖆𝖑𝖑 𝖙𝖔 𝖙𝖍𝖊 𝖈𝖔𝖗𝖗𝖚𝖕𝖙𝖎𝖔𝖓 𝖔𝖋 𝖔𝖚𝖗 𝖘𝖙𝖆𝖙𝖊. 𝕲𝖊𝖙 𝖞𝖔𝖚𝖗𝖘𝖊𝖑𝖋 𝖌𝖔𝖎𝖓𝖌, 𝖆𝖓𝖉 𝖌𝖔𝖔𝖉 𝖑𝖚𝖈𝖐 𝖚𝖓𝖙𝖔 𝖞𝖔𝖚!\n\t𝖄𝖔𝖚𝖗 𝖌𝖔𝖔𝖉 𝖋𝖗𝖎𝖊𝖓𝖉."
+      }
+    ]
+  },
+  "main road": {
+    "id": "main_road",
+    "name": "𝕄𝔸𝕀ℕ ℝ𝕆𝔸𝔻\n",
+    "description": "You slip inside. Rows of empty bunk beds line the walls. The castle guards must be out on patrol! On a wooden table in the center, a guard carelessly left behind a flickering torch.",
+    "exits": {
+      "south": "wooded path",
       "north": "barracks"
     },
     "items": []
   },
-  "main road": {
-    "id": "main_path_1",
-    "name": "𝕎𝕆𝕆𝔻𝔼𝔻 ℙ𝔸𝕋ℍ\n",
+  "forested road": {
+    "id": "forested_road",
+    "name": "𝔽𝕆ℝ𝔼𝕊𝕋𝔼𝔻 ℝ𝕆𝔸𝔻\n",
     "description": "You slip inside. Rows of empty bunk beds line the walls. The castle guards must be out on patrol! On a wooden table in the center, a guard carelessly left behind a flickering torch.",
     "exits": {
       "south": "wooded path",

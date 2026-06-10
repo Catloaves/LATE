@@ -18,7 +18,7 @@ public class CommandParser {
         String resultMessage = "";
 
         if (game.isFightActive() && (command.equals("go") || command.equals("shop"))) {
-            return "You cannot do that right now! You are in the middle of a battle!";
+            return "Sorry - you cannot do that right now. You are in the middle of a battle!";
         }
 
         switch (command) {
