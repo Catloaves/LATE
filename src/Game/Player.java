@@ -18,7 +18,7 @@ public class Player {
     public boolean isVisible;
 
     private int gold;
-    
+
     public Player() {
         this("home", "Hero", "they", "them", "theirs");
     }
@@ -113,5 +113,33 @@ public class Player {
             System.out.println("You don't have enough gold!");
             return false;
         }
+    }
+
+    public String getInventoryString() {
+        if (inventory.isEmpty())
+            return "empty.";
+        StringBuilder sb = new StringBuilder();
+        for (Item item : inventory) {
+            sb.append(item.getName()).append(", ");
+        }
+        return sb.toString();
+    }
+
+    public Item findItemInList(List<Item> items, String itemName) {
+        for (Item item : items) {
+            if (item.getName().equalsIgnoreCase(itemName)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    public Item getItem(String itemName) {
+        for (Item item : inventory) {
+            if (item.getName().equalsIgnoreCase(itemName)) {
+                return item;
+            }
+        }
+        return null;
     }
 }
