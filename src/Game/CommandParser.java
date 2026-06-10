@@ -97,12 +97,11 @@ public class CommandParser {
                 if (words.length < 2) {
                     resultMessage = "Drop what?";
                 } else {
-                    String itemName = words[1];
-                    Item item = player.getItem(itemName);
+                    Item item = player.getItem(words[1]);
                     if (item != null) {
                         player.removeItem(item);
                         rooms.get(player.getCurrentRoomId()).addItem(item);
-                        resultMessage = "You dropped the " + itemName + ".";
+                        resultMessage = "You dropped the " + words[1] + ".";
                     } else {
                         resultMessage = "You don't have that.";
                     }
