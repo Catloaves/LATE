@@ -74,10 +74,10 @@ public class RoomLoader {
                                 items.add(new Rations(itemId, itemName, itemDesc));
                                 break;
                             case "backpack":
-                                items.add(new Knapsack(itemId, itemName, itemDesc, 10, 0));
+                                items.add(new Knapsack(itemId, itemName, itemDesc));
                                 break;
                             case "pouch":
-                                items.add(new Pouch(itemId, itemName, itemDesc, 5, 0));
+                                items.add(new Pouch(itemId, itemName, itemDesc));
                                 break;
                             case "puzzlescroll":
                                 items.add(new PuzzleScroll(itemId, itemName, itemDesc, "Deciphered text",
