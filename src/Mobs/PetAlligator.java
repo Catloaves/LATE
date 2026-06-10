@@ -6,11 +6,15 @@ import Game.Player;
 
 public class PetAlligator {
 
-    private Game game = new Game();
-    private AdventureGUI gui = new AdventureGUI(game);
+    private AdventureGUI gui;
+    private Player player;
     public static int alligatorHp = 0;
     public static int gatorHpMax = 150;
-    Player player = new Player();
+
+    public PetAlligator(Player player, AdventureGUI gui) {
+        this.player = player;
+        this.gui = gui;
+    }
 
     public void healAlligator() {
 

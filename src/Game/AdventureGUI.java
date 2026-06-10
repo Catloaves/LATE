@@ -11,27 +11,63 @@ public class AdventureGUI {
     private JTextField inputField;
     private JLabel imageLabel;
     private Game game;
+    private JPanel startScreen;
+    private JScrollPane scrollPane;
+    private JPanel endScreen;
 
     public AdventureGUI(Game game) {
         this.game = game;
         this.game.setGUI(this);
         buildGUI();
-        this.game.start(); 
     }
 
     private void buildGUI() {
-        frame = new JFrame("Text Adventure Game");
+        // Start screen
+        startScreen = new JPanel();
+        startScreen.setLayout(new BorderLayout());
+        startScreen.setPreferredSize(new Dimension(800, 600));
+        startScreen.setBackground(new Color(77, 32, 40));
+
+        ImageIcon titleImage = new ImageIcon("images/start_screen.png");
+        Image start_screen = titleImage.getImage().getScaledInstance(800, 600, Image.SCALE_SMOOTH);
+        ImageIcon scaledImage = new ImageIcon(start_screen);
+
+        JLabel bgLabel = new JLabel(scaledImage);
+        bgLabel.setHorizontalAlignment(JLabel.CENTER);
+        startScreen.add(bgLabel, BorderLayout.CENTER);
+
+        JLabel title = new JLabel("Elixir of the Alligator", JLabel.CENTER);
+        title.setFont(new Font("Cambria", Font.BOLD, 72));
+        title.setForeground(new Color(203, 141, 22));
+        title.setHorizontalAlignment(JLabel.CENTER);
+
+        startScreen.add(title, BorderLayout.NORTH);
+
+        JButton startButton = new JButton("Start");
+        startButton.setFont(new Font("Cambria", Font.BOLD, 56));
+        startButton.setBackground(new Color(77, 32, 40));
+        startButton.setForeground(new Color(230, 194, 124));
+        startButton.setFocusPainted(false);
+        startButton.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(new Color(203, 141, 22), 4),
+                BorderFactory.createEmptyBorder(10, 25, 10, 25)));
+
+        startButton.addActionListener(e -> startGame());
+        startScreen.add(startButton, BorderLayout.SOUTH);
+
+        frame = new JFrame("Elixir of the Alligator");
+        ImageIcon icon = new ImageIcon("images/EA_icon.png");
+        frame.setIconImage(icon.getImage());
         frame.getContentPane().setBackground(new Color(77, 32, 40));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 600);
         frame.setLayout(new BorderLayout());
 
+        // In-game gui
         imageLabel = new JLabel();
         imageLabel.setHorizontalAlignment(JLabel.CENTER);
         imageLabel.setOpaque(true);
         imageLabel.setBackground(new Color(77, 32, 40));
-
-        frame.add(imageLabel, BorderLayout.NORTH);
 
         outputArea = new JTextArea();
         outputArea.setBorder(BorderFactory.createCompoundBorder(
@@ -45,7 +81,8 @@ public class AdventureGUI {
         outputArea.setForeground(new Color(230, 194, 124));
         outputArea.setFont(new Font("Cambria", Font.PLAIN, 21));
 
-        JScrollPane scrollPane = new JScrollPane(outputArea);
+        scrollPane = new JScrollPane(outputArea);
+
         JScrollBar verticalBar = scrollPane.getVerticalScrollBar();
 
         verticalBar.setUI(new BasicScrollBarUI() {
@@ -70,20 +107,19 @@ public class AdventureGUI {
             }
         });
 
-        frame.add(scrollPane, BorderLayout.CENTER);
-
         scrollPane.getViewport().setBackground(new Color(77, 32, 40));
         scrollPane.setBackground(new Color(77, 32, 40));
 
         JPanel inputPanel = new JPanel(new BorderLayout());
         inputPanel.setBackground(new Color(77, 32, 40));
+
         inputField = new JTextField();
         inputField.setFont(new Font("Cambria", Font.BOLD, 21));
         inputField.setBackground(new Color(230, 194, 124));
         inputField.setForeground(new Color(77, 32, 40));
         inputField.setCaretColor(new Color(77, 32, 40));
         inputField.setBorder(BorderFactory.createLineBorder(new Color(230, 194, 124)));
-        
+
         JButton submitButton = new JButton("Submit");
         submitButton.setPreferredSize(new Dimension(110, 35));
         submitButton.setFont(new Font("Cambria", Font.BOLD, 25));
@@ -97,7 +133,23 @@ public class AdventureGUI {
 
         inputPanel.add(inputField, BorderLayout.CENTER);
         inputPanel.add(submitButton, BorderLayout.EAST);
+
+        frame.add(startScreen, BorderLayout.CENTER);
         frame.add(inputPanel, BorderLayout.SOUTH);
+
+        // End screen
+        endScreen = new JPanel();
+        endScreen.setBackground(new Color(77, 32, 40));
+        endScreen.setLayout(new BorderLayout());
+
+        JLabel endText = new JLabel("The end... until next time! Thank you for playing!", JLabel.CENTER);
+        endText.setFont(new Font("Cambria", Font.BOLD, 56));
+        endText.setForeground(new Color(203, 141, 22));
+
+        endScreen.add(endText, BorderLayout.CENTER);
+
+        frame.add(endScreen, BorderLayout.CENTER);
+        endScreen.setVisible(false);
 
         frame.setVisible(true);
         updateRoomDisplay();
@@ -108,7 +160,7 @@ public class AdventureGUI {
         if (game.isFightActive() && game.getFights() != null) {
             target = game.getFights().getMob();
         }
-        
+
         String input = inputField.getText().trim();
         inputField.setText("");
 
@@ -122,6 +174,33 @@ public class AdventureGUI {
 
             updateRoomDisplay();
         }
+    }
+
+    private void startGame() {
+
+        if (startScreen != null && startScreen.getParent() != null) {
+            frame.remove(startScreen);
+        }
+
+        frame.add(imageLabel, BorderLayout.NORTH);
+        frame.add(scrollPane, BorderLayout.CENTER);
+
+        frame.revalidate();
+        frame.repaint();
+
+        SwingUtilities.invokeLater(() -> {
+            game.start();
+            updateRoomDisplay();
+            inputField.requestFocusInWindow();
+        });
+    }
+
+    public void endScreen() {
+        startScreen.setVisible(false);
+        imageLabel.setVisible(false);
+        scrollPane.setVisible(false);
+        inputField.setVisible(false);
+        endScreen.setVisible(true);
     }
 
     public String handleInputNoCmdParser() {
@@ -139,7 +218,7 @@ public class AdventureGUI {
         outputArea.setCaretPosition(outputArea.getDocument().getLength());
     }
 
-    private void updateRoomDisplay() {
+    void updateRoomDisplay() {
         String roomId = game.getPlayer().getCurrentRoomId();
         try {
             ImageIcon icon = new ImageIcon("images/" + roomId + ".png");

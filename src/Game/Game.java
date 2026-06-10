@@ -1,7 +1,9 @@
 package Game;
 
+import java.io.*;
 import java.util.Map;
 import Mobs.HostileMob;
+import Mobs.PetAlligator;
 import Rooms.Room;
 import Rooms.RoomLoader;
 import Mobs.Fights;
@@ -13,6 +15,7 @@ public class Game {
     private AdventureGUI gui;
     private boolean fightActive;
     private Fights fight;
+    private PetAlligator gator;
 
     public Game() {
         RoomLoader loader = new RoomLoader();
@@ -47,8 +50,9 @@ public class Game {
     }
 
     public void endGame() {
-        gui.printText("\n--- THANK YOU FOR PLAYING! ---");
+        gui.endScreen();
         System.exit(0);
+
     }
 
     public Fights getFights() {
@@ -92,6 +96,15 @@ public class Game {
 
     public void setGUI(AdventureGUI gui) {
         this.gui = gui;
+        gator = new PetAlligator(player, gui);
+    }
+
+    public void healAlligator() {
+        if (gator != null) {
+            gator.healAlligator();
+        } else {
+            System.out.println("Uh oh.. where is your alligator?");
+        }
     }
 
     public void revivePlayer() {
@@ -102,5 +115,39 @@ public class Game {
             player.getStats().setHp(player.getStats().getMaxHp());
         }
         player.setCurrentRoomId("home");
+    }
+
+    public void saveGame() {
+        try {
+            SaveCurrGame data = new SaveCurrGame();
+            data.roomId = player.getCurrentRoomId();
+            data.hp = player.getStats().getHp();
+            data.items = player.getInventory().stream().map(i -> i.getName()).toList();
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("elixir_of_the_alligator_save.dat"));
+            out.writeObject(data);
+            out.close();
+            // gui.printText("Your current game data has been saved!");
+        } catch (Exception e) {
+            gui.printText("Uh oh! Saving failed - you might want to try again.");
+        }
+    }
+
+    public void loadGame() {
+        try {
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream("elixir_of_the_alligator_save.dat"));
+            SaveCurrGame saveData = (SaveCurrGame) in.readObject();
+            in.close();
+
+            player.setCurrentRoomId(saveData.roomId);
+            player.getStats().setHp(saveData.hp);
+            player.getInventory().clear();
+            for (String itemName : saveData.items) {
+            }
+            // gui.printText("You have successfully loaded your game!");
+            gui.updateRoomDisplay();
+
+        } catch (Exception e) {
+            gui.printText("Uh oh! Your game has failed to load - you might want to try again.");
+        }
     }
 }

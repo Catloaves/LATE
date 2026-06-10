@@ -12,7 +12,7 @@ public class CommandParser {
             Game game) {
         String[] words = input.trim().toLowerCase().split("\\s+");
         if (words.length == 0 || words[0].isEmpty())
-            return "Please enter a command.";
+            return "Please enter a command. To see all available commands, write the word help!";
 
         String command = words[0];
         String resultMessage = "";
@@ -27,7 +27,7 @@ public class CommandParser {
                 if (game.isFightActive() && game.getFights() != null) {
                     game.getFights().runTurn();
                 } else {
-                    resultMessage = "Calm down! There is nothing here to fight.";
+                    resultMessage = "Woah there - calm down! There is nothing here to fight.";
                 }
                 break;
 
@@ -116,7 +116,7 @@ public class CommandParser {
                     if (player.hasItem(itemName)) {
                         resultMessage = "You used the " + itemName + ".";
                     } else {
-                        resultMessage = "You don't have a " + itemName + ".";
+                        resultMessage = "Sorry! You don't have a " + itemName + ".";
                     }
                 }
                 break;
@@ -130,7 +130,7 @@ public class CommandParser {
                     if (item != null) {
                         resultMessage = item.getDescription();
                     } else {
-                        resultMessage = "You don't have that.";
+                        resultMessage = "Sorry - you don't have that!";
                     }
                 }
                 break;
@@ -138,9 +138,21 @@ public class CommandParser {
             case "help":
                 resultMessage = "Commands: go, look, take, drop, use, inventory, examine, attack, help.";
                 break;
+            case "heal":
+                game.healAlligator();
+                resultMessage = "";
+                break;
+            case "save":
+                game.saveGame();
+                resultMessage = "Your current game data has been saved!";
+                break;
 
+            case "load":
+                game.loadGame();
+                resultMessage = "You have successfully loaded your game!";
+                break;
             default:
-                resultMessage = "I don't understand that command.";
+                resultMessage = "Sorry - I don't understand that command. Come again?";
                 break;
         }
         return resultMessage;
